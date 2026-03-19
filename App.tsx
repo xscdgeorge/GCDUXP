@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import OptionA from './components/OptionA';
 import OptionVisionary from './components/OptionVisionary';
+import OptionTrust from './components/OptionTrust';
 import IdentityCaseStudy from './components/IdentityCaseStudy';
 import JioSignCaseStudy from './components/JioSignCaseStudy';
 import { ThemeSelector } from './components/ThemeSelector';
-import { AIChatWidget } from './components/AIChatWidget';
+
 import { PasswordModal } from './components/PasswordModal';
 import { Theme, View } from './types';
 
@@ -37,6 +38,8 @@ function App() {
         return <OptionA onProjectClick={handleProjectClick} />;
       case 'visionary':
         return <OptionVisionary onProjectClick={handleProjectClick} />;
+      case 'trust':
+        return <OptionTrust onProjectClick={handleProjectClick} />;
       default:
         return <OptionA onProjectClick={handleProjectClick} />;
     }
@@ -69,8 +72,6 @@ function App() {
         onSuccess={handlePasswordSuccess}
       />
 
-      {/* Chat Widget available across all themes to show off GenAI capabilities */}
-      <AIChatWidget />
     </div>
   );
 }

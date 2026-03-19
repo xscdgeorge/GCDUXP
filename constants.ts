@@ -1,7 +1,12 @@
 /// <reference types="vite/client" />
 import { Project, Philosophy, Testimonial } from './types';
 import profileImage from './george-profilepicture2.jpg';
-
+import davidImg from './David.jpeg';
+import dhavalImg from './Dhaval.jpeg';
+import jamieImg from './Jamie.jpeg';
+import poojaImg from './Pooja.jpeg';
+import rameshImg from './Ramesh.jpeg';
+import kavitaImg from './kavita.jpeg';
 // Placeholder for the user's image. 
 // In a real scenario, this would be the uploaded asset.
 export const PROFILE_IMAGE = profileImage; 
@@ -15,15 +20,6 @@ export const PROJECTS: Project[] = [
     impact: '1M Docs/Day | 96% TCR',
     image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1000',
     year: '2024'
-  },
-  {
-    id: 'athenaone',
-    title: 'AthenaOne',
-    category: 'Healthcare IT',
-    description: 'Co-created a quality vision to stop penalties at the point of enrollment through a self-service model.',
-    impact: '$1M Annual Savings',
-    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=1000',
-    year: '2023'
   },
   {
     id: 'idaas',
@@ -51,6 +47,15 @@ export const PROJECTS: Project[] = [
     impact: '70% Conversion Lift',
     image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=1000',
     year: '2024'
+  },
+  {
+    id: 'athenaone',
+    title: 'AthenaOne',
+    category: 'Healthcare IT',
+    description: 'Co-created a quality vision to stop penalties at the point of enrollment through a self-service model.',
+    impact: '$1M Annual Savings',
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=1000',
+    year: '2023'
   }
 ];
 
@@ -79,13 +84,39 @@ export const PHILOSOPHIES: Philosophy[] = [
 
 export const TESTIMONIALS: Testimonial[] = [
   {
-    text: "George didn't just manage my work; he managed my career. His coaching helped me transition from Senior to Principal Designer in under two years.",
-    author: "Sarah Jenkins",
-    role: "Principal Product Designer"
+    text: "George is a rare breed designer that understands design and functionality are inseparable. He is the person you want for your most critical projects and you can count on for world-class deliverables. Every. Single. Time.",
+    author: "Jamie Maldonado",
+    role: "VP of UX Design, JPMorganChase",
+    image: jamieImg
   },
   {
-    text: "The rare leader who can speak fluency in both design nuances and business strategy. He bridges the gap perfectly.",
-    author: "David Chen",
-    role: "VP of Product"
+    text: "George is an exceptional design leader who consistently delivers high-quality user experiences while effectively managing stakeholder expectations. [Placeholder due to missing text]",
+    author: "David Parsons",
+    role: "Director of UX Design Group, Xerox",
+    image: davidImg
+  },
+  {
+    text: "I had the pleasure of working with George at Honeywell. Our mission was to bring modern user experience design into a very large global IT organization. George was a great contributor, bringing positive energy and meaningful design contributions to our project. I would recommend him without hesitation as a key member of any growing or established design group.",
+    author: "Ramesh Pillay",
+    role: "IT Director Innovation & Lab leader, Honeywell",
+    image: rameshImg
+  },
+  {
+    text: "George is an absolute professional with keen interest to detail. He plans execution in advance but at the same time adapts himself to the situation at hand. He led the customer VOC for developing digital portal for Honeywell business partners and he did a great job which was very helpful in making the project successful!",
+    author: "Pooja Chopra",
+    role: "Product Marketing Manager, Honeywell",
+    image: poojaImg
+  },
+  {
+    text: "George is always the design enthusiast & was a great addition to the team we had at July. He had various creative approaches to the task given & was always open to feedback. Its been great working with him.",
+    author: "Kavita Chowkimane",
+    role: "Sr. Director, Business Growth, Allen Digital",
+    image: kavitaImg
+  },
+  {
+    text: "It has been a pleasure working with George in the past! He is precise, understands the task at hand quickly, asks the right questions, manages and communicates timelines well. The output surely reflects thought and value for the client.",
+    author: "Dhaval Mehta",
+    role: "Director, Globestar Edutech",
+    image: dhavalImg
   }
 ];

@@ -18,9 +18,10 @@ export interface Testimonial {
   text: string;
   author: string;
   role: string;
+  image?: string;
 }
 
-export type Theme = 'minimal' | 'visionary';
+export type Theme = 'minimal' | 'visionary' | 'trust';
 
 export type View = 'home' | 'case-study' | 'video-gen';
 

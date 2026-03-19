@@ -1,6 +1,6 @@
 import React from 'react';
 import { Theme } from '../types';
-import { Layout, Moon, Coffee, Sparkles } from 'lucide-react';
+import { Layout, Moon, Coffee, Sparkles, Heart } from 'lucide-react';
 
 interface ThemeSelectorProps {
   currentTheme: Theme;
@@ -31,6 +31,17 @@ export const ThemeSelector: React.FC<ThemeSelectorProps> = ({ currentTheme, setT
         title="Option D: Visionary Dark"
       >
         <Sparkles size={20} />
+      </button>
+      <button
+        onClick={() => setTheme('trust')}
+        className={`p-3 rounded-full transition-all ${
+          currentTheme === 'trust' 
+            ? 'bg-[#FF825C] text-white shadow-lg shadow-[#FF825C]/50' 
+            : 'bg-white text-gray-500 hover:bg-gray-100'
+        }`}
+        title="Option C: TrustPaisa Style"
+      >
+        <Heart size={20} />
       </button>
     </div>
   );
