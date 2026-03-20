@@ -63,14 +63,9 @@ const OptionVisionary: React.FC<OptionVisionaryProps> = ({ onProjectClick }) => 
           <h1 className="text-6xl md:text-9xl font-medium tracking-tighter mb-8 leading-none text-white">
             George<span className="text-orange-500">.</span>
           </h1>
-          <p className="font-sans text-gray-300 text-lg md:text-xl max-w-lg leading-relaxed border-l-2 border-orange-500 pl-6">
-            Coaching teams to build products people love.
+          <p className="font-sans font-light text-gray-300 text-[18px] max-w-[512px] leading-relaxed">
+            As a design leader, I coach designers and partner with cross-functional teams to build products people love, achieving both business & customer goals. Over the last 15 years I have worked in Healthcare, eCommerce, eSignatures, drone inspection, Marketing and sales. I've hired, and managed a team of up to 8 designers with varied skill sets and seniority.
           </p>
-            <div className="mt-8">
-              <span className="inline-block px-4 py-2 bg-white/10 backdrop-blur-md rounded-full text-xs font-sans text-gray-300 border border-white/20">
-                 Lead UX Design Manager @ Jio Platforms Ltd
-              </span>
-            </div>
           </div>
         </div>
       </section>

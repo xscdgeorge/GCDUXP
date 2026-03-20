@@ -37,7 +37,7 @@ const OptionA: React.FC<OptionAProps> = ({ onProjectClick }) => {
           <img
             src={heroImage}
             alt="George"
-            className="w-full h-full object-cover grayscale opacity-80"
+            className="w-full h-full object-cover saturate-50 opacity-80"
             referrerPolicy="no-referrer"
           />
         </div>
@@ -48,9 +48,9 @@ const OptionA: React.FC<OptionAProps> = ({ onProjectClick }) => {
               <h1 className="text-[64px] font-serif leading-[1.1] mb-8">
                 I coach teams <br />
                 to build products <br />
-                people love<span className="text-orange-500">.</span>
+                people love<span className="text-orange-500 text-[80px]">.</span>
               </h1>
-              <p className="text-[18px] font-normal text-gray-200 max-w-lg leading-relaxed">
+              <p className="text-[18px] font-light text-gray-200 max-w-lg leading-relaxed">
                 Hi, I'm George, a design leader with 15+ yrs of experience across various domains from Healthcare, eCommerce, eSignatures to UAV inspection, Marketing and sales. I've been bridging the gap between cross functional teams to achieve business & customer goals. I've managed a team of up to 8 designers with varied skill sets and seniority.
               </p>
             </div>
@@ -100,7 +100,7 @@ const OptionA: React.FC<OptionAProps> = ({ onProjectClick }) => {
 
       {/* Featured Work */}
       <section id="work" className="mt-40 px-6 md:px-10 max-w-7xl mx-auto">
-        <div className="flex items-center gap-4 mb-16 border-b border-gray-200 pb-8">
+        <div className="flex items-center gap-4 mb-16">
           <h2 className="text-[42px] font-serif leading-tight">Selected Works</h2>
         </div>
 
@@ -131,7 +131,7 @@ const OptionA: React.FC<OptionAProps> = ({ onProjectClick }) => {
       {/* LinkedIn Recommendations */}
       <section className="mt-40 bg-gray-50 py-24">
         <div className="px-6 md:px-10 max-w-7xl mx-auto">
-          <div className="flex items-center gap-4 mb-16 border-b border-gray-200 pb-8">
+          <div className="flex items-center gap-4 mb-16">
             <h2 className="text-[42px] font-serif leading-tight">LinkedIn Recommendations</h2>
             <svg className="w-8 h-8 md:w-10 md:h-10 text-[#0077b5]" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
           </div>
