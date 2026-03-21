@@ -22,8 +22,6 @@ export interface Testimonial {
   image?: string;
 }
 
-export type Theme = 'minimal' | 'visionary' | 'trust';
-
 export type View = 'home' | 'case-study' | 'video-gen';
 
 export interface AIStudio {

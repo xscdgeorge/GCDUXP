@@ -33,7 +33,7 @@ const OptionA: React.FC<OptionAProps> = ({ onProjectClick }) => {
       <nav className="fixed top-0 w-full py-[20px] px-[30px] flex justify-between items-center bg-black z-40">
         <span className="text-[24px] font-serif font-medium tracking-[0.01em] text-white drop-shadow-md">George<span className="text-orange-500">.</span></span>
         <div className="flex gap-8 items-center text-sm font-medium text-gray-200 drop-shadow-md">
-          <a href="#mentorship" className="hover:text-white transition-colors">Mentorship</a>
+          <a href="#leadership" className="hover:text-white transition-colors">Leadership</a>
           <a href="#work" className="hover:text-white transition-colors">Work</a>
           <a href="https://www.linkedin.com/in/georgeuxd/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">LinkedIn</a>
           <button onClick={toggleDarkMode} className="hover:text-white transition-colors ml-4">
@@ -76,7 +76,7 @@ const OptionA: React.FC<OptionAProps> = ({ onProjectClick }) => {
       </section>
 
       {/* Leadership Philosophy */}
-      <section id="mentorship" className="bg-gray-50 dark:bg-zinc-900/50 py-24 transition-colors duration-500">
+      <section id="leadership" className="bg-gray-50 dark:bg-zinc-900/50 py-24 transition-colors duration-500">
         <div className="px-6 md:px-10 max-w-7xl mx-auto">
           
           <div className="font-sans text-gray-800 dark:text-gray-200 space-y-6 text-lg leading-relaxed mb-16 max-w-3xl">
@@ -163,7 +163,36 @@ const OptionA: React.FC<OptionAProps> = ({ onProjectClick }) => {
         </div>
       </section>
 
-
+      {/* Places Worked */}
+      <section className="py-24 border-t border-gray-100 dark:border-zinc-900 transition-colors duration-500">
+        <div className="px-6 md:px-10 max-w-7xl mx-auto">
+          <p className="text-center text-sm font-medium text-gray-400 dark:text-zinc-600 tracking-widest uppercase mb-12">Places I've Worked</p>
+          <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-50 dark:opacity-40 grayscale hover:opacity-100 dark:hover:opacity-80 transition-opacity duration-300">
+            {/* Jio */}
+            <div className="text-[28px] md:text-[32px] font-bold font-sans tracking-tighter text-gray-900 dark:text-gray-200">Jio</div>
+            
+            {/* Athenahealth */}
+            <div className="text-[24px] md:text-[28px] font-serif text-gray-900 dark:text-gray-200">
+              <span className="italic">athena</span><span className="font-semibold">health</span>
+            </div>
+            
+            {/* Honeywell */}
+            <div className="text-[20px] md:text-[22px] font-sans font-black tracking-[0.2em] uppercase text-gray-900 dark:text-gray-200">
+              HONEYWELL
+            </div>
+            
+            {/* IBEE Solutions */}
+            <div className="text-[20px] md:text-[24px] font-sans font-medium tracking-wide text-gray-900 dark:text-gray-200">
+              IBEE <span className="font-light opacity-70">Solutions</span>
+            </div>
+            
+            {/* July Systems */}
+            <div className="text-[22px] md:text-[26px] font-sans font-bold tracking-tight text-gray-900 dark:text-gray-200">
+              July<span className="font-light opacity-70">Systems</span>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <footer className="px-6 md:px-10 py-12 text-center text-gray-400 text-sm">
         &copy; {new Date().getFullYear()} George. Designed with intention.
