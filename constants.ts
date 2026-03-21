@@ -7,6 +7,12 @@ import jamieImg from './Jamie.jpeg';
 import poojaImg from './Pooja.jpeg';
 import rameshImg from './Ramesh.jpeg';
 import kavitaImg from './kavita.jpeg';
+import samikshaImg from './Samiksha.jpg';
+import kristalImg from './Kristal.jpg';
+import mariaImg from './Maria.jpg';
+import akankshaImg from './Akanksha.jpg';
+import shruthiImg from './Shruthi.jpg';
+import rahulImg from './Rahul.jpg';
 // Placeholder for the user's image. 
 // In a real scenario, this would be the uploaded asset.
 export const PROFILE_IMAGE = profileImage; 
@@ -70,15 +76,26 @@ export const PHILOSOPHIES: Philosophy[] = [
     description: 'Decision-maker and partner to C-suite leaders, aligning design, engineering, and product via E2E storytelling.',
     icon: 'Target'
   },
+
   {
-    title: 'Agile UX Advocacy',
-    description: 'Re-introduced Agile to focus on outcomes (user value) rather than just outputs (ticket completion).',
+    title: 'Storytelling for impact',
+    description: 'Crafting compelling narratives that align product goals with user realities, ensuring stakeholders understand the true "why" behind every decision.',
+    icon: 'Layout'
+  },
+  {
+    title: 'Truly useful AI',
+    description: 'Leveraging artificial intelligence to genuinely solve human problems and augment workflows, bypassing tech-for-tech\'s-sake gimmicks.',
     icon: 'Zap'
   },
   {
-    title: 'AI-Driven DesignOps',
-    description: 'Experimenting with AI coding tools to allow the UX team to share front-end ownership and reduce handoff friction.',
-    icon: 'Users'
+    title: 'Vision & Focus',
+    description: 'Protecting the team\'s focus by translating chaotic roadmaps and business requirements into clear, executable UX strategies.',
+    icon: 'Target'
+  },
+  {
+    title: 'Design Community',
+    description: 'Fostering an inclusive environment of continuous learning, sharing insights, and mentoring the next generation of product designers.',
+    icon: 'Heart'
   }
 ];
 
@@ -87,78 +104,78 @@ export const TESTIMONIALS: Testimonial[] = [
     text: "George is a rare breed designer that understands design and functionality are inseparable. He is the person you want for your most critical projects and you can count on for world-class deliverables. Every. Single. Time.",
     author: "Jamie Maldonado",
     role: "VP of UX Design, JPMorganChase",
-    tag: "Leader",
     image: jamieImg
   },
   {
-    text: "George is an exceptional design leader who consistently delivers high-quality user experiences while effectively managing stakeholder expectations. [Placeholder due to missing text]",
+    text: "I had the pleasure of working with George at Honeywell. Our mission was to bring modern user experience design into a very large global IT organization. George was a great contributor, bringing positive energy and meaningful design contributions to our projects. I would recommend him without hesitation as a key member of any growing or established design group.",
     author: "David Parsons",
     role: "Director of UX Design Group, Xerox",
-    tag: "Leader",
     image: davidImg
   },
   {
     text: "I had the pleasure of working with George at Honeywell. Our mission was to bring modern user experience design into a very large global IT organization. George was a great contributor, bringing positive energy and meaningful design contributions to our project. I would recommend him without hesitation as a key member of any growing or established design group.",
     author: "Ramesh Pillay",
     role: "IT Director Innovation & Lab leader, Honeywell",
-    tag: "Leader",
     image: rameshImg
   },
   {
     text: "George is an absolute professional with keen interest to detail. He plans execution in advance but at the same time adapts himself to the situation at hand. He led the customer VOC for developing digital portal for Honeywell business partners and he did a great job which was very helpful in making the project successful!",
     author: "Pooja Chopra",
     role: "Product Marketing Manager, Honeywell",
-    tag: "Mentee",
     image: poojaImg
   },
   {
     text: "George is always the design enthusiast & was a great addition to the team we had at July. He had various creative approaches to the task given & was always open to feedback. Its been great working with him.",
     author: "Kavita Chowkimane",
     role: "Sr. Director, Business Growth, Allen Digital",
-    tag: "Leader",
     image: kavitaImg
   },
   {
     text: "It has been a pleasure working with George in the past! He is precise, understands the task at hand quickly, asks the right questions, manages and communicates timelines well. The output surely reflects thought and value for the client.",
     author: "Dhaval Mehta",
     role: "Director, Globestar Edutech",
-    tag: "Mentee",
     image: dhavalImg
   },
   {
-    text: "Working under George's guidance completely transformed how I approach complex UX problems. He doesn't just hand you solutions; he coaches you to think critically and analytically about user needs. An exceptional design leader and a true mentor.",
-    author: "Sarah Jenkins",
-    role: "Senior UX Designer",
-    tag: "Mentee"
+    text: "I recommend George if you are looking for straightforward guidance and feedback on your portfolio and presentation. He gave me lots of detailed recommendations and helped to structure the story in a more logical and clear way. George has paid attention to the smallest details and spent much more time than previously planned to finish the portfolio review.",
+    author: "Maria Borysova",
+    role: "Product Designer, Amazon",
+    tag: "Mentee",
+    image: mariaImg
   },
   {
-    text: "George's strategic vision is unmatched. He has a unique ability to bridge the gap between complex engineering constraints and seamless user experiences. George championed processes that scaled our design output without ever compromising quality.",
-    author: "Michael Chen",
-    role: "VP of Product",
-    tag: "Leader"
+    text: "Highly recommend George to those looking for valuable feedback on portfolio and is ready for a laugh. He gave me honest and straightforward guidance on how to improve my narrative through my portfolio. Great session with George.",
+    author: "Shruthi Sasidaran",
+    role: "Sr. Product Designer, hipages group",
+    tag: "Mentee",
+    image: shruthiImg
   },
   {
-    text: "I was continuously impressed by George's dedication to his team. He fosters a culture where designers feel empowered to take ownership. Under his leadership, we saw a massive increase in design-led initiatives that directly impacted the bottom line.",
-    author: "Amanda Rojas",
-    role: "Lead Product Designer",
-    tag: "Mentee"
+    text: "I found it immensely helpful connecting with George for guidance in my career path as well as a project. His outlook towards the problems was unique and helped me gain a new perspective and frameworks to work on my project. Thank you and hoping to connect again soon!",
+    author: "Samiksha Sachdeva",
+    role: "UX Designer III, Walmart Global Tech",
+    tag: "Mentee",
+    image: samikshaImg
   },
   {
-    text: "George is the kind of leader who balances high expectations with incredible empathy. He guided us through a massive SaaS platform redesign, turning a chaotic roadmap into a structured, executable vision that users loved.",
-    author: "Marcus Thorne",
-    role: "UX Architect",
-    tag: "Mentee"
+    text: "George mentored me for my first UX/UI design role. He spent about two hours helping me refine my portfolio slide deck when we only scheduled for 1 hour. The feedback helped me make it to the next phase of the interview process! He is also super patient and knowledgeable about the health-tech industry. I highly recommend him to designers looking to specialize in health-tech!",
+    author: "Kristal Springer",
+    role: "Sr. UI/UX, Inizio Evoke",
+    tag: "Mentee",
+    image: kristalImg
   },
   {
-    text: "Partnering with George on cross-functional operations was an absolute breeze. He speaks the language of business just as fluently as design, making him an invaluable asset to any executive leadership team looking to mature their UX practice.",
-    author: "Jessica Li",
-    role: "Director of Engineering",
-    tag: "Leader"
+    text: "I want to take a moment to thank you. The way you guide even without being on the call and how it becomes a hit is so impressive!",
+    author: "Akanksha Singh",
+    role: "Sr. UX Designer, Jio Platforms",
+    tag: "Mentee",
+    image: akankshaImg
   },
   {
-    text: "I've never worked with a manager who invests as heavily in his team's career growth as George. He builds frameworks that let designers thrive. He taught me the true meaning of 'Agile UX' and how to evangelize design across an organization.",
-    author: "David Alaba",
-    role: "UX/UI Designer",
-    tag: "Mentee"
+    text: "Sessions with George have been incredibly valuable. His feedback and unique perspective deepened my understanding of UX design. The resources he shared and his attention to detail greatly contributed to my skill development. Highly recommended!",
+    author: "Rahul Shroff",
+    role: "Product designer, Zeno health",
+    tag: "Mentee",
+    image: rahulImg
   }
 ];

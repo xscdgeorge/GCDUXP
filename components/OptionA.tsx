@@ -1,13 +1,22 @@
 import React from 'react';
 import { PROJECTS, PHILOSOPHIES, TESTIMONIALS } from '../constants';
 import heroImage from '../george-profilepicture3.jpg';
-import { ArrowUpRight, ArrowDown, Heart, Zap, Users, Target, Layout } from 'lucide-react';
+import { ArrowUpRight, ArrowDown, Heart, Zap, Users, Target, Layout, Sun, Moon } from 'lucide-react';
 
 interface OptionAProps {
   onProjectClick: (id: string) => void;
 }
 
 const OptionA: React.FC<OptionAProps> = ({ onProjectClick }) => {
+  const [isDarkMode, setIsDarkMode] = React.useState(
+    document.documentElement.classList.contains('dark')
+  );
+
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+    document.documentElement.classList.toggle('dark');
+  };
+
   const getIcon = (name: string) => {
     switch(name) {
       case 'Heart': return <Heart className="w-5 h-5" />;
@@ -19,14 +28,17 @@ const OptionA: React.FC<OptionAProps> = ({ onProjectClick }) => {
   };
 
   return (
-    <div className="bg-white min-h-screen text-gray-900 font-sans selection:bg-gray-900 selection:text-white pb-20">
+    <div className="bg-white dark:bg-zinc-950 min-h-screen text-gray-900 dark:text-gray-100 font-sans selection:bg-gray-900 selection:text-white dark:selection:bg-white dark:selection:text-gray-900 pb-20 transition-colors duration-500">
       {/* Header */}
       <nav className="fixed top-0 w-full py-[20px] px-[30px] flex justify-between items-center bg-black z-40">
         <span className="text-[24px] font-serif font-medium tracking-[0.01em] text-white drop-shadow-md">George<span className="text-orange-500">.</span></span>
-        <div className="flex gap-8 text-sm font-medium text-gray-200 drop-shadow-md">
+        <div className="flex gap-8 items-center text-sm font-medium text-gray-200 drop-shadow-md">
           <a href="#mentorship" className="hover:text-white transition-colors">Mentorship</a>
           <a href="#work" className="hover:text-white transition-colors">Work</a>
           <a href="https://www.linkedin.com/in/georgeuxd/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">LinkedIn</a>
+          <button onClick={toggleDarkMode} className="hover:text-white transition-colors ml-4">
+            {isDarkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+          </button>
         </div>
       </nav>
 
@@ -64,38 +76,24 @@ const OptionA: React.FC<OptionAProps> = ({ onProjectClick }) => {
       </section>
 
       {/* Leadership Philosophy */}
-      <section id="mentorship" className="bg-gray-50 py-24">
-        <div className="px-6 md:px-10 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-20 items-start">
+      <section id="mentorship" className="bg-gray-50 dark:bg-zinc-900/50 py-24 transition-colors duration-500">
+        <div className="px-6 md:px-10 max-w-7xl mx-auto">
           
-          <div className="font-sans text-gray-800 space-y-6 text-lg leading-relaxed">
-            <h2 className="text-[42px] font-serif leading-tight text-black border-none bg-transparent">Leadership</h2>
+          <div className="font-sans text-gray-800 dark:text-gray-200 space-y-6 text-lg leading-relaxed mb-16 max-w-3xl">
+            <h2 className="text-[42px] font-serif leading-tight text-black dark:text-white border-none bg-transparent">Leadership</h2>
             <p>
               In my 14+ years of experience, I've learned that the best products come from healthy teams. My approach focuses on coaching, empowerment, and strategic scalability.
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-8">
-              {PHILOSOPHIES.map((item, i) => (
-                <div key={i} className="border-t border-orange-500/30 pt-4">
-                  <div className="text-orange-500 mb-3">{getIcon(item.icon)}</div>
-                  <h4 className="text-black font-bold mb-2 text-base">{item.title}</h4>
-                  <p className="text-sm text-gray-600">{item.description}</p>
-                </div>
-              ))}
-            </div>
           </div>
 
-          <div>
-            <div className="flex justify-start">
-              <div style={{ padding: '16px', height: '650px', boxShadow: 'rgba(142, 151, 158, 0.15) 0px 4px 19px 0px', borderRadius: '16px', overflow: 'hidden', width: '100%', maxWidth: '650px' }}>
-                <iframe 
-                  src="https://adplist.org/widgets/reviews?src=george-chiramal-davis" 
-                  title="All Reviews" 
-                  width="100%" 
-                  height="100%" 
-                  loading="lazy" 
-                  style={{ border: '0px' }}
-                />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 mt-8">
+            {PHILOSOPHIES.map((item, i) => (
+              <div key={i} className="border-t border-orange-500/30 pt-6">
+                <div className="text-orange-500 mb-4">{getIcon(item.icon)}</div>
+                <h4 className="text-black dark:text-white font-bold mb-3 text-[18px]">{item.title}</h4>
+                <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{item.description}</p>
               </div>
-            </div>
+            ))}
           </div>
 
         </div>
@@ -114,17 +112,17 @@ const OptionA: React.FC<OptionAProps> = ({ onProjectClick }) => {
             <div
               key={project.id}
               onClick={() => onProjectClick(project.id)}
-              className="cursor-pointer group border-l border-gray-300 pl-6 flex flex-col hover:border-black transition-colors duration-300"
+              className="cursor-pointer group border-l border-gray-300 dark:border-zinc-800 pl-6 flex flex-col hover:border-black dark:hover:border-white transition-colors duration-300"
             >
               <div className="w-full h-48 mb-6 overflow-hidden rounded-md">
                 <img src={project.image} alt={project.title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105" referrerPolicy="no-referrer" />
               </div>
-              <span className="text-xs font-mono text-gray-400 mb-3 block">0{index + 1} / {project.category}</span>
-              <h3 className="text-[24px] font-sans font-medium mb-4 group-hover:translate-x-2 transition-transform duration-300">{project.title}</h3>
-              <p className="text-gray-500 mb-6 flex-grow">{project.description}</p>
+              <span className="text-xs font-mono text-gray-400 dark:text-zinc-500 mb-3 block">0{index + 1} / {project.category}</span>
+              <h3 className="text-[24px] font-sans font-medium mb-4 group-hover:translate-x-2 transition-transform duration-300 text-black dark:text-white">{project.title}</h3>
+              <p className="text-gray-500 dark:text-gray-400 mb-6 flex-grow">{project.description}</p>
               <div className="mt-auto flex items-center justify-between w-full">
-                <span className="font-mono text-sm font-semibold">{project.impact}</span>
-                <div className="bg-black text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <span className="font-mono text-sm font-semibold text-black dark:text-white">{project.impact}</span>
+                <div className="bg-black dark:bg-white text-white dark:text-black p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <ArrowUpRight size={20} />
                 </div>
               </div>
@@ -134,15 +132,15 @@ const OptionA: React.FC<OptionAProps> = ({ onProjectClick }) => {
       </section>
 
       {/* LinkedIn Recommendations */}
-      <section className="mt-40 bg-gray-50 py-24">
+      <section className="mt-40 bg-gray-50 dark:bg-zinc-900/50 py-24 transition-colors duration-500">
         <div className="px-6 md:px-10 max-w-7xl mx-auto">
           <div className="flex items-center gap-4 mb-16">
-            <h2 className="text-[42px] font-serif leading-tight">Recommendations</h2>
+            <h2 className="text-[42px] font-serif leading-tight text-black dark:text-white">Recommendations</h2>
           </div>
           <div className="columns-1 md:columns-2 lg:columns-3 gap-16">
             {TESTIMONIALS.map((testimonial, i) => (
-              <div key={i} className="border-l border-gray-300 pl-6 flex flex-col break-inside-avoid mb-16">
-                <p className="text-gray-600 text-[16px] mb-6 leading-relaxed flex-grow">"{testimonial.text}"</p>
+              <div key={i} className="border-b border-gray-300 dark:border-zinc-800 pb-10 flex flex-col break-inside-avoid mb-12">
+                <p className="text-gray-600 dark:text-gray-300 text-[16px] mb-6 leading-relaxed flex-grow">"{testimonial.text}"</p>
                 <div className="flex items-center gap-4 mt-auto">
                   <img 
                     src={testimonial.image || `https://ui-avatars.com/api/?name=${encodeURIComponent(testimonial.author)}&background=random&color=fff&size=100`} 
@@ -151,12 +149,12 @@ const OptionA: React.FC<OptionAProps> = ({ onProjectClick }) => {
                   />
                   <div>
                     <div className="flex items-center gap-2">
-                      <h4 className="font-bold text-gray-900">{testimonial.author}</h4>
+                      <h4 className="font-bold text-gray-900 dark:text-white">{testimonial.author}</h4>
                       {testimonial.tag && (
-                        <span className="bg-gray-100 text-gray-600 text-[10px] px-2 py-0.5 rounded-full uppercase tracking-widest font-semibold">{testimonial.tag}</span>
+                        <span className="bg-gray-100 dark:bg-zinc-800 text-gray-600 dark:text-gray-300 text-[10px] px-2 py-0.5 rounded-full uppercase tracking-widest font-semibold">{testimonial.tag}</span>
                       )}
                     </div>
-                    <p className="text-sm text-gray-500">{testimonial.role}</p>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">{testimonial.role}</p>
                   </div>
                 </div>
               </div>

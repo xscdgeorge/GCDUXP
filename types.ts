@@ -11,7 +11,7 @@ export interface Project {
 export interface Philosophy {
   title: string;
   description: string;
-  icon: 'Heart' | 'Zap' | 'Users' | 'Target';
+  icon: 'Heart' | 'Zap' | 'Users' | 'Target' | 'Layout';
 }
 
 export interface Testimonial {
