@@ -18,6 +18,7 @@ export interface Testimonial {
   text: string;
   author: string;
   role: string;
+  tag?: string;
   image?: string;
 }
 

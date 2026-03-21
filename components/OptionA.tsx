@@ -37,21 +37,26 @@ const OptionA: React.FC<OptionAProps> = ({ onProjectClick }) => {
           <img
             src={heroImage}
             alt="George"
-            className="w-full h-full object-cover saturate-50 opacity-80"
+            className="w-full h-full object-cover object-[80%_center] lg:object-center saturate-50 opacity-80"
             referrerPolicy="no-referrer"
           />
+          <div className="absolute inset-0 lg:hidden pointer-events-none" style={{ background: 'linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.24) 60%, rgba(0,0,0,0.24) 100%)' }}></div>
         </div>
 
         <div className="relative z-10 w-full px-6 md:px-10 max-w-7xl mx-auto text-white drop-shadow-lg">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-end">
             <div className="md:col-span-8">
-              <h1 className="text-[64px] font-serif leading-[1.1] mb-8">
-                I coach teams <br />
-                to build products <br />
-                people love<span className="text-orange-500 text-[80px]">.</span>
+              <div className="mb-4">
+                <span className="text-orange-500 font-sans text-[16px] tracking-[0.3em] uppercase mb-2 block">Hello, I'm</span>
+                <span className="text-[64px] md:text-[80px] font-serif tracking-tighter leading-none text-white block">
+                  George<span className="text-orange-500">.</span>
+                </span>
+              </div>
+              <h1 className="text-[28px] font-sans font-light text-gray-200 leading-[1.1] mb-3 mt-8">
+                I coach teams to build products people love
               </h1>
-              <p className="text-[18px] font-light text-gray-200 max-w-lg leading-relaxed">
-                Hi, I'm George, a design leader with 15+ yrs of experience across various domains from Healthcare, eCommerce, eSignatures to UAV inspection, Marketing and sales. I've been bridging the gap between cross functional teams to achieve business & customer goals. I've managed a team of up to 8 designers with varied skill sets and seniority.
+              <p className="text-[18px] font-light text-gray-200 max-w-[650px] leading-relaxed">
+                With over 15 years of multi-domain experience, I help organizations navigate the space between customer goals and technical feasibility. Having managed diverse teams of up to 8 designers, I focus on fostering a culture of ownership, evidence-based strategy, and cross-functional collaboration.
               </p>
             </div>
           </div>
@@ -132,12 +137,11 @@ const OptionA: React.FC<OptionAProps> = ({ onProjectClick }) => {
       <section className="mt-40 bg-gray-50 py-24">
         <div className="px-6 md:px-10 max-w-7xl mx-auto">
           <div className="flex items-center gap-4 mb-16">
-            <h2 className="text-[42px] font-serif leading-tight">LinkedIn Recommendations</h2>
-            <svg className="w-8 h-8 md:w-10 md:h-10 text-[#0077b5]" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            <h2 className="text-[42px] font-serif leading-tight">Recommendations</h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-16">
+          <div className="columns-1 md:columns-2 lg:columns-3 gap-16">
             {TESTIMONIALS.map((testimonial, i) => (
-              <div key={i} className="border-l border-gray-300 pl-6 flex flex-col">
+              <div key={i} className="border-l border-gray-300 pl-6 flex flex-col break-inside-avoid mb-16">
                 <p className="text-gray-600 text-[16px] mb-6 leading-relaxed flex-grow">"{testimonial.text}"</p>
                 <div className="flex items-center gap-4 mt-auto">
                   <img 
@@ -146,7 +150,12 @@ const OptionA: React.FC<OptionAProps> = ({ onProjectClick }) => {
                     className="w-12 h-12 rounded-full object-cover" 
                   />
                   <div>
-                    <h4 className="font-bold text-gray-900">{testimonial.author}</h4>
+                    <div className="flex items-center gap-2">
+                      <h4 className="font-bold text-gray-900">{testimonial.author}</h4>
+                      {testimonial.tag && (
+                        <span className="bg-gray-100 text-gray-600 text-[10px] px-2 py-0.5 rounded-full uppercase tracking-widest font-semibold">{testimonial.tag}</span>
+                      )}
+                    </div>
                     <p className="text-sm text-gray-500">{testimonial.role}</p>
                   </div>
                 </div>

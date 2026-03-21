@@ -71,7 +71,6 @@ function App() {
         onClose={() => setIsPasswordModalOpen(false)}
         onSuccess={handlePasswordSuccess}
       />
-
     </div>
   );
 }

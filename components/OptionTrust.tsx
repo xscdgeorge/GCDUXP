@@ -52,7 +52,7 @@ const OptionTrust: React.FC<OptionTrustProps> = ({ onProjectClick }) => {
               people love<span className="text-[#FF825C]">.</span>
             </h1>
             <p className="text-[18px] md:text-[20px] font-medium text-gray-50 max-w-3xl mx-auto leading-relaxed drop-shadow-md">
-              Hi, I'm George, a design leader with 15+ yrs of experience across various domains from Healthcare, eCommerce, eSignatures to UAV inspection, Marketing and sales. I've been bridging the gap between cross functional teams to achieve business & customer goals. I've managed a team of up to 8 designers with varied skill sets and seniority.
+              With over 15 years of multi-domain experience, I help organizations navigate the space between customer goals and technical feasibility. Having managed diverse teams of up to 8 designers, I focus on fostering a culture of ownership, evidence-based strategy, and cross-functional collaboration.
             </p>
           </div>
         </div>
