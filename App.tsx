@@ -3,6 +3,9 @@ import OptionA from './components/OptionA';
 import IdentityCaseStudy from './components/IdentityCaseStudy';
 import JioSignCaseStudy from './components/JioSignCaseStudy';
 import DronnectCaseStudy from './components/DronnectCaseStudy';
+import JioConsentCaseStudy from './components/JioConsentCaseStudy';
+import RetailAICaseStudy from './components/RetailAICaseStudy';
+import AthenaOneCaseStudy from './components/AthenaOneCaseStudy';
 
 import { PasswordModal } from './components/PasswordModal';
 import { View } from './types';
@@ -20,12 +23,10 @@ function App() {
 
   const handlePasswordSuccess = () => {
     setIsPasswordModalOpen(false);
-    if (pendingProjectId === 'idaas' || pendingProjectId === 'jiosign' || pendingProjectId === 'dronnect') {
+    if (pendingProjectId) {
       setActiveCaseStudyId(pendingProjectId);
       setView('case-study');
       window.scrollTo(0, 0);
-    } else {
-      alert(`Access granted for ${pendingProjectId}. Detailed view coming soon.`);
     }
   };
 
@@ -39,6 +40,15 @@ function App() {
     }
     if (activeCaseStudyId === 'dronnect') {
       return <DronnectCaseStudy onBack={() => setView('home')} />;
+    }
+    if (activeCaseStudyId === 'jioconsent') {
+      return <JioConsentCaseStudy onBack={() => setView('home')} />;
+    }
+    if (activeCaseStudyId === 'retail-ai') {
+      return <RetailAICaseStudy onBack={() => setView('home')} />;
+    }
+    if (activeCaseStudyId === 'athenaone') {
+      return <AthenaOneCaseStudy onBack={() => setView('home')} />;
     }
     return <IdentityCaseStudy onBack={() => setView('home')} />;
   };
