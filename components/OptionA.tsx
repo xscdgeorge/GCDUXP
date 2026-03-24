@@ -1,6 +1,7 @@
 import React from 'react';
 import { PROJECTS, PHILOSOPHIES, TESTIMONIALS } from '../constants';
 import heroImage from '../george-profilepicture3.jpg';
+import heroImageLight from '../georgeherowhitebg.png';
 import { ArrowUpRight, ArrowDown, Heart, Zap, Users, Target, Layout, Sun, Moon } from 'lucide-react';
 
 interface OptionAProps {
@@ -30,13 +31,13 @@ const OptionA: React.FC<OptionAProps> = ({ onProjectClick }) => {
   return (
     <div className="bg-white dark:bg-zinc-950 min-h-screen text-gray-900 dark:text-gray-100 font-sans selection:bg-gray-900 selection:text-white dark:selection:bg-white dark:selection:text-gray-900 pb-20 transition-colors duration-500">
       {/* Header */}
-      <nav className="fixed top-0 w-full py-[20px] px-[30px] flex justify-between items-center bg-black z-40">
-        <span className="text-[24px] font-serif font-medium tracking-[0.01em] text-white drop-shadow-md">George<span className="text-orange-500">.</span></span>
-        <div className="flex gap-8 items-center text-sm font-medium text-gray-200 drop-shadow-md">
-          <a href="#leadership" className="hover:text-white transition-colors">Leadership</a>
-          <a href="#work" className="hover:text-white transition-colors">Work</a>
-          <a href="https://www.linkedin.com/in/georgeuxd/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">LinkedIn</a>
-          <button onClick={toggleDarkMode} className="hover:text-white transition-colors ml-4">
+      <nav className="fixed top-0 w-full py-[20px] px-[30px] flex justify-between items-center bg-white dark:bg-black z-40 transition-colors duration-500">
+        <span className="text-[24px] font-serif font-medium tracking-[0.01em] text-gray-900 dark:text-white drop-shadow-none dark:drop-shadow-md transition-colors duration-500">George<span className="text-orange-500">.</span></span>
+        <div className="flex gap-8 items-center text-sm font-medium text-gray-600 dark:text-gray-200 drop-shadow-none dark:drop-shadow-md transition-colors duration-500">
+          <a href="#leadership" className="hover:text-black dark:hover:text-white transition-colors">Leadership</a>
+          <a href="#work" className="hover:text-black dark:hover:text-white transition-colors">Work</a>
+          <a href="https://www.linkedin.com/in/georgeuxd/" target="_blank" rel="noopener noreferrer" className="hover:text-black dark:hover:text-white transition-colors">LinkedIn</a>
+          <button onClick={toggleDarkMode} className="hover:text-black dark:hover:text-white transition-colors ml-4">
             {isDarkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
           </button>
         </div>
@@ -45,30 +46,33 @@ const OptionA: React.FC<OptionAProps> = ({ onProjectClick }) => {
       {/* Hero */}
       <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden pt-20">
         {/* Photo Background */}
-        <div className="absolute inset-0 z-0 bg-black">
+        <div className="absolute inset-0 z-0 bg-white dark:bg-black transition-colors duration-500">
           <img
-            src={heroImage}
-            alt="George"
-            className="w-full h-full object-cover object-[80%_center] lg:object-center saturate-50 opacity-80"
+            src={heroImageLight}
+            alt="George Light"
+            className="w-full h-full object-cover object-[80%_center] lg:object-center block dark:hidden mix-blend-multiply"
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 lg:hidden pointer-events-none" style={{ background: 'linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.24) 60%, rgba(0,0,0,0.24) 100%)' }}></div>
+          <img
+            src={heroImage}
+            alt="George Dark"
+            className="w-full h-full object-cover object-[80%_center] lg:object-center saturate-50 opacity-80 hidden dark:block"
+            referrerPolicy="no-referrer"
+          />
+          <div className="absolute inset-0 lg:hidden pointer-events-none bg-gradient-to-t from-white via-white/80 to-transparent dark:from-black dark:via-black/60 dark:to-black/20 transition-colors duration-500"></div>
         </div>
 
-        <div className="relative z-10 w-full px-6 md:px-10 max-w-7xl mx-auto text-white drop-shadow-lg">
+        <div className="relative z-10 w-full px-6 md:px-10 max-w-7xl mx-auto text-gray-900 dark:text-white drop-shadow-none dark:drop-shadow-lg transition-colors duration-500">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-end">
             <div className="md:col-span-8">
               <div className="mb-4">
                 <span className="text-orange-500 font-sans text-[16px] tracking-[0.3em] uppercase mb-2 block">Hello, I'm</span>
-                <span className="text-[64px] md:text-[80px] font-serif tracking-tighter leading-none text-white block">
+                <span className="text-[64px] md:text-[80px] font-serif tracking-tighter leading-none text-gray-900 dark:text-white block">
                   George<span className="text-orange-500">.</span>
                 </span>
               </div>
-              <h1 className="text-[28px] font-sans font-light text-gray-200 leading-[1.1] mb-3 mt-8">
-                I coach teams to build products people love
-              </h1>
-              <p className="text-[18px] font-light text-gray-200 max-w-[650px] leading-relaxed">
-                With over 15 years of multi-domain experience, I help organizations navigate the space between customer goals and technical feasibility. Having managed diverse teams of up to 8 designers, I focus on fostering a culture of ownership, evidence-based strategy, and cross-functional collaboration.
+              <p className="text-[18px] font-light text-gray-700 dark:text-gray-200 max-w-[520px] leading-relaxed mt-8 transition-colors duration-500">
+                I coach teams to build products people love. With over 15 years of multi-domain experience, I help organizations navigate the space between customer goals and technical feasibility. Having managed diverse teams of up to 8 designers, I focus on fostering a culture of ownership, evidence-based strategy, and cross-functional collaboration.
               </p>
             </div>
           </div>

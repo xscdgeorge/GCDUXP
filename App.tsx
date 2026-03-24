@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import OptionA from './components/OptionA';
 import IdentityCaseStudy from './components/IdentityCaseStudy';
 import JioSignCaseStudy from './components/JioSignCaseStudy';
+import DronnectCaseStudy from './components/DronnectCaseStudy';
 
 import { PasswordModal } from './components/PasswordModal';
 import { View } from './types';
@@ -19,7 +20,7 @@ function App() {
 
   const handlePasswordSuccess = () => {
     setIsPasswordModalOpen(false);
-    if (pendingProjectId === 'idaas' || pendingProjectId === 'jiosign') {
+    if (pendingProjectId === 'idaas' || pendingProjectId === 'jiosign' || pendingProjectId === 'dronnect') {
       setActiveCaseStudyId(pendingProjectId);
       setView('case-study');
       window.scrollTo(0, 0);
@@ -35,6 +36,9 @@ function App() {
     }
     if (activeCaseStudyId === 'jiosign') {
       return <JioSignCaseStudy onBack={() => setView('home')} />;
+    }
+    if (activeCaseStudyId === 'dronnect') {
+      return <DronnectCaseStudy onBack={() => setView('home')} />;
     }
     return <IdentityCaseStudy onBack={() => setView('home')} />;
   };

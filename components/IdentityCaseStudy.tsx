@@ -1,23 +1,37 @@
 import React from 'react';
-import { ArrowLeft, Users, Shield, Zap, Target, MessageSquare, CheckCircle2, Search, Lightbulb, Sparkles, TestTube2, Layout, Fingerprint, Key, BarChart3 } from 'lucide-react';
+import { ArrowLeft, Users, Shield, Zap, Target, MessageSquare, CheckCircle2, Search, Lightbulb, Sparkles, TestTube2, Layout, Fingerprint, Key, BarChart3, Sun, Moon } from 'lucide-react';
 
 interface IdentityCaseStudyProps {
   onBack: () => void;
 }
 
 const IdentityCaseStudy: React.FC<IdentityCaseStudyProps> = ({ onBack }) => {
+  const [isDarkMode, setIsDarkMode] = React.useState(
+    document.documentElement.classList.contains('dark')
+  );
+
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+    document.documentElement.classList.toggle('dark');
+  };
+
   return (
-    <div className="bg-white min-h-screen text-gray-900 font-sans selection:bg-indigo-100 pb-20">
+    <div className="bg-white dark:bg-zinc-950 min-h-screen text-gray-900 dark:text-gray-100 font-sans selection:bg-indigo-100 dark:selection:bg-indigo-900 pb-20 transition-colors duration-500">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full p-6 md:p-10 flex justify-between items-center bg-white/90 backdrop-blur-sm z-50 border-b border-gray-100">
+      <nav className="fixed top-0 w-full p-6 md:p-10 flex justify-between items-center bg-white/90 dark:bg-zinc-950/90 backdrop-blur-sm z-50 border-b border-gray-100 dark:border-zinc-800 transition-colors duration-500">
         <button 
           onClick={onBack}
-          className="flex items-center gap-2 text-sm font-medium hover:text-indigo-600 transition-colors group"
+          className="flex items-center gap-2 text-sm font-medium hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors group text-gray-900 dark:text-gray-200"
         >
           <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" />
           Back to Portfolio
         </button>
-        <span className="text-xs font-mono uppercase tracking-widest text-gray-400">Case Study: JioID</span>
+        <div className="flex items-center gap-6">
+          <span className="text-xs font-mono uppercase tracking-widest text-gray-400 dark:text-zinc-500 hidden sm:block">Case Study: JioID</span>
+          <button onClick={toggleDarkMode} className="text-gray-900 dark:text-gray-200 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+            {isDarkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+          </button>
+        </div>
       </nav>
 
       {/* Hero Header */}

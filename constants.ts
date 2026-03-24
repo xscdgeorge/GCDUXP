@@ -13,6 +13,7 @@ import mariaImg from './Maria.jpg';
 import akankshaImg from './Akanksha.jpg';
 import shruthiImg from './Shruthi.jpg';
 import rahulImg from './Rahul.jpg';
+import dronnectHeroImg from './dronnectHero.png';
 // Placeholder for the user's image. 
 // In a real scenario, this would be the uploaded asset.
 export const PROFILE_IMAGE = profileImage; 
@@ -62,6 +63,15 @@ export const PROJECTS: Project[] = [
     impact: '$1M Annual Savings',
     image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=1000',
     year: '2023'
+  },
+  {
+    id: 'dronnect',
+    title: 'Dronnect UAV Inspection',
+    category: 'Funded PoC',
+    description: 'Connected UAV surveillance and response integrated with Honeywell Max Pro to securely replace physical wiring for sweeping asset inspections.',
+    impact: 'Market Expansion',
+    image: dronnectHeroImg,
+    year: '2017'
   }
 ];
 
