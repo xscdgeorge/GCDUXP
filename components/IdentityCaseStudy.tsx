@@ -24,7 +24,7 @@ const IdentityCaseStudy: React.FC<IdentityCaseStudyProps> = ({ onBack }) => {
           className="flex items-center gap-2 text-sm font-medium hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors group text-gray-900 dark:text-gray-200"
         >
           <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" />
-          Back to Portfolio
+          Back
         </button>
         <div className="flex items-center gap-6">
           <span className="text-xs font-mono uppercase tracking-widest text-gray-400 dark:text-zinc-500 hidden sm:block">Case Study: JioID</span>
@@ -35,7 +35,7 @@ const IdentityCaseStudy: React.FC<IdentityCaseStudyProps> = ({ onBack }) => {
       </nav>
 
       {/* Hero Header */}
-      <header className="pt-32 md:pt-48 px-6 md:px-10 max-w-7xl mx-auto mb-20">
+      <header className="pt-32 md:pt-48 px-6 md:px-10 max-w-4xl mx-auto mb-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="lg:col-span-8">
             <div className="flex gap-3 mb-6">
@@ -43,8 +43,8 @@ const IdentityCaseStudy: React.FC<IdentityCaseStudyProps> = ({ onBack }) => {
               <span className="px-3 py-1 bg-gray-50 text-gray-500 rounded-full text-xs font-bold uppercase tracking-wider">2022 - 2024</span>
             </div>
             <h1 className="text-5xl md:text-7xl font-serif leading-tight mb-8">
-              JioID: India's Largest <br/>
-              <span className="text-gray-400 italic">Identity Ecosystem</span>
+              JioID: India's largest <br/>
+              <span>identity ecosystem</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-2xl leading-relaxed">
               Managing a fragmented base of 1B+ users to build a cohesive identity ecosystem for better cross-marketing and monetization across the Reliance ecosystem.
@@ -70,7 +70,7 @@ const IdentityCaseStudy: React.FC<IdentityCaseStudyProps> = ({ onBack }) => {
       </header>
 
       {/* Featured Image */}
-      <section className="px-6 md:px-10 max-w-7xl mx-auto mb-32">
+      <section className="px-6 md:px-10 max-w-5xl mx-auto mb-24">
         <div className="rounded-[40px] overflow-hidden aspect-[21/9] shadow-2xl">
           <img 
             src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=2000" 
@@ -81,7 +81,7 @@ const IdentityCaseStudy: React.FC<IdentityCaseStudyProps> = ({ onBack }) => {
       </section>
 
       {/* The Challenge & Strategy */}
-      <section className="px-6 md:px-10 max-w-7xl mx-auto mb-32 grid grid-cols-1 lg:grid-cols-12 gap-20">
+      <section className="px-6 md:px-10 max-w-3xl mx-auto mb-20">
         <div className="lg:col-span-4">
           <h2 className="text-3xl font-serif mb-6">The Challenge</h2>
           <p className="text-gray-600 leading-relaxed mb-6">
@@ -127,7 +127,7 @@ const IdentityCaseStudy: React.FC<IdentityCaseStudyProps> = ({ onBack }) => {
 
       {/* Team Contributions - The "How" */}
       <section className="bg-gray-900 text-white py-32 mb-32">
-        <div className="px-6 md:px-10 max-w-7xl mx-auto">
+        <div className="px-6 md:px-10 max-w-3xl mx-auto">
           <div className="max-w-3xl mb-20">
             <h2 className="text-4xl md:text-5xl font-serif mb-8">Empowering the Team</h2>
             <p className="text-gray-400 text-xl leading-relaxed">
@@ -176,7 +176,7 @@ const IdentityCaseStudy: React.FC<IdentityCaseStudyProps> = ({ onBack }) => {
       </section>
 
       {/* 1. Research Findings: Customer Needs & Challenges */}
-      <section className="px-6 md:px-10 max-w-7xl mx-auto mb-32">
+      <section className="px-6 md:px-10 max-w-3xl mx-auto mb-20">
         <div className="flex items-center gap-4 mb-12">
           <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center text-blue-600">
             <Search size={24} />
@@ -215,7 +215,7 @@ const IdentityCaseStudy: React.FC<IdentityCaseStudyProps> = ({ onBack }) => {
       </section>
 
       {/* 2. UX Design Solution & Key Differentiators */}
-      <section className="px-6 md:px-10 max-w-7xl mx-auto mb-32">
+      <section className="px-6 md:px-10 max-w-3xl mx-auto mb-20">
         <div className="flex items-center gap-4 mb-12">
           <div className="w-12 h-12 bg-emerald-50 rounded-full flex items-center justify-center text-emerald-600">
             <Lightbulb size={24} />
@@ -356,7 +356,7 @@ const IdentityCaseStudy: React.FC<IdentityCaseStudyProps> = ({ onBack }) => {
       {/* 3. AI Features for the Customer */}
       <section className="bg-indigo-900 text-white py-32 mb-32 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500/20 blur-[100px] rounded-full"></div>
-        <div className="px-6 md:px-10 max-w-7xl mx-auto relative z-10">
+        <div className="px-6 md:px-10 max-w-3xl mx-auto relative z-10">
           <div className="flex items-center gap-4 mb-12">
             <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-indigo-300">
               <Sparkles size={24} />
@@ -399,7 +399,7 @@ const IdentityCaseStudy: React.FC<IdentityCaseStudyProps> = ({ onBack }) => {
       </section>
 
       {/* 4. Concept Test Methodology & Findings */}
-      <section className="px-6 md:px-10 max-w-7xl mx-auto mb-32">
+      <section className="px-6 md:px-10 max-w-3xl mx-auto mb-20">
         <div className="flex items-center gap-4 mb-12">
           <div className="w-12 h-12 bg-purple-50 rounded-full flex items-center justify-center text-purple-600">
             <TestTube2 size={24} />
@@ -449,7 +449,7 @@ const IdentityCaseStudy: React.FC<IdentityCaseStudyProps> = ({ onBack }) => {
       </section>
 
       {/* 5. Contribution of B2B SaaS Patterns to the Design System */}
-      <section className="px-6 md:px-10 max-w-7xl mx-auto mb-32">
+      <section className="px-6 md:px-10 max-w-3xl mx-auto mb-20">
         <div className="flex items-center gap-4 mb-12">
           <div className="w-12 h-12 bg-orange-50 rounded-full flex items-center justify-center text-orange-600">
             <Layout size={24} />
@@ -506,7 +506,7 @@ const IdentityCaseStudy: React.FC<IdentityCaseStudyProps> = ({ onBack }) => {
       </section>
 
       {/* Results */}
-      <section className="px-6 md:px-10 max-w-7xl mx-auto mb-32">
+      <section className="px-6 md:px-10 max-w-3xl mx-auto mb-20">
         <h2 className="text-3xl font-serif mb-12 text-center">The Impact</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="p-10 bg-indigo-600 text-white rounded-[32px] text-center">

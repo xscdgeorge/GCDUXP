@@ -14,6 +14,8 @@ import akankshaImg from './Akanksha.jpg';
 import shruthiImg from './Shruthi.jpg';
 import rahulImg from './Rahul.jpg';
 import dronnectHeroImg from './dronnectHero.png';
+import jioSignHeroImg from './womanEsigning.png';
+import jioSignMobileImg from './upshoteSigning2people.png';
 // Placeholder for the user's image. 
 // In a real scenario, this would be the uploaded asset.
 export const PROFILE_IMAGE = profileImage; 
@@ -25,7 +27,16 @@ export const PROJECTS: Project[] = [
     category: 'eSignature SaaS',
     description: 'Strategic overhaul of eSignature workflows, moving to a "Pay-as-you-go" model and mobile-first approach.',
     impact: '1M Docs/Day | 96% TCR',
-    image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1000',
+    image: jioSignHeroImg,
+    year: '2024'
+  },
+  {
+    id: 'jiosign-mobile',
+    title: 'JioSign Mobile-First',
+    category: 'eSignature SaaS',
+    description: 'Winning back lost customers by transforming an unusable mobile experience into a 96% TCR product with AI-powered accessibility.',
+    impact: '46% TCR Improvement',
+    image: jioSignMobileImg,
     year: '2024'
   },
   {

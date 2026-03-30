@@ -6,6 +6,7 @@ import DronnectCaseStudy from './components/DronnectCaseStudy';
 import JioConsentCaseStudy from './components/JioConsentCaseStudy';
 import RetailAICaseStudy from './components/RetailAICaseStudy';
 import AthenaOneCaseStudy from './components/AthenaOneCaseStudy';
+import JioSignMobileCaseStudy from './components/JioSignMobileCaseStudy';
 
 import { PasswordModal } from './components/PasswordModal';
 import { View } from './types';
@@ -37,6 +38,9 @@ function App() {
     }
     if (activeCaseStudyId === 'jiosign') {
       return <JioSignCaseStudy onBack={() => setView('home')} />;
+    }
+    if (activeCaseStudyId === 'jiosign-mobile') {
+      return <JioSignMobileCaseStudy onBack={() => setView('home')} />;
     }
     if (activeCaseStudyId === 'dronnect') {
       return <DronnectCaseStudy onBack={() => setView('home')} />;
