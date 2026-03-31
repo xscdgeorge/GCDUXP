@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowLeft, Sun, Moon, Smartphone, Users, Shield, Zap, Target, MessageSquare, CheckCircle2, Search, Lightbulb, Sparkles, Layout, FileText, Share2, Languages, TrendingUp } from 'lucide-react';
+import { ArrowLeft, Sun, Moon, Smartphone, Users, Shield, Zap, Target, MessageSquare, CheckCircle2, Search, Lightbulb, Sparkles, Layout, FileText, Share2, Languages, TrendingUp, Grid2X2, Route } from 'lucide-react';
 import jioSignMobileImg from '../upshoteSigning2people.png';
 
 interface JioSignMobileCaseStudyProps {
@@ -91,24 +91,27 @@ const JioSignMobileCaseStudy: React.FC<JioSignMobileCaseStudyProps> = ({ onBack 
       <section className="px-6 md:px-10 max-w-3xl mx-auto mb-20">
         <h2 className="text-3xl font-serif mb-6">My Strategic Move</h2>
         <p className="text-gray-600 dark:text-gray-400 leading-[1.8] mb-6">
-          I convinced leadership that the project needed embedded designers with ownership rather than an agency approach. I had the project transferred to my team and set out to lead the design vision for JioSign 2.0 — transforming it from a failing utility into a competitive, domain-focused freemium product.
+          I convinced leadership that the project needed embedded designers with ownership rather than an agency approach used by the previous design team. And, that it was important to get the eSign pattern into Jio's Design System, a challenge my team & I had already overcome with Sign in with JioID as the first SaaS pattern added to the JDS.
+        </p>
+        <p className="text-gray-600 dark:text-gray-400 leading-[1.8] mb-6">
+          To reintroduce the design process, and distribute the ownership, I chose my best team player Akanksha Singh to lead the project, and together we built a working relationship with the cross-functional team, through various collaborative design activities and maintaining an open channel of communication.
         </p>
         <p className="text-gray-600 dark:text-gray-400 leading-[1.8] mb-10">
-          This required my senior designer and I to conduct deep analysis of the existing product, the e-signature domain, and customers, then ruthlessly prioritize key areas for the MVP.
+          I set clear goals & scope for the research; deep analysis of the existing product, the e-signature domain, our customers, and the ruthless prioritization of MVP features for a Product led growth approach.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="p-6 bg-gray-50 dark:bg-zinc-900/50 rounded-2xl border border-gray-100 dark:border-zinc-800 space-y-3">
-            <Users size={24} className="text-orange-600 dark:text-orange-400" />
+            <Grid2X2 size={24} className="text-orange-600 dark:text-orange-400" />
             <h3 className="text-lg font-bold">OOUX Workshops</h3>
             <p className="text-gray-500 dark:text-gray-400 leading-relaxed">
-              Facilitated Object-Oriented UX workshops to remove misconceptions and align cross-functional teams of Design, Product, Engineering, Business, internal customers, and SMEs.
+              I facilitated Object-Oriented UX workshops to remove misconceptions and align cross-functional teams of Design, Product, Engineering, Business, internal customers, and SMEs.
             </p>
           </div>
           <div className="p-6 bg-gray-50 dark:bg-zinc-900/50 rounded-2xl border border-gray-100 dark:border-zinc-800 space-y-3">
-            <Search size={24} className="text-blue-600 dark:text-blue-400" />
+            <Route size={24} className="text-blue-600 dark:text-blue-400" />
             <h3 className="text-lg font-bold">Customer Journey Mapping</h3>
             <p className="text-gray-500 dark:text-gray-400 leading-relaxed">
-              Conducted interviews with senior leaders and strategic customers then guided the Sr. designer to refine qualitative & quantitative research into actionable insights.
+              I co-facilitated a workshop with key stakeholders to validate, align, and add nuance to the customer journey map we had created based on the primary and secondary research conducted.
             </p>
           </div>
         </div>

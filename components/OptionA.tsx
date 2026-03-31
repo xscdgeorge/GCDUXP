@@ -33,7 +33,7 @@ const OptionA: React.FC<OptionAProps> = ({ onProjectClick }) => {
       {/* Header */}
       <nav className="fixed top-0 w-full py-[20px] px-[30px] flex justify-between items-center bg-white dark:bg-black z-40 transition-colors duration-500">
         <span className="text-[24px] font-serif font-medium tracking-[0.01em] text-gray-900 dark:text-white drop-shadow-none dark:drop-shadow-md transition-colors duration-500">George<span className="text-orange-500">.</span></span>
-        <div className="flex gap-8 items-center text-sm font-medium text-gray-600 dark:text-gray-200 drop-shadow-none dark:drop-shadow-md transition-colors duration-500">
+        <div className="flex gap-8 items-center text-sm font-normal text-gray-600 dark:text-gray-200 drop-shadow-none dark:drop-shadow-md transition-colors duration-500">
           <a href="#leadership" className="hover:text-black dark:hover:text-white transition-colors">Leadership</a>
           <a href="#work" className="hover:text-black dark:hover:text-white transition-colors">Work</a>
           <a href="https://www.linkedin.com/in/georgeuxd/" target="_blank" rel="noopener noreferrer" className="hover:text-black dark:hover:text-white transition-colors">LinkedIn</a>
