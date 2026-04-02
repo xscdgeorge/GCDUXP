@@ -1,19 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import OptionA from './components/OptionA';
 import IdentityCaseStudy from './components/IdentityCaseStudy';
-import JioSignCaseStudy from './components/JioSignCaseStudy';
 import DronnectCaseStudy from './components/DronnectCaseStudy';
 import JioConsentCaseStudy from './components/JioConsentCaseStudy';
 import RetailAICaseStudy from './components/RetailAICaseStudy';
 import AthenaOneCaseStudy from './components/AthenaOneCaseStudy';
 import JioSignMobileCaseStudy from './components/JioSignMobileCaseStudy';
 
-import { PasswordModal } from './components/PasswordModal';
-
 function App() {
   const [route, setRoute] = useState<string>(window.location.hash);
-  const [isPasswordModalOpen, setIsPasswordModalOpen] = useState(false);
-  const [pendingProjectId, setPendingProjectId] = useState<string | null>(null);
 
   // Listen for hash changes (e.g. browser back button)
   useEffect(() => {
@@ -25,16 +20,8 @@ function App() {
   const projectId = route.startsWith('#/project/') ? route.replace('#/project/', '') : null;
 
   const handleProjectClick = (id: string) => {
-    setPendingProjectId(id);
-    setIsPasswordModalOpen(true);
-  };
-
-  const handlePasswordSuccess = () => {
-    setIsPasswordModalOpen(false);
-    if (pendingProjectId) {
-      // Open in a new tab
-      window.open(`${window.location.origin}${window.location.pathname}#/project/${pendingProjectId}`, '_blank');
-    }
+    // Open directly in a new tab — no password required
+    window.open(`${window.location.origin}${window.location.pathname}#/project/${id}`, '_blank');
   };
 
   const handleBack = () => {
@@ -46,7 +33,6 @@ function App() {
   if (projectId) {
     const caseStudyMap: Record<string, React.ReactNode> = {
       'idaas': <IdentityCaseStudy onBack={handleBack} />,
-      'jiosign': <JioSignCaseStudy onBack={handleBack} />,
       'jiosign-mobile': <JioSignMobileCaseStudy onBack={handleBack} />,
       'dronnect': <DronnectCaseStudy onBack={handleBack} />,
       'jioconsent': <JioConsentCaseStudy onBack={handleBack} />,
@@ -62,11 +48,6 @@ function App() {
   return (
     <div className="relative min-h-screen">
       <OptionA onProjectClick={handleProjectClick} />
-      <PasswordModal 
-        isOpen={isPasswordModalOpen}
-        onClose={() => setIsPasswordModalOpen(false)}
-        onSuccess={handlePasswordSuccess}
-      />
     </div>
   );
 }

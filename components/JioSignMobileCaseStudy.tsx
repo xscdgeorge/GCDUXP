@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowLeft, Sun, Moon, Smartphone, Users, Shield, Zap, Target, MessageSquare, CheckCircle2, Search, Lightbulb, Sparkles, Layout, FileText, Share2, Languages, TrendingUp, Grid2X2, Route } from 'lucide-react';
-import jioSignMobileImg from '../upshoteSigning2people.png';
+import jioSignMobileImg from '../womanEsigning.png';
+import MoreProjects from './MoreProjects';
 
 interface JioSignMobileCaseStudyProps {
   onBack: () => void;
@@ -16,23 +17,36 @@ const JioSignMobileCaseStudy: React.FC<JioSignMobileCaseStudyProps> = ({ onBack 
     document.documentElement.classList.toggle('dark');
   };
 
+  const [scrollProgress, setScrollProgress] = React.useState(0);
+  React.useEffect(() => {
+    const onScroll = () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      setScrollProgress(docHeight > 0 ? (scrollTop / docHeight) * 100 : 0);
+    };
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
   return (
     <div className="bg-white dark:bg-zinc-950 min-h-screen text-gray-900 dark:text-gray-100 font-sans selection:bg-orange-100 dark:selection:bg-orange-900 pb-20 transition-colors duration-500">
+      {/* Reading Progress */}
+      <div className="fixed top-0 left-0 w-full h-1 z-[60]">
+        <div className="h-full bg-orange-500 transition-all duration-100" style={{ width: `${scrollProgress}%` }} />
+      </div>
+
       {/* Navigation */}
-      <nav className="fixed top-0 w-full p-6 md:p-10 flex justify-between items-center bg-white/90 dark:bg-zinc-950/90 backdrop-blur-sm z-50 border-b border-gray-100 dark:border-zinc-800 transition-colors duration-500">
+      <nav className="fixed top-1 w-full p-6 md:p-10 flex justify-between items-center z-50">
         <button 
           onClick={onBack}
-          className="flex items-center gap-2 text-sm font-medium hover:text-orange-600 dark:hover:text-orange-400 transition-colors group text-gray-900 dark:text-gray-200"
+          className="flex items-center gap-2 text-sm font-medium hover:text-orange-600 dark:hover:text-orange-400 transition-colors group text-gray-900 dark:text-gray-200 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-sm px-4 py-2 rounded-full"
         >
           <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" />
           Back
         </button>
-        <div className="flex items-center gap-6">
-          <span className="text-xs font-mono uppercase tracking-widest text-gray-400 dark:text-zinc-500 hidden sm:block">Case Study: JioSign Mobile-First</span>
-          <button onClick={toggleDarkMode} className="text-gray-900 dark:text-gray-200 hover:text-orange-600 dark:hover:text-orange-400 transition-colors">
-            {isDarkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
-          </button>
-        </div>
+        <button onClick={toggleDarkMode} className="text-gray-900 dark:text-gray-200 hover:text-orange-600 dark:hover:text-orange-400 transition-colors bg-white/80 dark:bg-zinc-950/80 backdrop-blur-sm p-2 rounded-full">
+          {isDarkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+        </button>
       </nav>
 
       {/* Hero Header */}
@@ -46,7 +60,7 @@ const JioSignMobileCaseStudy: React.FC<JioSignMobileCaseStudyProps> = ({ onBack 
           <span>customers</span>
         </h1>
         <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl leading-relaxed mb-12">
-          A mobile-first experience & simplified pricing that transformed JioSign from a rejected internal tool into a competitive eSignature product — achieving 96% TCR and earning user trust with AI-powered accessibility.
+          This is the story of how I acquired & guided JioSign's strategic pivot, resulting in a 96% task completion rate in testing, and enabled an increase of 90K eSigns/day. Achieved primarily by introducing a mobile-first experience, simplified pricing, and AI features.
         </p>
         <div className="flex flex-wrap gap-x-12 gap-y-6 border-t border-gray-100 dark:border-zinc-800 pt-8">
           <div>
@@ -59,7 +73,7 @@ const JioSignMobileCaseStudy: React.FC<JioSignMobileCaseStudyProps> = ({ onBack 
           </div>
           <div>
             <h4 className="text-xs font-mono uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-2">Key Outcome</h4>
-            <p className="font-medium text-orange-600 dark:text-orange-400">96% TCR | 78 SUS | "Take my money"</p>
+            <p className="font-medium text-orange-600 dark:text-orange-400">96% TCR | 78 SUS | 10X increase in eSign/day</p>
           </div>
         </div>
       </header>
@@ -91,7 +105,7 @@ const JioSignMobileCaseStudy: React.FC<JioSignMobileCaseStudyProps> = ({ onBack 
       <section className="px-6 md:px-10 max-w-3xl mx-auto mb-20">
         <h2 className="text-3xl font-serif mb-6">My Strategic Move</h2>
         <p className="text-gray-600 dark:text-gray-400 leading-[1.8] mb-6">
-          I convinced leadership that the project needed embedded designers with ownership rather than an agency approach used by the previous design team. And, that it was important to get the eSign pattern into Jio's Design System, a challenge my team & I had already overcome with Sign in with JioID as the first SaaS pattern added to the JDS.
+          I acquired the product by convincing leadership that the project needed embedded designers with ownership rather than an agency approach used by the previous design team. And, that it was important to get the eSign pattern into Jio's Design System, a challenge my team & I had already overcome with Sign in with JioID as the first SaaS pattern added to the JDS.
         </p>
         <p className="text-gray-600 dark:text-gray-400 leading-[1.8] mb-6">
           To reintroduce the design process, and distribute the ownership, I chose my best team player Akanksha Singh to lead the project, and together we built a working relationship with the cross-functional team, through various collaborative design activities and maintaining an open channel of communication.
@@ -256,41 +270,16 @@ const JioSignMobileCaseStudy: React.FC<JioSignMobileCaseStudyProps> = ({ onBack 
 
       {/* Results */}
       <section className="px-6 md:px-10 max-w-3xl mx-auto mb-20">
-        <h2 className="text-3xl font-serif mb-10 text-center">Pilot Results</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div className="p-6 bg-gray-900 text-white rounded-[24px] text-center">
-            <div className="text-3xl font-bold mb-2">96%</div>
-            <div className="text-gray-400 uppercase tracking-widest font-bold">TCR</div>
-          </div>
-          <div className="p-6 bg-orange-600 text-white rounded-[24px] text-center">
-            <div className="text-3xl font-bold mb-2">+46%</div>
-            <div className="text-orange-200 uppercase tracking-widest font-bold">Lift</div>
-          </div>
-          <div className="p-6 bg-gray-900 text-white rounded-[24px] text-center">
-            <div className="text-2xl font-bold">78 SUS</div>
-            <div className="text-lg font-bold">8.5 NPS</div>
-            <div className="text-gray-400 uppercase tracking-widest font-bold mt-1">Owners</div>
-          </div>
-          <div className="p-6 bg-emerald-600 text-white rounded-[24px] text-center">
-            <div className="text-2xl font-bold">74 SUS</div>
-            <div className="text-lg font-bold">8 NPS</div>
-            <div className="text-emerald-200 uppercase tracking-widest font-bold mt-1">Signatories</div>
-          </div>
+        <h2 className="text-3xl font-serif mb-10">Pilot results</h2>
+        <div className="space-y-6 text-gray-600 dark:text-gray-400 leading-[1.8]">
+          <p><strong className="text-gray-900 dark:text-white">96% TCR</strong> — Signatories achieved a 96% task completion rate and were able to sign and submit documents in under <strong className="text-gray-900 dark:text-white">30 seconds</strong> when using the option to apply signatures to all slots at once.</p>
+          <p><strong className="text-gray-900 dark:text-white">78 SUS · 8.5 NPS</strong> — Document owners rated the experience highly usable and were strong promoters of the platform.</p>
+          <p><strong className="text-gray-900 dark:text-white">74 SUS · 8 NPS</strong> — Signatories found the signing flow intuitive and frictionless across devices.</p>
         </div>
-        <p className="text-center text-gray-500 dark:text-gray-400 mt-8 leading-[1.8]">
-          Signatories achieved 96% TCR and were able to sign and submit documents in under <strong className="text-gray-900 dark:text-white">30 seconds</strong> when using the option to apply signatures to all slots at once.
-        </p>
       </section>
 
-      {/* Return */}
-      <section className="px-6 md:px-10 max-w-3xl mx-auto text-center">
-        <button 
-          onClick={onBack}
-          className="px-8 py-4 bg-black dark:bg-white text-white dark:text-black rounded-full font-bold hover:bg-gray-800 dark:hover:bg-gray-200 transition-all shadow-lg hover:shadow-xl"
-        >
-          View More Projects
-        </button>
-      </section>
+      <MoreProjects currentProjectId="jiosign-mobile" />
+
     </div>
   );
 };

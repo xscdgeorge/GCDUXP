@@ -66,7 +66,7 @@ const OptionA: React.FC<OptionAProps> = ({ onProjectClick }) => {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-end">
             <div className="md:col-span-8">
               <div className="mb-4">
-                <span className="text-orange-500 font-sans text-[16px] tracking-[0.3em] uppercase mb-2 block">Hello, I'm</span>
+                <span className="text-orange-500 font-sans text-[18px] tracking-[0.3em] uppercase mb-2 block">Hello, I'm</span>
                 <span className="text-[64px] md:text-[80px] font-serif tracking-tighter leading-none text-gray-900 dark:text-white block">
                   George<span className="text-orange-500">.</span>
                 </span>
@@ -119,7 +119,7 @@ const OptionA: React.FC<OptionAProps> = ({ onProjectClick }) => {
               className="cursor-pointer group border-l border-gray-300 dark:border-zinc-800 pl-6 flex flex-col hover:border-black dark:hover:border-white transition-colors duration-300"
             >
               <div className="w-full h-48 mb-6 overflow-hidden rounded-md">
-                <img src={project.image} alt={project.title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105" referrerPolicy="no-referrer" />
+                <img src={project.image} alt={project.title} className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105" referrerPolicy="no-referrer" />
               </div>
               <span className="text-xs font-mono text-gray-400 dark:text-zinc-500 mb-3 block">0{index + 1} / {project.category}</span>
               <h3 className="text-[24px] font-sans font-medium mb-4 group-hover:translate-x-2 transition-transform duration-300 text-black dark:text-white">{project.title}</h3>
@@ -144,7 +144,7 @@ const OptionA: React.FC<OptionAProps> = ({ onProjectClick }) => {
           <div className="columns-1 md:columns-2 lg:columns-3 gap-16">
             {TESTIMONIALS.map((testimonial, i) => (
               <div key={i} className="border-b border-gray-300 dark:border-zinc-800 pb-10 flex flex-col break-inside-avoid mb-12">
-                <p className="text-gray-600 dark:text-gray-300 text-[16px] mb-6 leading-relaxed flex-grow">"{testimonial.text}"</p>
+                <p className="text-gray-600 dark:text-gray-300 text-[18px] mb-6 leading-relaxed flex-grow">"{testimonial.text}"</p>
                 <div className="flex items-center gap-4 mt-auto">
                   <img 
                     src={testimonial.image || `https://ui-avatars.com/api/?name=${encodeURIComponent(testimonial.author)}&background=random&color=fff&size=100`} 

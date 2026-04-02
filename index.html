@@ -24,11 +24,15 @@
       }
     </script>
     <style>
-      /* Enforce minimum 16px font size globally */
+      /* Enforce 18px as base font size globally */
+      html {
+        font-size: 18px !important;
+      }
       .text-xs,
-      .text-sm {
-        font-size: 1rem !important;       /* 16px */
-        line-height: 1.5rem !important;   /* 24px */
+      .text-sm,
+      .text-base {
+        font-size: 18px !important;
+        line-height: 1.6 !important;
       }
       /* Hide scrollbar for clean UI */
       .no-scrollbar::-webkit-scrollbar {

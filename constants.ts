@@ -16,27 +16,19 @@ import rahulImg from './Rahul.jpg';
 import dronnectHeroImg from './dronnectHero.png';
 import jioSignHeroImg from './womanEsigning.png';
 import jioSignMobileImg from './upshoteSigning2people.png';
+import retailMerchImg from './mockupretailmerch.png';
 // Placeholder for the user's image. 
 // In a real scenario, this would be the uploaded asset.
 export const PROFILE_IMAGE = profileImage; 
 
 export const PROJECTS: Project[] = [
   {
-    id: 'jiosign',
-    title: 'JioSign',
-    category: 'eSignature SaaS',
-    description: 'Strategic overhaul of eSignature workflows, moving to a "Pay-as-you-go" model and mobile-first approach.',
-    impact: '1M Docs/Day | 96% TCR',
-    image: jioSignHeroImg,
-    year: '2024'
-  },
-  {
     id: 'jiosign-mobile',
     title: 'JioSign Mobile-First',
     category: 'eSignature SaaS',
     description: 'Winning back lost customers by transforming an unusable mobile experience into a 96% TCR product with AI-powered accessibility.',
     impact: '46% TCR Improvement',
-    image: jioSignMobileImg,
+    image: jioSignHeroImg,
     year: '2024'
   },
   {
@@ -63,7 +55,7 @@ export const PROJECTS: Project[] = [
     category: 'AI Retail Tech',
     description: 'Designed a no-code WYSIWYG editor for category managers to customize listings and AI-powered discovery.',
     impact: '70% Conversion Lift',
-    image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=1000',
+    image: retailMerchImg,
     year: '2024'
   },
   {

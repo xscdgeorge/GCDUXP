@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowLeft, Sun, Moon, Crosshair, FileText, LineChart } from 'lucide-react';
+import MoreProjects from './MoreProjects';
 
 interface AthenaOneCaseStudyProps {
   onBack: () => void;
@@ -15,20 +16,33 @@ const AthenaOneCaseStudy: React.FC<AthenaOneCaseStudyProps> = ({ onBack }) => {
     document.documentElement.classList.toggle('dark');
   };
 
+  const [scrollProgress, setScrollProgress] = React.useState(0);
+  React.useEffect(() => {
+    const onScroll = () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      setScrollProgress(docHeight > 0 ? (scrollTop / docHeight) * 100 : 0);
+    };
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
   return (
     <div className="bg-white dark:bg-zinc-950 min-h-screen text-gray-900 dark:text-gray-100 font-sans selection:bg-teal-100 dark:selection:bg-teal-900 pb-20 transition-colors duration-500">
+      {/* Reading Progress */}
+      <div className="fixed top-0 left-0 w-full h-1 z-[60]">
+        <div className="h-full bg-orange-500 transition-all duration-100" style={{ width: `${scrollProgress}%` }} />
+      </div>
+
       {/* Navigation */}
-      <nav className="fixed top-0 w-full p-6 md:p-10 flex justify-between items-center bg-white/90 dark:bg-zinc-950/90 backdrop-blur-sm z-50 border-b border-gray-100 dark:border-zinc-800 transition-colors duration-500">
-        <button onClick={onBack} className="flex items-center gap-2 text-sm font-medium hover:text-teal-600 dark:hover:text-teal-400 transition-colors group text-gray-900 dark:text-gray-200">
+      <nav className="fixed top-1 w-full p-6 md:p-10 flex justify-between items-center z-50">
+        <button onClick={onBack} className="flex items-center gap-2 text-sm font-medium hover:text-teal-600 dark:hover:text-teal-400 transition-colors group text-gray-900 dark:text-gray-200 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-sm px-4 py-2 rounded-full">
           <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" />
           Back
         </button>
-        <div className="flex items-center gap-6">
-          <span className="text-xs font-mono uppercase tracking-widest text-gray-400 dark:text-zinc-500 hidden sm:block">Case Study: AthenaOne</span>
-          <button onClick={toggleDarkMode} className="text-gray-900 dark:text-gray-200 hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
-            {isDarkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
-          </button>
-        </div>
+        <button onClick={toggleDarkMode} className="text-gray-900 dark:text-gray-200 hover:text-teal-600 dark:hover:text-teal-400 transition-colors bg-white/80 dark:bg-zinc-950/80 backdrop-blur-sm p-2 rounded-full">
+          {isDarkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+        </button>
       </nav>
 
       {/* Hero Header */}
@@ -109,12 +123,8 @@ const AthenaOneCaseStudy: React.FC<AthenaOneCaseStudyProps> = ({ onBack }) => {
         </div>
       </section>
 
-      {/* Return */}
-      <section className="px-6 md:px-10 max-w-3xl mx-auto text-center mt-20">
-        <button onClick={onBack} className="px-8 py-4 bg-black dark:bg-white text-white dark:text-black rounded-full font-bold hover:bg-gray-800 dark:hover:bg-gray-200 transition-all shadow-lg hover:shadow-xl">
-          Return to Portfolio
-        </button>
-      </section>
+      <MoreProjects currentProjectId="athenaone" />
+
     </div>
   );
 };
