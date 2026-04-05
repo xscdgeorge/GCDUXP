@@ -24,12 +24,12 @@ export const PROFILE_IMAGE = profileImage;
 export const PROJECTS: Project[] = [
   {
     id: 'jiosign-mobile',
-    title: 'JioSign Mobile-First',
+    title: 'JioSign: Winning back lost customers',
     category: 'eSignature SaaS',
     description: 'Winning back lost customers by transforming an unusable mobile experience into a 96% TCR product with AI-powered accessibility.',
     impact: '46% TCR Improvement',
     image: jioSignHeroImg,
-    year: '2024'
+    year: '2024—2026'
   },
   {
     id: 'idaas',
@@ -38,7 +38,7 @@ export const PROJECTS: Project[] = [
     description: 'Guided UX for India\'s largest consumer social login, managing 1B+ users across a unified SSO ecosystem.',
     impact: '500M+ Unified Customers',
     image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=1000',
-    year: '2024'
+    year: '2022—2026'
   },
   {
     id: 'jioconsent',
@@ -47,7 +47,7 @@ export const PROJECTS: Project[] = [
     description: 'Winning solution for MeitY "Code for Consent" challenge, focusing on DPDP Act compliance and accessibility.',
     impact: 'Top 2 National Finalist',
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1000',
-    year: '2024'
+    year: '2025—2026'
   },
   {
     id: 'retail-ai',

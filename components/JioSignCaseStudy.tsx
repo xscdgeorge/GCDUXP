@@ -57,7 +57,7 @@ const JioSignCaseStudy: React.FC<JioSignCaseStudyProps> = ({ onBack }) => {
       </nav>
 
       {/* Hero Header */}
-      <header className="pt-32 md:pt-48 px-6 md:px-10 max-w-4xl mx-auto mb-20">
+      <header className="pt-32 md:pt-48 px-6 md:px-10 max-w-3xl mx-auto mb-20">
         <div className="flex gap-3 mb-6">
           <span className="px-3 py-1 bg-orange-50 dark:bg-orange-500/10 text-orange-600 dark:text-orange-400 rounded-full text-xs font-bold uppercase tracking-wider">eSignature SaaS</span>
           <span className="px-3 py-1 bg-gray-50 dark:bg-zinc-900 text-gray-500 dark:text-gray-400 rounded-full text-xs font-bold uppercase tracking-wider">2024</span>
@@ -72,7 +72,7 @@ const JioSignCaseStudy: React.FC<JioSignCaseStudyProps> = ({ onBack }) => {
         <div className="flex flex-wrap gap-x-12 gap-y-6 border-t border-gray-100 dark:border-zinc-800 pt-8">
           <div>
             <h4 className="text-xs font-mono uppercase tracking-widest text-gray-400 mb-2">The Team</h4>
-            <p className="font-medium">3 PMs, 1 Sr UX, 15 Engineers</p>
+            <p className="font-medium">3 PMs, 2 UX, 15 Engineers</p>
           </div>
           <div>
             <h4 className="text-xs font-mono uppercase tracking-widest text-gray-400 mb-2">My Role</h4>

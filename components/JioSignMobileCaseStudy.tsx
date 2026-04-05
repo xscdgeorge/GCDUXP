@@ -1,7 +1,9 @@
 import React from 'react';
-import { ArrowLeft, Sun, Moon, Smartphone, Users, Shield, Zap, Target, MessageSquare, CheckCircle2, Search, Lightbulb, Sparkles, Layout, FileText, Share2, Languages, TrendingUp, Grid2X2, Route } from 'lucide-react';
+import { ArrowLeft, Sun, Moon, Smartphone, Users, Shield, Zap, Target, MessageSquare, CheckCircle2, Search, Lightbulb, Sparkles, Layout, FileText, Share2, Languages, TrendingUp, Grid2X2, Route, TestTube2, IndianRupee, ArrowUpRight } from 'lucide-react';
 import jioSignMobileImg from '../womanEsigning.png';
+import jioSignVideo from '../JioSignSendADocOnMobile.mov';
 import MoreProjects from './MoreProjects';
+import { VideoStudio } from './VideoStudio';
 
 interface JioSignMobileCaseStudyProps {
   onBack: () => void;
@@ -50,22 +52,21 @@ const JioSignMobileCaseStudy: React.FC<JioSignMobileCaseStudyProps> = ({ onBack 
       </nav>
 
       {/* Hero Header */}
-      <header className="pt-32 md:pt-48 px-6 md:px-10 max-w-4xl mx-auto mb-20">
+      <header className="pt-32 md:pt-48 px-6 md:px-10 max-w-3xl mx-auto mb-20">
         <div className="flex gap-3 mb-6">
           <span className="px-3 py-1 bg-orange-50 dark:bg-orange-500/10 text-orange-600 dark:text-orange-400 rounded-full text-xs font-bold uppercase tracking-wider">eSignature SaaS</span>
-          <span className="px-3 py-1 bg-gray-50 dark:bg-zinc-900 text-gray-500 dark:text-gray-400 rounded-full text-xs font-bold uppercase tracking-wider">2024</span>
+          <span className="px-3 py-1 bg-gray-50 dark:bg-zinc-900 text-gray-500 dark:text-gray-400 rounded-full text-xs font-bold uppercase tracking-wider">2024—2026</span>
         </div>
         <h1 className="text-5xl md:text-7xl font-serif leading-tight mb-8">
-          Winning back lost <br/>
-          <span>customers</span>
+          JioSign: Winning back lost customers
         </h1>
         <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl leading-relaxed mb-12">
-          This is the story of how I acquired & guided JioSign's strategic pivot, resulting in a 96% task completion rate in testing, and enabled an increase of 90K eSigns/day. Achieved primarily by introducing a mobile-first experience, simplified pricing, and AI features.
+          This is the story of how I acquired the JioSign project, re-established trust in UX, and guided its strategic pivot, resulting in a 96% task completion rate in testing, and enabled an increase of 90K eSigns/day. Achieved primarily by introducing collaborative UX research, a mobile-first experience, simplified pricing, and useful AI features.
         </p>
         <div className="flex flex-wrap gap-x-12 gap-y-6 border-t border-gray-100 dark:border-zinc-800 pt-8">
           <div>
             <h4 className="text-xs font-mono uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-2">The Team</h4>
-            <p className="font-medium">3 PMs, 1 Sr UX, 15 Engineers</p>
+            <p className="font-medium">3 PMs, 2 UX, 15 Engineers</p>
           </div>
           <div>
             <h4 className="text-xs font-mono uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-2">My Role</h4>
@@ -94,10 +95,10 @@ const JioSignMobileCaseStudy: React.FC<JioSignMobileCaseStudyProps> = ({ onBack 
       <section className="px-6 md:px-10 max-w-3xl mx-auto mb-20">
         <h2 className="text-3xl font-serif mb-6">The Situation</h2>
         <p className="text-gray-600 dark:text-gray-400 leading-[1.8] mb-6">
-          I discovered the JioSign team while scouting for SaaS products to build into Jio's digital identity & governance ecosystem alongside JioID. The platform faced severe adoption issues both internally and externally.
+          I discovered the JioSign team while scouting for SaaS products to integrate into Jio’s digital identity and governance ecosystem alongside JioID. Despite being a free in-house solution, the platform faced severe adoption hurdles; hundreds of internal business units opted to pay millions for third-party services rather than use the internal tool.
         </p>
         <p className="text-gray-600 dark:text-gray-400 leading-[1.8]">
-          Hundreds of internal businesses chose to pay millions for third-party services instead of utilizing the free in-house product. The mobile experience was unusable, resulting in a <strong className="text-gray-900 dark:text-white">57% Task Completion Rate</strong> and <strong className="text-gray-900 dark:text-white">0 conversions</strong>, rendering the platform unviable for most businesses.
+          An unusable mobile experience resulted in a <strong className="text-gray-900 dark:text-white">57% Task Completion Rate</strong> and <strong className="text-gray-900 dark:text-white">zero conversions</strong>, rendering the platform unviable for most business cases. This was largely due to a fractured history with UX design; a previous partnership with another design team had collapsed, leaving a "functional" product that lacked user-centered design.
         </p>
       </section>
 
@@ -105,13 +106,13 @@ const JioSignMobileCaseStudy: React.FC<JioSignMobileCaseStudyProps> = ({ onBack 
       <section className="px-6 md:px-10 max-w-3xl mx-auto mb-20">
         <h2 className="text-3xl font-serif mb-6">My Strategic Move</h2>
         <p className="text-gray-600 dark:text-gray-400 leading-[1.8] mb-6">
-          I acquired the product by convincing leadership that the project needed embedded designers with ownership rather than an agency approach used by the previous design team. And, that it was important to get the eSign pattern into Jio's Design System, a challenge my team & I had already overcome with Sign in with JioID as the first SaaS pattern added to the JDS.
+          I took ownership of the product by convincing leadership that the project required embedded designers with a sense of stake, rather than the agency-style approach of the previous team. I argued that integrating the eSign pattern into the Jio Design System (JDS) was critical—a challenge my team and I had already successfully navigated when we established "Sign in with JioID" as the first SaaS pattern in the JDS.
         </p>
         <p className="text-gray-600 dark:text-gray-400 leading-[1.8] mb-6">
-          To reintroduce the design process, and distribute the ownership, I chose my best team player Akanksha Singh to lead the project, and together we built a working relationship with the cross-functional team, through various collaborative design activities and maintaining an open channel of communication.
+          To reintroduce a structured design process and distribute ownership, I appointed my strongest collaborator, Akanksha Singh, to lead the project. Together, we fostered a resilient relationship with the cross-functional team through collaborative workshops and open communication channels.
         </p>
         <p className="text-gray-600 dark:text-gray-400 leading-[1.8] mb-10">
-          I set clear goals & scope for the research; deep analysis of the existing product, the e-signature domain, our customers, and the ruthless prioritization of MVP features for a Product led growth approach.
+          I established a clear scope for our research, including a deep analysis of the existing product, the e-signature domain, and our customer base. This led to a ruthless prioritization of MVP features, centered on a Product-Led Growth approach.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="p-6 bg-gray-50 dark:bg-zinc-900/50 rounded-2xl border border-gray-100 dark:border-zinc-800 space-y-3">
@@ -126,6 +127,13 @@ const JioSignMobileCaseStudy: React.FC<JioSignMobileCaseStudyProps> = ({ onBack 
             <h3 className="text-lg font-bold">Customer Journey Mapping</h3>
             <p className="text-gray-500 dark:text-gray-400 leading-relaxed">
               I co-facilitated a workshop with key stakeholders to validate, align, and add nuance to the customer journey map we had created based on the primary and secondary research conducted.
+            </p>
+          </div>
+          <div className="md:col-span-2 p-6 bg-gray-50 dark:bg-zinc-900/50 rounded-2xl border border-gray-100 dark:border-zinc-800 space-y-3">
+            <TestTube2 size={24} className="text-purple-600 dark:text-purple-400" />
+            <h3 className="text-lg font-bold">Early Testing</h3>
+            <p className="text-gray-500 dark:text-gray-400 leading-relaxed">
+              We ran early concept tests to not just get validation on new designs but also gain the team's confidence & trust in our UX design approach, which was lost with the previous team.
             </p>
           </div>
         </div>
@@ -143,7 +151,12 @@ const JioSignMobileCaseStudy: React.FC<JioSignMobileCaseStudyProps> = ({ onBack 
               { icon: <Languages className="text-blue-500 shrink-0" size={22} />, title: 'Translation & Summary', desc: 'Signatories sign docs without understanding jargon or language. Removing ambiguity provides peace of mind as a quality-of-life feature.' },
               { icon: <Users className="text-purple-500 shrink-0" size={22} />, title: 'Role-Based Access Needed', desc: 'Password sharing is used as a collaboration workaround — dangerously wrong on legal, security, and compliance fronts.' },
               { icon: <FileText className="text-emerald-500 shrink-0" size={22} />, title: 'Templates & Workflows', desc: 'Without templates, businesses re-upload the same docs and set up workflows each time. Industry-specific templates will accelerate adoption.' },
-              { icon: <Share2 className="text-indigo-500 shrink-0" size={22} />, title: 'Upsell on Success', desc: 'Without an upsell flow on successful signing, we lose the best moment to convert a user. Touch-points should not be wasted.' },
+              { icon: (
+                <div className="relative shrink-0 w-[22px] h-[22px] flex items-center justify-center">
+                  <IndianRupee className="text-emerald-500" size={22} strokeWidth={2} />
+                  <ArrowUpRight className="text-emerald-500 absolute -top-1 -right-1 bg-white dark:bg-zinc-900 rounded-full" size={12} strokeWidth={2.5} />
+                </div>
+              ), title: 'Upsell on Success', desc: 'Without an upsell flow on successful signing, we lose the best moment to convert a user. Touch-points should not be wasted.' },
             ].map((item, i) => (
               <div key={i} className="flex items-start gap-5 bg-white dark:bg-zinc-900 p-5 rounded-2xl border border-gray-100 dark:border-zinc-800">
                 <div className="mt-1">{item.icon}</div>
@@ -157,20 +170,37 @@ const JioSignMobileCaseStudy: React.FC<JioSignMobileCaseStudyProps> = ({ onBack 
         </div>
       </section>
 
-      {/* MVP Problem Statements & Design Principles */}
+      {/* Refined MVP Problem Statements & Design Principles */}
       <section className="px-6 md:px-10 max-w-3xl mx-auto mb-20">
-        <h2 className="text-3xl font-serif mb-8">MVP Problem Statements</h2>
+        <h2 className="text-3xl font-serif mb-4">Refined MVP Problem Statements</h2>
+        <p className="text-gray-600 dark:text-gray-400 leading-[1.8] mb-10">
+          I reframed the initial problem statements which were originally biased toward specific solutions to focus instead on the user context, the affected stakeholders, and the underlying business impact.
+        </p>
         <div className="space-y-4 mb-16">
           <div className="p-6 bg-orange-50 dark:bg-zinc-900 rounded-2xl border border-orange-100 dark:border-zinc-800">
             <div className="flex items-start gap-4">
               <span className="text-orange-600 dark:text-orange-400 font-mono font-bold mt-0.5">01</span>
-              <p className="text-gray-700 dark:text-gray-300 font-medium leading-relaxed">How might we reduce friction to sign documents?</p>
+              <div className="text-gray-700 dark:text-gray-300 font-medium leading-relaxed space-y-4">
+                <p>
+                  Signatories are frequently unable to sign documents because the links they receive via email or WhatsApp open to a desktop-only interface on mobile devices. In the Indian market, many users do not have access to laptops and are understandably reluctant to hand their personal devices to an in-person agent for assistance.
+                </p>
+                <p>
+                  This friction results in more than just task failures; it creates significant delays for deliveries, legal procedures, and official sign-offs. These barriers render the platform unviable for most business use cases and have resulted in zero organic conversions.
+                </p>
+              </div>
             </div>
           </div>
           <div className="p-6 bg-orange-50 dark:bg-zinc-900 rounded-2xl border border-orange-100 dark:border-zinc-800">
             <div className="flex items-start gap-4">
               <span className="text-orange-600 dark:text-orange-400 font-mono font-bold mt-0.5">02</span>
-              <p className="text-gray-700 dark:text-gray-300 font-medium leading-relaxed">How might we improve the doc setup, send and track experience?</p>
+              <div className="text-gray-700 dark:text-gray-300 font-medium leading-relaxed space-y-4">
+                <p>
+                  Document owners are restricted to uploading static PDFs or images, forcing them to place signature fields manually rather than utilizing dynamic digital templates. Distribution is equally limited; documents can only be sent via email, forcing users to manually copy and paste links for other communication channels.
+                </p>
+                <p>
+                  Furthermore, collaboration is currently bypassed through unauthorized password sharing—a significant compliance and security risk. Without automated reminders or multi-channel integration, owners must manually follow up with signatories via email or message. This fragmented workflow is highly inefficient, particularly for power users managing more than 20 documents per day.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -226,6 +256,33 @@ const JioSignMobileCaseStudy: React.FC<JioSignMobileCaseStudyProps> = ({ onBack 
           </div>
         </div>
       </section>
+      
+      {/* New experiences for Document owners & signatories on mobile */}
+      <section className="px-6 md:px-10 max-w-3xl mx-auto mb-20">
+        <h2 className="text-3xl font-serif mb-10">New experiences for Document owners & signatories on mobile</h2>
+        <div className="overflow-hidden shadow-2xl bg-black" 
+             style={{ 
+               maxWidth: 'var(--video-width, 280px)', 
+               height: 'var(--video-height, auto)',
+               borderRadius: 'var(--video-radius, 28px)' 
+             }}>
+          <video 
+            src={jioSignVideo} 
+            controls 
+            autoPlay 
+            muted 
+            loop 
+            className="block"
+            style={{ 
+              width: 'var(--video-content-width, 100%)',
+              maxWidth: 'none',
+              transform: 'scale(var(--video-scale, 1)) translate(var(--video-tx, 0%), var(--video-ty, 0%))',
+              transformOrigin: 'center center'
+            }}
+            playsInline
+          />
+        </div>
+      </section>
 
       {/* AI Feature */}
       <section className="bg-orange-600 text-white py-20 mb-20 relative overflow-hidden">
@@ -275,11 +332,12 @@ const JioSignMobileCaseStudy: React.FC<JioSignMobileCaseStudyProps> = ({ onBack 
           <p><strong className="text-gray-900 dark:text-white">96% TCR</strong> — Signatories achieved a 96% task completion rate and were able to sign and submit documents in under <strong className="text-gray-900 dark:text-white">30 seconds</strong> when using the option to apply signatures to all slots at once.</p>
           <p><strong className="text-gray-900 dark:text-white">78 SUS · 8.5 NPS</strong> — Document owners rated the experience highly usable and were strong promoters of the platform.</p>
           <p><strong className="text-gray-900 dark:text-white">74 SUS · 8 NPS</strong> — Signatories found the signing flow intuitive and frictionless across devices.</p>
+          <p><strong className="text-gray-900 dark:text-white">10 Internal Businesses</strong> — Gained 10 internal businesses to adopt JioSign on completion of signatory & document owner experiences. While others agreed, these 10 switched to a yearly contract that would be easier to terminate when switching to JioSign.</p>
         </div>
       </section>
 
       <MoreProjects currentProjectId="jiosign-mobile" />
-
+      <VideoStudio />
     </div>
   );
 };
