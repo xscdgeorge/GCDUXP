@@ -47,9 +47,21 @@ const IdentityCaseStudy: React.FC<IdentityCaseStudyProps> = ({ onBack }) => {
           {isDarkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
         </button>
       </nav>
+      
+      {/* Cover Image */}
+      <section className="pt-0 px-6 md:px-10 max-w-[1062px] mx-auto mb-[80px]">
+        <div className="rounded-b-[32px] overflow-hidden aspect-[21/9] shadow-2xl relative group bg-gray-50 dark:bg-black/50 border border-gray-100 dark:border-zinc-800">
+          <img 
+            src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=2000" 
+            alt="Identity Dashboard" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none"></div>
+        </div>
+      </section>
 
       {/* Hero Header */}
-      <header className="pt-32 md:pt-48 px-6 md:px-10 max-w-3xl mx-auto mb-20">
+      <header className="px-6 md:px-10 max-w-3xl mx-auto mb-20">
         <div className="flex gap-3 mb-6">
           <span className="px-3 py-1 bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 rounded-full text-xs font-bold uppercase tracking-wider">Identity Ecosystem</span>
           <span className="px-3 py-1 bg-gray-50 dark:bg-zinc-900 text-gray-500 dark:text-gray-400 rounded-full text-xs font-bold uppercase tracking-wider">2022—2026</span>
@@ -59,7 +71,7 @@ const IdentityCaseStudy: React.FC<IdentityCaseStudyProps> = ({ onBack }) => {
           <span>fragmented customer base</span>
         </h1>
         <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl leading-relaxed mb-12">
-          Managing a fragmented base of 1B+ users to build a cohesive identity ecosystem for better cross-marketing and monetization across the Reliance ecosystem.
+          Managing a fragmented base of 1B+ users to build a cohesive identity ecosystem for better cross-marketing, monetization, and omni-channel experiences across the ecosystem.
         </p>
         <div className="flex flex-wrap gap-x-12 gap-y-6 border-t border-gray-100 dark:border-zinc-800 pt-8">
           <div>
@@ -77,23 +89,13 @@ const IdentityCaseStudy: React.FC<IdentityCaseStudyProps> = ({ onBack }) => {
         </div>
       </header>
 
-      {/* Featured Image */}
-      <section className="px-6 md:px-10 max-w-5xl mx-auto mb-24">
-        <div className="rounded-[32px] overflow-hidden aspect-[21/9] shadow-2xl relative group bg-gray-50 dark:bg-black/50 border border-gray-100 dark:border-zinc-800">
-          <img 
-            src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=2000" 
-            alt="Identity Dashboard" 
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none"></div>
-        </div>
-      </section>
+
 
       {/* The Challenge */}
       <section className="px-6 md:px-10 max-w-3xl mx-auto mb-20">
         <h2 className="text-3xl font-serif mb-6">The challenge</h2>
         <p className="text-gray-600 dark:text-gray-400 leading-[1.8] mb-6">
-          Managing a fragmented base of 1B+ users across multiple platforms. The goal was to build a cohesive identity ecosystem for better cross-marketing and monetization.
+          Managing a fragmented base of 1B+ users across multiple platforms. The goal was to build a cohesive identity ecosystem for better cross-marketing, monetization, and omni-channel experiences.
         </p>
         <div className="p-6 bg-gray-50 dark:bg-zinc-900/50 rounded-2xl border border-gray-100 dark:border-zinc-800">
           <h4 className="font-bold mb-4 flex items-center gap-2">
@@ -108,7 +110,7 @@ const IdentityCaseStudy: React.FC<IdentityCaseStudyProps> = ({ onBack }) => {
 
       {/* Managerial Strategy */}
       <section className="px-6 md:px-10 max-w-3xl mx-auto mb-20">
-        <h2 className="text-3xl font-serif mb-6">Managerial strategy</h2>
+        <h2 className="text-3xl font-serif mb-6">Managerial North Star</h2>
         <p className="text-gray-600 dark:text-gray-400 leading-[1.8] mb-10">
           As a manager, my contribution wasn't in the pixels, but in the alignment. I focused on creating a shared vision between the security architects and the product designers.
         </p>

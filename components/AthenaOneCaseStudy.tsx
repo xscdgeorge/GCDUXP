@@ -44,9 +44,17 @@ const AthenaOneCaseStudy: React.FC<AthenaOneCaseStudyProps> = ({ onBack }) => {
           {isDarkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
         </button>
       </nav>
+      
+      {/* Cover Image */}
+      <section className="pt-0 px-6 md:px-10 max-w-[1062px] mx-auto mb-[80px]">
+        <div className="rounded-b-[32px] overflow-hidden shadow-2xl relative group bg-gray-50 dark:bg-black/50 border border-gray-100 dark:border-zinc-800 w-full aspect-[21/9]">
+          <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=2000" alt="AthenaOne Dashboard Concept" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none"></div>
+        </div>
+      </section>
 
       {/* Hero Header */}
-      <header className="pt-32 md:pt-48 px-6 md:px-10 max-w-3xl mx-auto mb-20">
+      <header className="px-6 md:px-10 max-w-3xl mx-auto mb-20">
         <div className="flex gap-3 mb-6">
           <span className="px-3 py-1 bg-teal-50 dark:bg-teal-500/10 text-teal-600 dark:text-teal-400 rounded-full text-xs font-bold uppercase tracking-wider">Healthcare IT</span>
           <span className="px-3 py-1 bg-gray-50 dark:bg-zinc-900 text-gray-500 dark:text-gray-400 rounded-full text-xs font-bold uppercase tracking-wider">2023</span>
@@ -74,13 +82,7 @@ const AthenaOneCaseStudy: React.FC<AthenaOneCaseStudyProps> = ({ onBack }) => {
         </div>
       </header>
 
-      {/* Featured Image */}
-      <section className="px-6 md:px-10 max-w-5xl mx-auto mb-24">
-        <div className="rounded-[32px] overflow-hidden shadow-2xl relative group bg-gray-50 dark:bg-black/50 border border-gray-100 dark:border-zinc-800 w-full aspect-[21/9]">
-          <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=2000" alt="AthenaOne Dashboard Concept" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none"></div>
-        </div>
-      </section>
+
 
       {/* The Challenge */}
       <section className="px-6 md:px-10 max-w-3xl mx-auto mb-20">

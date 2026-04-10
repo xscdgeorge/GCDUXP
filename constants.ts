@@ -33,9 +33,9 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'idaas',
-    title: 'JioID',
+    title: "JioID: Unifying Reliance's fragmented customer base",
     category: 'Identity Ecosystem',
-    description: 'Guided UX for India\'s largest consumer social login, managing 1B+ users across a unified SSO ecosystem.',
+    description: 'Building an identity ecosystem for better cross-marketing, monetization, and omni-channel experiences across the Reliance ecosystem.',
     impact: '500M+ Unified Customers',
     image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=1000',
     year: '2022—2026'
@@ -80,30 +80,29 @@ export const PROJECTS: Project[] = [
 
 export const PHILOSOPHIES: Philosophy[] = [
   {
-    title: 'Coaching & Empowerment',
-    description: 'I focus on unlocking potential rather than dictating solutions. I built a multi-domain team of 9 in just 6 months.',
-    icon: 'Heart'
+    title: 'User Centred Design',
+    description: 'I ensure every product decision is rooted in qualitative research and validated through user centred design, keeping human needs at the core of technical innovation.',
+    icon: 'Users'
   },
   {
-    title: 'Cross-Functional Bridge',
-    description: 'Decision-maker and partner to C-suite leaders, aligning design, engineering, and product via E2E storytelling.',
+    title: 'North Star Vision & Evangelisation',
+    description: 'I translate vague direction into prioritised UX tasks to create a UX North Star. Then build towards that vision with focus.',
     icon: 'Target'
   },
-
   {
-    title: 'Storytelling for impact',
-    description: 'Crafting compelling narratives that align product goals with user realities, ensuring stakeholders understand the true "why" behind every decision.',
-    icon: 'Layout'
+    title: 'Cross-functional Bridge',
+    description: 'Decision-maker and partner to C-suite leaders, aligning design, engineering, and product by crafting compelling narratives that connect business goals with user realities.',
+    icon: 'Bridge'
+  },
+  {
+    title: 'Multi-Platform Design',
+    description: 'Deep experience in designing for diverse product ecosystems across iOS, Android, and Web, leveraging platform-native features while maintaining a unified core product experience.',
+    icon: 'Smartphone'
   },
   {
     title: 'Truly useful AI',
     description: 'Leveraging artificial intelligence to genuinely solve human problems and augment workflows, bypassing tech-for-tech\'s-sake gimmicks.',
     icon: 'Zap'
-  },
-  {
-    title: 'Vision & Focus',
-    description: 'Protecting the team\'s focus by translating chaotic roadmaps and business requirements into clear, executable UX strategies.',
-    icon: 'Target'
   },
   {
     title: 'Design Community',

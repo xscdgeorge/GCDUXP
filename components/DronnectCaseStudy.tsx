@@ -45,9 +45,17 @@ const DronnectCaseStudy: React.FC<DronnectCaseStudyProps> = ({ onBack }) => {
           {isDarkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
         </button>
       </nav>
+      
+      {/* Cover Image */}
+      <section className="pt-0 px-6 md:px-10 max-w-[1062px] mx-auto mb-[80px]">
+        <div className="rounded-b-[32px] overflow-hidden shadow-2xl relative group bg-white dark:bg-black">
+          <img src={dronnectHeroImg} alt="Drone hovering over power station" className="w-full h-auto object-cover aspect-[21/9]" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent pointer-events-none"></div>
+        </div>
+      </section>
 
       {/* Hero Header */}
-      <header className="pt-32 md:pt-48 px-6 md:px-10 max-w-3xl mx-auto mb-20">
+      <header className="px-6 md:px-10 max-w-3xl mx-auto mb-20">
         <div className="flex gap-3 mb-6">
           <span className="px-3 py-1 bg-sky-50 dark:bg-sky-500/10 text-sky-600 dark:text-sky-400 rounded-full text-xs font-bold uppercase tracking-wider">Funded PoC</span>
           <span className="px-3 py-1 bg-gray-50 dark:bg-zinc-900 text-gray-500 dark:text-gray-400 rounded-full text-xs font-bold uppercase tracking-wider">2017</span>
@@ -75,13 +83,7 @@ const DronnectCaseStudy: React.FC<DronnectCaseStudyProps> = ({ onBack }) => {
         </div>
       </header>
 
-      {/* Featured Image */}
-      <section className="px-6 md:px-10 max-w-5xl mx-auto mb-24 flex justify-center">
-        <div className="rounded-[32px] overflow-hidden shadow-2xl relative group bg-white dark:bg-black inline-block">
-          <img src={dronnectHeroImg} alt="Drone hovering over power station" className="max-w-full h-auto" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent pointer-events-none"></div>
-        </div>
-      </section>
+
 
       {/* The Challenge */}
       <section className="px-6 md:px-10 max-w-3xl mx-auto mb-20">
@@ -102,7 +104,7 @@ const DronnectCaseStudy: React.FC<DronnectCaseStudyProps> = ({ onBack }) => {
 
       {/* Value Proposition */}
       <section className="px-6 md:px-10 max-w-3xl mx-auto mb-20">
-        <h2 className="text-3xl font-serif mb-6">Value Proposition Strategy</h2>
+        <h2 className="text-3xl font-serif mb-6">Value Proposition North Star</h2>
         <p className="text-gray-600 dark:text-gray-400 leading-[1.8] mb-10">
           Dronnect was proposed as the essential bridge: natively injecting "go-anywhere" cameras directly into Max Pro Cloud. It transforms surveillance paradigms to aggressively bypass geographical installation bottlenecks affecting large plants.
         </p>

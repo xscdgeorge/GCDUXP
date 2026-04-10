@@ -2,11 +2,28 @@ import React from 'react';
 import { PROJECTS, PHILOSOPHIES, TESTIMONIALS } from '../constants';
 import heroImage from '../george-profilepicture3.jpg';
 import heroImageLight from '../georgeherowhitebg.png';
-import { ArrowUpRight, ArrowDown, Heart, Zap, Users, Target, Layout, Sun, Moon } from 'lucide-react';
+import { ArrowUpRight, ArrowDown, Heart, Zap, Users, Target, Layout, Sun, Moon, Waypoints, Layers, Smartphone, Laptop, Watch } from 'lucide-react';
 
 interface OptionAProps {
   onProjectClick: (id: string) => void;
 }
+
+const BridgeIcon = ({ className }: { className?: string }) => (
+  <svg 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="2" 
+    strokeLinecap="round" 
+    strokeLinejoin="round" 
+    className={className}
+  >
+    <path d="M2 16h20" />
+    <path d="M7 6v14" />
+    <path d="M17 6v14" />
+    <path d="M2 16c5-5 5-10 5-10s3 5 5 5 5-5 5-5 0 5 5 10" />
+  </svg>
+);
 
 const OptionA: React.FC<OptionAProps> = ({ onProjectClick }) => {
   const [isDarkMode, setIsDarkMode] = React.useState(
@@ -24,6 +41,16 @@ const OptionA: React.FC<OptionAProps> = ({ onProjectClick }) => {
       case 'Zap': return <Zap className="w-5 h-5" />;
       case 'Users': return <Users className="w-5 h-5" />;
       case 'Target': return <Target className="w-5 h-5" />;
+      case 'Waypoints': return <Waypoints className="w-5 h-5" />;
+      case 'Bridge': return <BridgeIcon className="w-5 h-5" />;
+      case 'Layers': return <Layers className="w-5 h-5" />;
+      case 'Smartphone': return (
+        <div className="flex items-center gap-1.5">
+          <Smartphone className="w-5 h-5" />
+          <Laptop className="w-5 h-5" />
+          <Watch className="w-5 h-5" />
+        </div>
+      );
       default: return <Layout className="w-5 h-5" />;
     }
   };
@@ -72,7 +99,7 @@ const OptionA: React.FC<OptionAProps> = ({ onProjectClick }) => {
                 </span>
               </div>
               <p className="text-[18px] font-light text-gray-700 dark:text-gray-200 max-w-[520px] leading-relaxed mt-8 transition-colors duration-500">
-                I coach teams to build products people love. With over 15 years of multi-domain experience, I help organizations navigate the space between customer goals and technical feasibility. Having managed diverse teams of up to 8 designers, I focus on fostering a culture of ownership, evidence-based strategy, and cross-functional collaboration.
+                I lead teams to build products people love, and help organisations navigate the space between customer goals, and technical feasibility. I bring 15 years of multi-domain experience in building connected products. I currently manage diverse teams of up to 5 designers, I focus on fostering a culture of ownership, user centred design, and cross-functional collaboration.
               </p>
             </div>
           </div>
@@ -86,7 +113,7 @@ const OptionA: React.FC<OptionAProps> = ({ onProjectClick }) => {
           <div className="font-sans text-gray-800 dark:text-gray-200 space-y-6 text-lg leading-relaxed mb-16 max-w-3xl">
             <h2 className="text-[42px] font-serif leading-tight text-black dark:text-white border-none bg-transparent">Leadership</h2>
             <p>
-              In my 14+ years of experience, I've learned that the best products come from healthy teams. My approach focuses on coaching, empowerment, and strategic scalability.
+              In my 15 years of experience, I've learned that the best products come from healthy teams. My approach focuses on coaching, empowerment, and strategic scalability.
             </p>
           </div>
 
@@ -121,7 +148,7 @@ const OptionA: React.FC<OptionAProps> = ({ onProjectClick }) => {
               <div className="w-full h-48 mb-6 overflow-hidden rounded-md">
                 <img src={project.image} alt={project.title} className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105" referrerPolicy="no-referrer" />
               </div>
-              <span className="text-xs font-mono text-gray-400 dark:text-zinc-500 mb-3 block">0{index + 1} / {project.category}</span>
+              <span className="text-xs font-mono text-gray-400 dark:text-zinc-500 mb-3 block">{project.category}</span>
               <h3 className="text-[24px] font-sans font-medium mb-4 group-hover:translate-x-2 transition-transform duration-300 text-black dark:text-white">{project.title}</h3>
               <p className="text-gray-500 dark:text-gray-400 mb-6 flex-grow">{project.description}</p>
               <div className="mt-auto flex items-center justify-between w-full">
