@@ -6,6 +6,7 @@ import JioConsentCaseStudy from './components/JioConsentCaseStudy';
 import RetailAICaseStudy from './components/RetailAICaseStudy';
 import AthenaOneCaseStudy from './components/AthenaOneCaseStudy';
 import JioSignMobileCaseStudy from './components/JioSignMobileCaseStudy';
+import Resume from './components/Resume';
 
 function App() {
   const [route, setRoute] = useState<string>(window.location.hash);
@@ -47,6 +48,10 @@ function App() {
 
     const caseStudy = caseStudyMap[projectId] || <IdentityCaseStudy onBack={handleBack} />;
     return <div className="relative min-h-screen">{caseStudy}</div>;
+  }
+
+  if (route === '#/resume') {
+    return <Resume onBack={handleBack} />;
   }
 
   // Otherwise render the home page

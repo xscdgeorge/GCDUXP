@@ -1,10 +1,182 @@
 import React from 'react';
-import { ArrowLeft, Users, Shield, Zap, Target, MessageSquare, CheckCircle2, Search, Lightbulb, Sparkles, TestTube2, Layout, Fingerprint, Key, BarChart3, Sun, Moon } from 'lucide-react';
+import { ArrowLeft, Users, Shield, Zap, Target, MessageSquare, CheckCircle2, Search, Lightbulb, Sparkles, TestTube2, Layout, Fingerprint, Key, BarChart3, Sun, Moon, ChevronLeft, ChevronRight, Play, Pause, Grid2X2, Route } from 'lucide-react';
 import MoreProjects from './MoreProjects';
+import jioIdHeroImg from '../JioID/JioIDDesktopHome.png';
+import signInCrossPlatformImg from '../JioID/SignIncrossPlatfrom.png';
 
 interface IdentityCaseStudyProps {
   onBack: () => void;
 }
+
+interface WorkflowCarouselProps {
+  label: string;
+  steps: { image: string, title: string, description: string }[];
+  layout: "text-left" | "text-right";
+}
+
+const WorkflowCarousel: React.FC<WorkflowCarouselProps> = ({ label, steps, layout }) => {
+  const [currentSlide, setCurrentSlide] = React.useState(0);
+  const [isPaused, setIsPaused] = React.useState(false);
+  const [isVisible, setIsVisible] = React.useState(false);
+  const containerRef = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.2 }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  React.useEffect(() => {
+    if (isPaused || !isVisible) return;
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % steps.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [isPaused, isVisible, steps.length]);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % steps.length);
+    setIsPaused(true);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev === 0 ? steps.length - 1 : prev - 1));
+    setIsPaused(true);
+  };
+
+  const textColumn = (
+    <div className={`lg:col-span-4 flex flex-col ${layout === "text-left" ? "order-2 lg:order-1" : "order-2 lg:order-2"}`}>
+      <div className="space-y-8">
+        <div className="space-y-4">
+          <span className="text-indigo-600 dark:text-indigo-400 font-mono text-sm tracking-widest uppercase font-bold">{label}</span>
+        </div>
+        
+        <div 
+          key={currentSlide}
+          className="min-h-[220px] transition-all duration-500 animate-in fade-in slide-in-from-left-4"
+        >
+          <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
+            {steps[currentSlide].title}
+          </h3>
+          <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
+            {steps[currentSlide].description}
+          </p>
+        </div>
+      </div>
+
+      <div className="mt-auto space-y-8 pt-12">
+        <div className="flex gap-2">
+          {steps.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => { setCurrentSlide(index); setIsPaused(true); }}
+              className={`h-1 rounded-full transition-all duration-500 ${
+                index === currentSlide ? 'w-10 bg-indigo-600' : 'w-2 bg-gray-200 dark:bg-zinc-800 hover:bg-gray-300 dark:hover:bg-zinc-700'
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
+
+        <div className="flex gap-4 items-center">
+          <button 
+            onClick={prevSlide}
+            className="w-12 h-12 rounded-full border border-gray-200 dark:border-zinc-800 flex items-center justify-center hover:bg-gray-50 dark:hover:bg-zinc-800 transition-all hover:scale-110"
+            aria-label="Previous slide"
+          >
+            <ChevronLeft size={24} />
+          </button>
+
+          <button 
+            onClick={() => setIsPaused(!isPaused)}
+            className="w-12 h-12 rounded-full border border-gray-200 dark:border-zinc-800 flex items-center justify-center hover:bg-gray-50 dark:hover:bg-zinc-800 transition-all hover:scale-110"
+            aria-label={isPaused ? "Play slideshow" : "Pause slideshow"}
+          >
+            {isPaused ? <Play size={20} /> : <Pause size={20} />}
+          </button>
+
+          <button 
+            onClick={nextSlide}
+            className="w-12 h-12 rounded-full border border-gray-200 dark:border-zinc-800 flex items-center justify-center hover:bg-gray-50 dark:hover:bg-zinc-800 transition-all hover:scale-110"
+            aria-label="Next slide"
+          >
+            <ChevronRight size={24} />
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+
+  const imageColumn = (
+    <div className={`lg:col-span-8 ${layout === "text-left" ? "order-1 lg:order-2" : "order-1 lg:order-1"}`}>
+      <div 
+        className="relative"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+      >
+        <div className="relative rounded-[32px] overflow-hidden shadow-2xl bg-white dark:bg-white border border-gray-100 dark:border-zinc-800 aspect-[16/11] max-w-[800px] w-full mx-auto">
+          <div 
+            className="flex h-full transition-transform duration-1000 ease-out"
+            style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+          >
+            {steps.map((step, index) => (
+              <div key={index} className="min-w-full h-full flex items-center justify-center bg-white dark:bg-white">
+                <img 
+                  src={step.image} 
+                  alt={step.title} 
+                  className="w-full h-full object-contain mx-auto" 
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
+  return (
+    <div ref={containerRef} className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-stretch pt-8">
+      {layout === "text-left" ? (
+        <>
+          {textColumn}
+          {imageColumn}
+        </>
+      ) : (
+        <>
+          {imageColumn}
+          {textColumn}
+        </>
+      )}
+    </div>
+  );
+};
+
+const IDENTITY_CAROUSEL_STEPS = [
+  {
+    image: signInCrossPlatformImg,
+    title: "Unified Login",
+    description: "Unified authentication across all platforms, through native SDKs and Web Redirects."
+  },
+  {
+    image: jioIdHeroImg,
+    title: "Contextual Authentication",
+    description: "Risk-based intelligence — if you're on a trusted network and device, the system stays out of your way."
+  },
+  {
+    image: jioIdHeroImg,
+    title: "Unified Account Portal",
+    description: "An 'identity hub' that can manage user data centrally and share essential data when required to provide seamless experiences. For example, speeding up checkout by providing saved addresses or payment data."
+  }
+];
 
 const IdentityCaseStudy: React.FC<IdentityCaseStudyProps> = ({ onBack }) => {
   const [isDarkMode, setIsDarkMode] = React.useState(
@@ -52,7 +224,7 @@ const IdentityCaseStudy: React.FC<IdentityCaseStudyProps> = ({ onBack }) => {
       <section className="pt-0 px-6 md:px-10 max-w-[1062px] mx-auto mb-[80px]">
         <div className="rounded-b-[32px] overflow-hidden aspect-[21/9] shadow-2xl relative group bg-gray-50 dark:bg-black/50 border border-gray-100 dark:border-zinc-800">
           <img 
-            src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=2000" 
+            src={jioIdHeroImg} 
             alt="Identity Dashboard" 
             className="w-full h-full object-cover"
           />
@@ -67,24 +239,24 @@ const IdentityCaseStudy: React.FC<IdentityCaseStudyProps> = ({ onBack }) => {
           <span className="px-3 py-1 bg-gray-50 dark:bg-zinc-900 text-gray-500 dark:text-gray-400 rounded-full text-xs font-bold uppercase tracking-wider">2022—2026</span>
         </div>
         <h1 className="text-5xl md:text-7xl font-serif leading-tight mb-8">
-          JioID: Unifying Reliance's <br/>
-          <span>fragmented customer base</span>
+          JioID: Unified <br/>
+          <span>Customer Identity</span>
         </h1>
-        <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl leading-relaxed mb-12">
-          Managing a fragmented base of 1B+ users to build a cohesive identity ecosystem for better cross-marketing, monetization, and omni-channel experiences across the ecosystem.
+        <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl leading-relaxed mb-12">
+          I translated and executed an ambiguous vision by breaking it down into multiple services, and taking ownership of the most critical ones. Starting with JioID — an Identity, authentication, and account management service. Other services like Loyalty & Rewards, Payment & Subscription, Super Profile, Cross-platform experiences, etc. can work seamlessly only after JioID.
         </p>
         <div className="flex flex-wrap gap-x-12 gap-y-6 border-t border-gray-100 dark:border-zinc-800 pt-8">
           <div>
-            <h4 className="text-xs font-mono uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-2">Omnichannel Scope</h4>
-            <p className="font-medium">iOS, Android, Feature Phones, TV, Web, JioBook</p>
+            <h4 className="text-xs font-mono uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-2">The Team</h4>
+            <p className="font-medium">5 UXers, 1 UI Designer, 30+ Dev, 3 Product Managers</p>
           </div>
           <div>
-            <h4 className="text-xs font-mono uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-2">C-Suite Alignment</h4>
-            <p className="font-medium">Direct collaboration with Chairman's Office</p>
+            <h4 className="text-xs font-mono uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-2">My Role</h4>
+            <p className="font-medium">UX Manager / Strategic Lead</p>
           </div>
           <div>
             <h4 className="text-xs font-mono uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-2">Key Outcome</h4>
-            <p className="font-medium text-indigo-600 dark:text-indigo-400">500M+ Unified Customers</p>
+            <p className="font-medium text-indigo-600 dark:text-indigo-400">Enabled Customer ID Unification across all platforms</p>
           </div>
         </div>
       </header>
@@ -93,28 +265,121 @@ const IdentityCaseStudy: React.FC<IdentityCaseStudyProps> = ({ onBack }) => {
 
       {/* The Challenge */}
       <section className="px-6 md:px-10 max-w-3xl mx-auto mb-20">
-        <h2 className="text-3xl font-serif mb-6">The challenge</h2>
+        <h2 className="text-3xl font-serif mb-6">The Situation</h2>
         <p className="text-gray-600 dark:text-gray-400 leading-[1.8] mb-6">
-          Managing a fragmented base of 1B+ users across multiple platforms. The goal was to build a cohesive identity ecosystem for better cross-marketing, monetization, and omni-channel experiences.
+          A consulting company had drawn an Applesque vision for Reliance before the DPDP act was announced. We had to figure out ways to get Reliance — a company with many CEOs and the lack of a shared vision — to share customer data and integrate into each others apps & platforms, to provide a seamless ecosystem like customer experience. Unlike Apple or Google, who started out by requiring an email id to create an account, or how all their apps use this account to identify you as an existing customer, Reliance faces many challenges both external and internal.
         </p>
-        <div className="p-6 bg-gray-50 dark:bg-zinc-900/50 rounded-2xl border border-gray-100 dark:border-zinc-800">
-          <h4 className="font-bold mb-4 flex items-center gap-2">
-            <Shield size={18} className="text-indigo-600 dark:text-indigo-400" />
-            Unified SSO
-          </h4>
-          <p className="text-gray-500 dark:text-gray-400 leading-relaxed">
-            Reduced friction in app-to-app referrals across the Reliance ecosystem, backed by KYC'd mobile data.
-          </p>
+        <p className="text-gray-600 dark:text-gray-400 leading-[1.8] mb-6">
+          I lead a few critical initiatives to create a single identity per customer: Identity (JioID), Authentication (JioAuth) and Consent platforms. I am also an advisor to other teams — Jio Design System, Loyalty & Rewards and Customer Intelligence.
+        </p>
+
+      </section>
+
+      {/* Design Thinking */}
+      <section className="px-6 md:px-10 max-w-3xl mx-auto mb-20 border-t border-gray-100 dark:border-zinc-800 pt-16">
+        <h2 className="text-3xl font-serif mb-6">Design Thinking</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="p-6 bg-gray-50 dark:bg-zinc-900/50 rounded-2xl border border-gray-100 dark:border-zinc-800 space-y-3">
+            <Grid2X2 size={24} className="text-indigo-600 dark:text-indigo-400" />
+            <h3 className="text-lg font-bold">OOUX Workshops</h3>
+            <p className="text-gray-500 dark:text-gray-400 leading-relaxed text-sm">
+              I facilitated Object-Oriented UX workshops to remove misconceptions and align cross-functional teams of Design, Product, Engineering, Business, internal customers, and SMEs for JioID.
+            </p>
+          </div>
+          <div className="p-6 bg-gray-50 dark:bg-zinc-900/50 rounded-2xl border border-gray-100 dark:border-zinc-800 space-y-3">
+            <Route size={24} className="text-blue-600 dark:text-blue-400" />
+            <h3 className="text-lg font-bold">Customer Journey Mapping</h3>
+            <p className="text-gray-500 dark:text-gray-400 leading-relaxed text-sm">
+              I co-facilitated workshops with key stakeholders to validate, align, and add nuance to the customer journey map as we transitioned to a unified identity platform.
+            </p>
+          </div>
+          <div className="md:col-span-2 p-6 bg-gray-50 dark:bg-zinc-900/50 rounded-2xl border border-gray-100 dark:border-zinc-800 space-y-3">
+            <TestTube2 size={24} className="text-purple-600 dark:text-purple-400" />
+            <h3 className="text-lg font-bold">Concept Testing</h3>
+            <p className="text-gray-500 dark:text-gray-400 leading-relaxed text-sm">
+              We ran early concept tests across multiple Reliance apps to ensure the unified login experience felt seamless and trustworthy for 1B+ users.
+            </p>
+          </div>
         </div>
       </section>
 
       {/* Managerial Strategy */}
       <section className="px-6 md:px-10 max-w-3xl mx-auto mb-20">
-        <h2 className="text-3xl font-serif mb-6">Managerial North Star</h2>
+        <h2 className="text-3xl font-serif mb-6">Research findings</h2>
         <p className="text-gray-600 dark:text-gray-400 leading-[1.8] mb-10">
-          As a manager, my contribution wasn't in the pixels, but in the alignment. I focused on creating a shared vision between the security architects and the product designers.
+          Due to the scale & visibility of this initiative, I was deeply involved in personally interviewing customers and senior stakeholders, both internally and externally.
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="p-6 bg-red-50 dark:bg-red-500/10 rounded-2xl border border-red-100 dark:border-red-500/20 mb-10">
+          <h4 className="text-sm font-mono uppercase tracking-widest text-red-600 dark:text-red-400 mb-3">ID & Auth Problem Statement</h4>
+          <p className="text-gray-700 dark:text-gray-300 leading-relaxed font-medium">
+            Customers needlessly authenticate themselves to our IDAM because each app maintains separate accounts for their customers. This is expensive and wasteful. The setup also prevents intelligence that could have provided seamless & personalised experiences across every touchpoint across Reliance, and kept engagement and expenditure higher.
+          </p>
+        </div>
+
+
+
+        <ul className="space-y-4 mb-10">
+          <li className="flex items-start gap-3"><CheckCircle2 size={16} className="text-red-500 mt-1 shrink-0" /> <span className="text-gray-600 dark:text-gray-400 leading-[1.8]"><strong className="text-gray-900 dark:text-white">Auth Fatigue:</strong> The more Reliance apps our customers used, the more they had to login, questioning their identity throughout the day. Participants also questioned the need for another social login, having previously forgotten which social login they had used on which app.</span></li>
+          <li className="flex items-start gap-3"><CheckCircle2 size={16} className="text-red-500 mt-1 shrink-0" /> <span className="text-gray-600 dark:text-gray-400 leading-[1.8]"><strong className="text-gray-900 dark:text-white">OTP vs Password:</strong> Passwords are harder to remember than they are to create. Autofilling OTPs are not just preferred; they are expected.</span></li>
+          <li className="flex items-start gap-3"><CheckCircle2 size={16} className="text-red-500 mt-1 shrink-0" /> <span className="text-gray-600 dark:text-gray-400 leading-[1.8]"><strong className="text-gray-900 dark:text-white">MFA & Mobile Number Transfers:</strong> People often don't see the need for MFA. However, if a mobile number is recycled to a new owner, they could gain access to the previous customer’s sensitive data. Currently, company policy dictates that responsibility ends at the OTP.</span></li>
+          <li className="flex items-start gap-3"><CheckCircle2 size={16} className="text-red-500 mt-1 shrink-0" /> <span className="text-gray-600 dark:text-gray-400 leading-[1.8]"><strong className="text-gray-900 dark:text-white">Loyalty Points:</strong> Customers feel that their loyalty to the Reliance brand isn’t recognized because their ROne points are fragmented across different verticals.</span></li>
+          <li className="flex items-start gap-3"><CheckCircle2 size={16} className="text-red-500 mt-1 shrink-0" /> <span className="text-gray-600 dark:text-gray-400 leading-[1.8]"><strong className="text-gray-900 dark:text-white">Not so personal:</strong> Mobile devices in India are often shared between family members. Users also carry multiple mobile numbers from various providers, and entering the wrong number can result in a successful login to the wrong account.</span></li>
+          <li className="flex items-start gap-3"><CheckCircle2 size={16} className="text-red-500 mt-1 shrink-0" /> <span className="text-gray-600 dark:text-gray-400 leading-[1.8]"><strong className="text-gray-900 dark:text-white">Internal resistance:</strong> Reliance businesses prefer to operate independently due to previous failed attempts. Most businesses also avoid cross-app journeys as they don't want users to leave their platform for another Reliance app.</span></li>
+          <li className="flex items-start gap-3"><CheckCircle2 size={16} className="text-red-500 mt-1 shrink-0" /> <span className="text-gray-600 dark:text-gray-400 leading-[1.8]"><strong className="text-gray-900 dark:text-white">Accessibility Gaps:</strong> MFA methods were not inclusive of users with visual impairments or those in low-connectivity areas.</span></li>
+          <li className="flex items-start gap-3"><CheckCircle2 size={16} className="text-emerald-500 mt-1 shrink-0" /> <span className="text-gray-600 dark:text-gray-400 leading-[1.8]"><strong className="text-gray-900 dark:text-white">Mobile No. Advantage:</strong> Unlike email-based accounts, mobile number accounts in India are largely linked to real people rather than bots, facilitating robust fraud detection and security.</span></li>
+          <li className="flex items-start gap-3"><CheckCircle2 size={16} className="text-orange-500 mt-1 shrink-0" /> <span className="text-gray-600 dark:text-gray-400 leading-[1.8]"><strong className="text-gray-900 dark:text-white">Zero login auth:</strong> Historically, ZLA was a boon for Jio Telco customers on Reliance hardware, enabling a frictionless experience for all literacy levels. However, as we expand to serve all Indians across diverse platforms, implementing ZLA has become significantly more expensive.</span></li>
+        </ul>
+        <div className="p-8 bg-indigo-50 dark:bg-indigo-500/10 rounded-2xl border border-indigo-100 dark:border-indigo-500/20">
+          <blockquote className="text-xl font-serif text-indigo-900 dark:text-indigo-200 mb-4 leading-relaxed">
+            "I spend more time proving who I am than actually doing my job. It feels like the system doesn't trust me."
+          </blockquote>
+          <cite className="text-sm font-bold text-indigo-700 dark:text-indigo-400 not-italic">— Super user, survey response</cite>
+        </div>
+      </section>
+
+
+
+
+
+      {/* North Star Design */}
+      <section className="bg-white dark:bg-zinc-950 pt-16 md:pt-20 pb-24 md:pb-32 mb-32 border-y border-gray-100 dark:border-zinc-800/50 transition-colors duration-500 overflow-hidden">
+        <div className="px-6 md:px-16 lg:px-24 max-w-7xl mx-auto">
+          <div className="text-center mb-20">
+            <h2 className="text-3xl font-serif mb-6 text-center mx-auto">Solution</h2>
+            <div className="flex flex-wrap justify-center gap-3">
+              {['Seamless', 'Privacy-First', 'Unified', 'Inclusive', 'Omnichannel', 'Secure'].map((p, i) => (
+                <div key={i} className="px-5 py-3 bg-gray-50 dark:bg-zinc-900/60 rounded-full border border-gray-100 dark:border-zinc-800 flex items-center gap-2">
+                  <CheckCircle2 size={16} className="text-indigo-600 shrink-0" />
+                  <span className="font-medium text-gray-700 dark:text-gray-300">{p}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="space-y-[100px]">
+            <WorkflowCarousel 
+              label="Unified Identity Experience" 
+              steps={IDENTITY_CAROUSEL_STEPS} 
+              layout="text-left" 
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* The Solution: Invisible Security */}
+      <section className="px-6 md:px-10 max-w-3xl mx-auto mb-20">
+        <h2 className="text-3xl font-serif mb-6">The solution: invisible security</h2>
+        <p className="text-gray-600 dark:text-gray-400 leading-[1.8] mb-10">
+          We moved toward a model where security stays out of the user's way. If you're on a trusted network and device, authentication happens in the background.
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="p-6 bg-gray-50 dark:bg-zinc-900/50 rounded-2xl border border-gray-100 dark:border-zinc-800 space-y-3">
+            <Shield size={24} className="text-indigo-600 dark:text-indigo-400" />
+            <h3 className="text-lg font-bold">Unified SSO</h3>
+            <p className="text-gray-500 dark:text-gray-400 leading-relaxed">
+              Reduced friction in app-to-app referrals across the Reliance ecosystem, backed by KYC'd mobile data.
+            </p>
+          </div>
           <div className="p-6 bg-gray-50 dark:bg-zinc-900/50 rounded-2xl border border-gray-100 dark:border-zinc-800 space-y-3">
             <Users size={24} className="text-indigo-600 dark:text-indigo-400" />
             <h3 className="text-lg font-bold">Cross-functional synergy</h3>
@@ -129,66 +394,6 @@ const IdentityCaseStudy: React.FC<IdentityCaseStudyProps> = ({ onBack }) => {
               Shifted the team from "feature-delivery" to "outcome-tracking," focusing on metrics like 'Time to First Login' and 'MFA Completion Rate'.
             </p>
           </div>
-        </div>
-      </section>
-
-      {/* Empowering the Team */}
-      <section className="bg-indigo-600 dark:bg-indigo-900 text-white py-20 mb-20 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 blur-[100px] rounded-full"></div>
-        <div className="px-6 md:px-10 max-w-3xl mx-auto relative z-10">
-          <div className="flex items-center gap-4 mb-8">
-            <Sparkles size={32} />
-            <h2 className="text-4xl font-serif">Empowering the team</h2>
-          </div>
-          <p className="text-indigo-100 text-xl leading-[1.8] mb-10">
-            My primary contribution was enabling my team to do their best work. Here is how I supported the key pillars of this project through my people.
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            <div className="p-6 bg-white/10 rounded-2xl backdrop-blur-sm border border-white/20">
-              <Layout className="mb-4 text-indigo-200" />
-              <h4 className="font-bold mb-2">The design system</h4>
-              <p className="text-indigo-100 leading-relaxed">I coached our Senior Designer, Marcus, to lead the creation of a 'Security Component Library'. I focused on helping him navigate stakeholder pushback on custom UI patterns.</p>
-            </div>
-            <div className="p-6 bg-white/10 rounded-2xl backdrop-blur-sm border border-white/20">
-              <Search className="mb-4 text-indigo-200" />
-              <h4 className="font-bold mb-2">User-centric security</h4>
-              <p className="text-indigo-100 leading-relaxed">I secured budget for external usability testing for our researcher, Elena. I advocated for her findings in C-suite meetings when security requirements threatened usability.</p>
-            </div>
-            <div className="p-6 bg-white/10 rounded-2xl backdrop-blur-sm border border-white/20">
-              <Zap className="mb-4 text-indigo-200" />
-              <h4 className="font-bold mb-2">Technical feasibility</h4>
-              <p className="text-indigo-100 leading-relaxed">I worked closely with the Lead Engineer, Chen, to ensure our design specs were technically viable within the OIDC/SAML constraints, preventing late-stage rework.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Deep Dive: Customer Needs */}
-      <section className="px-6 md:px-10 max-w-3xl mx-auto mb-20">
-        <h2 className="text-3xl font-serif mb-6">Deep dive: customer needs</h2>
-        <p className="text-gray-600 dark:text-gray-400 leading-[1.8] mb-6">
-          Our research revealed that the primary challenge wasn't just technical; it was psychological. Users felt that security was an "interruption" to their actual work, leading to a culture of bypasses.
-        </p>
-        <ul className="space-y-4 mb-10">
-          <li className="flex items-start gap-3"><CheckCircle2 size={16} className="text-red-500 mt-1 shrink-0" /> <span className="text-gray-600 dark:text-gray-400 leading-[1.8]"><strong className="text-gray-900 dark:text-white">Auth Fatigue:</strong> Users were logging in up to 15 times a day across different legacy systems.</span></li>
-          <li className="flex items-start gap-3"><CheckCircle2 size={16} className="text-red-500 mt-1 shrink-0" /> <span className="text-gray-600 dark:text-gray-400 leading-[1.8]"><strong className="text-gray-900 dark:text-white">Shadow IT:</strong> 30% of employees admitted to using unauthorized tools to avoid the login process.</span></li>
-          <li className="flex items-start gap-3"><CheckCircle2 size={16} className="text-red-500 mt-1 shrink-0" /> <span className="text-gray-600 dark:text-gray-400 leading-[1.8]"><strong className="text-gray-900 dark:text-white">Accessibility Gaps:</strong> MFA methods were not inclusive of users with visual impairments or those in low-connectivity areas.</span></li>
-        </ul>
-        <div className="p-8 bg-indigo-50 dark:bg-indigo-500/10 rounded-2xl border border-indigo-100 dark:border-indigo-500/20">
-          <blockquote className="text-xl font-serif text-indigo-900 dark:text-indigo-200 mb-4 leading-relaxed">
-            "I spend more time proving who I am than actually doing my job. It feels like the system doesn't trust me."
-          </blockquote>
-          <cite className="text-sm font-bold text-indigo-700 dark:text-indigo-400 not-italic">— Senior Analyst, User Interview</cite>
-        </div>
-      </section>
-
-      {/* The Solution: Invisible Security */}
-      <section className="px-6 md:px-10 max-w-3xl mx-auto mb-20">
-        <h2 className="text-3xl font-serif mb-6">The solution: invisible security</h2>
-        <p className="text-gray-600 dark:text-gray-400 leading-[1.8] mb-10">
-          We moved toward a model where security stays out of the user's way. If you're on a trusted network and device, authentication happens in the background.
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="p-6 bg-gray-50 dark:bg-zinc-900/50 rounded-2xl border border-gray-100 dark:border-zinc-800 space-y-3">
             <Shield size={24} className="text-emerald-600 dark:text-emerald-400" />
             <h3 className="text-lg font-bold">Contextual auth</h3>

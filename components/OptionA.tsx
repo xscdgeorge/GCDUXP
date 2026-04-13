@@ -2,7 +2,7 @@ import React from 'react';
 import { PROJECTS, PHILOSOPHIES, TESTIMONIALS } from '../constants';
 import heroImage from '../george-profilepicture3.jpg';
 import heroImageLight from '../georgeherowhitebg.png';
-import { ArrowUpRight, ArrowDown, Heart, Zap, Users, Target, Layout, Sun, Moon, Waypoints, Layers, Smartphone, Laptop, Watch } from 'lucide-react';
+import { ArrowUpRight, ArrowDown, Heart, Zap, Users, Target, Layout, Sun, Moon, Waypoints, Layers, Smartphone, Laptop, Watch, ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface OptionAProps {
   onProjectClick: (id: string) => void;
@@ -26,6 +26,7 @@ const BridgeIcon = ({ className }: { className?: string }) => (
 );
 
 const OptionA: React.FC<OptionAProps> = ({ onProjectClick }) => {
+  const [currentTestimonial, setCurrentTestimonial] = React.useState(0);
   const [isDarkMode, setIsDarkMode] = React.useState(
     document.documentElement.classList.contains('dark')
   );
@@ -56,13 +57,14 @@ const OptionA: React.FC<OptionAProps> = ({ onProjectClick }) => {
   };
 
   return (
-    <div className="bg-white dark:bg-zinc-950 min-h-screen text-gray-900 dark:text-gray-100 font-sans selection:bg-gray-900 selection:text-white dark:selection:bg-white dark:selection:text-gray-900 pb-20 transition-colors duration-500">
+    <div className="bg-[#f2ebde] dark:bg-zinc-950 min-h-screen text-[#433422] dark:text-gray-100 font-sans selection:bg-[#433422] selection:text-[#f2ebde] dark:selection:bg-white dark:selection:text-gray-900 pb-20 transition-colors duration-500">
       {/* Header */}
-      <nav className="fixed top-0 w-full py-[20px] px-[30px] flex justify-between items-center bg-white dark:bg-black z-40 transition-colors duration-500">
-        <span className="text-[24px] font-serif font-medium tracking-[0.01em] text-gray-900 dark:text-white drop-shadow-none dark:drop-shadow-md transition-colors duration-500">George<span className="text-orange-500">.</span></span>
+      <nav className="fixed top-0 w-full py-[20px] px-[30px] flex justify-between items-center bg-[#f2ebde] dark:bg-black z-40 transition-colors duration-500">
+        <span className="text-[24px] font-serif font-medium tracking-[0.01em] text-[#433422] dark:text-white drop-shadow-none dark:drop-shadow-md transition-colors duration-500">George<span className="text-orange-500">.</span></span>
         <div className="flex gap-8 items-center text-sm font-normal text-gray-600 dark:text-gray-200 drop-shadow-none dark:drop-shadow-md transition-colors duration-500">
           <a href="#leadership" className="hover:text-black dark:hover:text-white transition-colors">Leadership</a>
           <a href="#work" className="hover:text-black dark:hover:text-white transition-colors">Work</a>
+          <a href="#/resume" className="hover:text-black dark:hover:text-white transition-colors">Resume</a>
           <a href="https://www.linkedin.com/in/georgeuxd/" target="_blank" rel="noopener noreferrer" className="hover:text-black dark:hover:text-white transition-colors">LinkedIn</a>
           <button onClick={toggleDarkMode} className="hover:text-black dark:hover:text-white transition-colors ml-4">
             {isDarkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
@@ -71,34 +73,28 @@ const OptionA: React.FC<OptionAProps> = ({ onProjectClick }) => {
       </nav>
 
       {/* Hero */}
-      <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden pt-20">
+      <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-black">
         {/* Photo Background */}
-        <div className="absolute inset-0 z-0 bg-white dark:bg-black transition-colors duration-500">
-          <img
-            src={heroImageLight}
-            alt="George Light"
-            className="w-full h-full object-cover object-[80%_center] lg:object-center block dark:hidden mix-blend-multiply"
-            referrerPolicy="no-referrer"
-          />
+        <div className="absolute inset-0 z-0 bg-black">
           <img
             src={heroImage}
-            alt="George Dark"
-            className="w-full h-full object-cover object-[80%_center] lg:object-center saturate-50 opacity-80 hidden dark:block"
+            alt="George"
+            className="w-full h-full object-cover object-[80%_center] lg:object-center saturate-50 opacity-80"
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 lg:hidden pointer-events-none bg-gradient-to-t from-white via-white/80 to-transparent dark:from-black dark:via-black/60 dark:to-black/20 transition-colors duration-500"></div>
+          <div className="absolute inset-0 lg:hidden pointer-events-none bg-gradient-to-t from-black via-black/60 to-black/20"></div>
         </div>
 
-        <div className="relative z-10 w-full px-6 md:px-10 max-w-7xl mx-auto text-gray-900 dark:text-white drop-shadow-none dark:drop-shadow-lg transition-colors duration-500">
+        <div className="relative z-10 w-full px-6 md:px-10 max-w-7xl mx-auto text-white drop-shadow-lg">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-end">
             <div className="md:col-span-8">
               <div className="mb-4">
                 <span className="text-orange-500 font-sans text-[18px] tracking-[0.3em] uppercase mb-2 block">Hello, I'm</span>
-                <span className="text-[64px] md:text-[80px] font-serif tracking-tighter leading-none text-gray-900 dark:text-white block">
+                <span className="text-[64px] md:text-[80px] font-serif tracking-tighter leading-none text-white block">
                   George<span className="text-orange-500">.</span>
                 </span>
               </div>
-              <p className="text-[18px] font-light text-gray-700 dark:text-gray-200 max-w-[520px] leading-relaxed mt-8 transition-colors duration-500">
+              <p className="text-[18px] font-light text-gray-200 max-w-[520px] leading-relaxed mt-8">
                 I lead teams to build products people love, and help organisations navigate the space between customer goals, and technical feasibility. I bring 15 years of multi-domain experience in building connected products. I currently manage diverse teams of up to 5 designers, I focus on fostering a culture of ownership, user centred design, and cross-functional collaboration.
               </p>
             </div>
@@ -107,11 +103,11 @@ const OptionA: React.FC<OptionAProps> = ({ onProjectClick }) => {
       </section>
 
       {/* Leadership Philosophy */}
-      <section id="leadership" className="bg-gray-50 dark:bg-zinc-900/50 py-24 transition-colors duration-500">
+      <section id="leadership" className="bg-[#efe3d0] dark:bg-zinc-900/50 pt-[100px] pb-24 transition-colors duration-500">
         <div className="px-6 md:px-10 max-w-7xl mx-auto">
           
-          <div className="font-sans text-gray-800 dark:text-gray-200 space-y-6 text-lg leading-relaxed mb-16 max-w-3xl">
-            <h2 className="text-[42px] font-serif leading-tight text-black dark:text-white border-none bg-transparent">Leadership</h2>
+          <div className="font-sans text-[#5a4a3a] dark:text-gray-200 space-y-6 text-lg leading-relaxed mb-16 max-w-3xl">
+            <h2 className="text-[42px] font-serif leading-tight text-[#433422] dark:text-white border-none bg-transparent">Leadership</h2>
             <p>
               In my 15 years of experience, I've learned that the best products come from healthy teams. My approach focuses on coaching, empowerment, and strategic scalability.
             </p>
@@ -121,8 +117,8 @@ const OptionA: React.FC<OptionAProps> = ({ onProjectClick }) => {
             {PHILOSOPHIES.map((item, i) => (
               <div key={i} className="border-t border-orange-500/30 pt-6">
                 <div className="text-orange-500 mb-4">{getIcon(item.icon)}</div>
-                <h4 className="text-black dark:text-white font-bold mb-3 text-[18px]">{item.title}</h4>
-                <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{item.description}</p>
+                <h4 className="text-[#433422] dark:text-white font-bold mb-3 text-[18px]">{item.title}</h4>
+                <p className="text-sm text-[#6b5a45] dark:text-gray-400 leading-relaxed">{item.description}</p>
               </div>
             ))}
           </div>
@@ -133,7 +129,7 @@ const OptionA: React.FC<OptionAProps> = ({ onProjectClick }) => {
 
 
       {/* Featured Work */}
-      <section id="work" className="mt-40 px-6 md:px-10 max-w-7xl mx-auto">
+      <section id="work" className="mt-[100px] px-6 md:px-10 max-w-7xl mx-auto">
         <div className="flex items-center gap-4 mb-16">
           <h2 className="text-[42px] font-serif leading-tight">Selected Works</h2>
         </div>
@@ -143,17 +139,17 @@ const OptionA: React.FC<OptionAProps> = ({ onProjectClick }) => {
             <div
               key={project.id}
               onClick={() => onProjectClick(project.id)}
-              className="cursor-pointer group border-l border-gray-300 dark:border-zinc-800 pl-6 flex flex-col hover:border-black dark:hover:border-white transition-colors duration-300"
+              className="cursor-pointer group border-l border-[#e5d9c5] dark:border-zinc-800 pl-6 flex flex-col hover:border-[#433422] dark:hover:border-white transition-colors duration-300"
             >
               <div className="w-full h-48 mb-6 overflow-hidden rounded-md">
                 <img src={project.image} alt={project.title} className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105" referrerPolicy="no-referrer" />
               </div>
-              <span className="text-xs font-mono text-gray-400 dark:text-zinc-500 mb-3 block">{project.category}</span>
-              <h3 className="text-[24px] font-sans font-medium mb-4 group-hover:translate-x-2 transition-transform duration-300 text-black dark:text-white">{project.title}</h3>
-              <p className="text-gray-500 dark:text-gray-400 mb-6 flex-grow">{project.description}</p>
+              <span className="text-xs font-mono text-[#8c7e6a] dark:text-zinc-500 mb-3 block">{project.category}</span>
+              <h3 className="text-[24px] font-sans font-medium mb-4 group-hover:translate-x-2 transition-transform duration-300 text-[#433422] dark:text-white">{project.title}</h3>
+              <p className="text-[#6b5a45] dark:text-gray-400 mb-6 flex-grow">{project.description}</p>
               <div className="mt-auto flex items-center justify-between w-full">
-                <span className="font-mono text-sm font-semibold text-black dark:text-white">{project.impact}</span>
-                <div className="bg-black dark:bg-white text-white dark:text-black p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <span className="font-mono text-sm font-semibold text-[#433422] dark:text-white">{project.impact}</span>
+                <div className="bg-[#433422] dark:bg-white text-[#f2ebde] dark:text-black p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <ArrowUpRight size={20} />
                 </div>
               </div>
@@ -163,62 +159,87 @@ const OptionA: React.FC<OptionAProps> = ({ onProjectClick }) => {
       </section>
 
       {/* LinkedIn Recommendations */}
-      <section className="mt-40 bg-gray-50 dark:bg-zinc-900/50 py-24 transition-colors duration-500">
+      <section className="mt-[100px] bg-[#efe3d0] dark:bg-zinc-900/50 pt-[100px] pb-24 transition-colors duration-500">
         <div className="px-6 md:px-10 max-w-7xl mx-auto">
-          <div className="flex items-center gap-4 mb-16">
-            <h2 className="text-[42px] font-serif leading-tight text-black dark:text-white">Recommendations</h2>
+          <div className="flex items-center justify-between mb-16">
+            <h2 className="text-[42px] font-serif leading-tight text-[#433422] dark:text-white">Recommendations</h2>
+            <div className="flex gap-4">
+              <button 
+                onClick={() => setCurrentTestimonial((prev) => (prev - 2 + TESTIMONIALS.length) % TESTIMONIALS.length)}
+                className="p-3 rounded-full border border-[#e5d9c5] dark:border-zinc-800 text-[#433422] dark:text-white hover:bg-orange-500 hover:text-white hover:border-orange-500 transition-all duration-300 group"
+              >
+                <ChevronLeft size={20} className="group-active:scale-90 transition-transform" />
+              </button>
+              <button 
+                onClick={() => setCurrentTestimonial((prev) => (prev + 2) % TESTIMONIALS.length)}
+                className="p-3 rounded-full border border-[#e5d9c5] dark:border-zinc-800 text-[#433422] dark:text-white hover:bg-orange-500 hover:text-white hover:border-orange-500 transition-all duration-300 group"
+              >
+                <ChevronRight size={20} className="group-active:scale-90 transition-transform" />
+              </button>
+            </div>
           </div>
-          <div className="columns-1 md:columns-2 lg:columns-3 gap-16">
-            {TESTIMONIALS.map((testimonial, i) => (
-              <div key={i} className="border-b border-gray-300 dark:border-zinc-800 pb-10 flex flex-col break-inside-avoid mb-12">
-                <p className="text-gray-600 dark:text-gray-300 text-[18px] mb-6 leading-relaxed flex-grow">"{testimonial.text}"</p>
-                <div className="flex items-center gap-4 mt-auto">
-                  <img 
-                    src={testimonial.image || `https://ui-avatars.com/api/?name=${encodeURIComponent(testimonial.author)}&background=random&color=fff&size=100`} 
-                    alt={testimonial.author} 
-                    className="w-12 h-12 rounded-full object-cover" 
-                  />
-                  <div>
-                    <div className="flex items-center gap-2">
-                      <h4 className="font-bold text-gray-900 dark:text-white">{testimonial.author}</h4>
-                      {testimonial.tag && (
-                        <span className="bg-gray-100 dark:bg-zinc-800 text-gray-600 dark:text-gray-300 text-[10px] px-2 py-0.5 rounded-full uppercase tracking-widest font-semibold">{testimonial.tag}</span>
-                      )}
-                    </div>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">{testimonial.role}</p>
+          <div className="relative">
+                <div className="overflow-hidden">
+                  <div 
+                    className="flex transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]"
+                    style={{ transform: `translateX(-${currentTestimonial * 40}%)` }}
+                  >
+                    {TESTIMONIALS.map((testimonial, i) => (
+                      <div key={i} className="w-[40%] flex-shrink-0 px-4">
+                        <div className="bg-[#f2ebde]/50 dark:bg-zinc-900/30 p-10 rounded-[32px] border border-[#e5d9c5]/50 dark:border-zinc-800/50 min-h-[400px] flex flex-col">
+                          <p className="text-[#5a4a3a] dark:text-gray-300 text-[18px] mb-10 leading-relaxed font-sans font-normal">
+                            "{testimonial.text}"
+                          </p>
+                          <div className="mt-auto flex items-center gap-6">
+                            <img 
+                              src={testimonial.image || `https://ui-avatars.com/api/?name=${encodeURIComponent(testimonial.author)}&background=random&color=fff&size=120`} 
+                              alt={testimonial.author} 
+                              className="w-16 h-16 rounded-full object-cover border-2 border-orange-500/20" 
+                            />
+                            <div>
+                              <div className="flex items-center gap-3">
+                                <h4 className="font-bold text-[#433422] dark:text-white text-lg">{testimonial.author}</h4>
+                                {testimonial.tag && (
+                                  <span className="bg-orange-500/10 text-orange-600 dark:text-orange-400 text-[10px] px-3 py-1 rounded-full uppercase tracking-widest font-bold">
+                                    {testimonial.tag}
+                                  </span>
+                                )}
+                              </div>
+                              <p className="text-sm text-[#8c7e6a] dark:text-zinc-500">{testimonial.role}</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
+            </div>
       </section>
 
       {/* Places Worked */}
-      <section className="py-24 border-t border-gray-100 dark:border-zinc-900 transition-colors duration-500">
+      <section className="py-24 border-t border-[#e5d9c5] dark:border-zinc-900 transition-colors duration-500">
         <div className="px-6 md:px-10 max-w-7xl mx-auto">
-          <p className="text-center text-sm font-medium text-gray-400 dark:text-zinc-600 tracking-widest uppercase mb-12">Places I've Worked</p>
+          <p className="text-center text-sm font-medium text-[#8c7e6a] dark:text-zinc-600 tracking-widest uppercase mb-12">Places I've Worked</p>
           <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-50 dark:opacity-40 grayscale hover:opacity-100 dark:hover:opacity-80 transition-opacity duration-300">
             {/* Jio */}
-            <div className="text-[28px] md:text-[32px] font-bold font-sans tracking-tighter text-gray-900 dark:text-gray-200">Jio</div>
+            <div className="text-[28px] md:text-[32px] font-bold font-sans tracking-tighter text-[#433422] dark:text-gray-200">Jio</div>
             
             {/* Athenahealth */}
-            <div className="text-[24px] md:text-[28px] font-serif text-gray-900 dark:text-gray-200">
-              <span className="italic">athena</span><span className="font-semibold">health</span>
-            </div>
+              <span className="italic">athena</span><span className="font-semibold text-[#433422] dark:text-gray-200">health</span>
             
             {/* Honeywell */}
-            <div className="text-[20px] md:text-[22px] font-sans font-black tracking-[0.2em] uppercase text-gray-900 dark:text-gray-200">
+            <div className="text-[20px] md:text-[22px] font-sans font-black tracking-[0.2em] uppercase text-[#433422] dark:text-gray-200">
               HONEYWELL
             </div>
             
             {/* IBEE Solutions */}
-            <div className="text-[20px] md:text-[24px] font-sans font-medium tracking-wide text-gray-900 dark:text-gray-200">
+            <div className="text-[20px] md:text-[24px] font-sans font-medium tracking-wide text-[#433422] dark:text-gray-200">
               IBEE <span className="font-light opacity-70">Solutions</span>
             </div>
             
             {/* July Systems */}
-            <div className="text-[22px] md:text-[26px] font-sans font-bold tracking-tight text-gray-900 dark:text-gray-200">
+            <div className="text-[22px] md:text-[26px] font-sans font-bold tracking-tight text-[#433422] dark:text-gray-200">
               July<span className="font-light opacity-70">Systems</span>
             </div>
           </div>

@@ -17,6 +17,7 @@ import dronnectHeroImg from './dronnectHero.png';
 import jioSignHeroImg from './womanEsigning.png';
 import jioSignMobileImg from './upshoteSigning2people.png';
 import retailMerchImg from './mockupretailmerch.png';
+import jioIdHeroImg from './JioID/JioIDDesktopHome.png';
 // Placeholder for the user's image. 
 // In a real scenario, this would be the uploaded asset.
 export const PROFILE_IMAGE = profileImage; 
@@ -33,11 +34,11 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'idaas',
-    title: "JioID: Unifying Reliance's fragmented customer base",
+    title: "JioID: Unified Customer Identity",
     category: 'Identity Ecosystem',
     description: 'Building an identity ecosystem for better cross-marketing, monetization, and omni-channel experiences across the Reliance ecosystem.',
-    impact: '500M+ Unified Customers',
-    image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=1000',
+    impact: 'Customer ID Unification',
+    image: jioIdHeroImg,
     year: '2022—2026'
   },
   {

@@ -304,12 +304,12 @@ const JioSignMobileCaseStudy: React.FC<JioSignMobileCaseStudyProps> = ({ onBack 
           JioSign: Winning back lost customers
         </h1>
         <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl leading-relaxed mb-12">
-          This is the story of how I acquired the JioSign project, re-established trust in UX, and guided its strategic pivot, resulting in a 96% task completion rate in testing, and enabled an increase of 90K eSigns/day. Achieved primarily by introducing collaborative UX research, a mobile-first experience, simplified pricing, and useful AI features.
+          This is the story of how I acquired the JioSign project, re-established trust in UX using collaborative design thinking, and guided its strategic pivot, resulting in a 96% task completion rate in testing, and enabled an increase of 90K eSigns/day. Achieved primarily by introducing collaborative UX research, a mobile-first experience, simplified pricing, and useful AI features.
         </p>
         <div className="flex flex-wrap gap-x-12 gap-y-6 border-t border-gray-100 dark:border-zinc-800 pt-8">
           <div>
             <h4 className="text-xs font-mono uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-2">The Team</h4>
-            <p className="font-medium">3 PMs, 2 UX, 15 Engineers</p>
+            <p className="font-medium">3 PMs, 2 UX, 15 Dev</p>
           </div>
           <div>
             <h4 className="text-xs font-mono uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-2">My Role</h4>
@@ -326,12 +326,12 @@ const JioSignMobileCaseStudy: React.FC<JioSignMobileCaseStudyProps> = ({ onBack 
 
       {/* Situation */}
       <section className="px-6 md:px-10 max-w-3xl mx-auto mb-20">
-        <h2 className="text-3xl font-serif mb-6">The Situation</h2>
+        <h2 className="text-[42px] font-serif mb-6">The Situation<span className="text-orange-500">.</span></h2>
         <p className="text-gray-600 dark:text-gray-400 leading-[1.8] mb-6">
           I discovered the JioSign team while scouting for SaaS products to integrate into Jio’s digital identity and governance ecosystem alongside JioID. Despite being a free in-house solution, the platform faced severe adoption hurdles; hundreds of internal business units opted to pay millions for third-party services rather than use the internal tool.
         </p>
         <p className="text-gray-600 dark:text-gray-400 leading-[1.8]">
-          An unusable mobile experience resulted in a <strong className="text-gray-900 dark:text-white">57% Task Completion Rate</strong> and <strong className="text-gray-900 dark:text-white">zero conversions</strong>, rendering the platform unviable for most business cases. This was largely due to a fractured history with UX design; a previous partnership with another design team had collapsed, leaving a "functional" product that lacked user-centered design.
+          An unusable mobile experience resulted in a <strong className="text-gray-900 dark:text-white">57% Task Completion Rate</strong> and <strong className="text-gray-900 dark:text-white">zero conversions</strong>, rendering the platform unviable for most business cases. This was largely due to a "functional" product that lacked user-centered design.
         </p>
       </section>
 
@@ -339,75 +339,99 @@ const JioSignMobileCaseStudy: React.FC<JioSignMobileCaseStudyProps> = ({ onBack 
       <section className="px-6 md:px-10 max-w-3xl mx-auto mb-20">
         <h2 className="text-3xl font-serif mb-6">My Strategic Move</h2>
         <p className="text-gray-600 dark:text-gray-400 leading-[1.8] mb-6">
-          I took ownership of the product by convincing leadership that the project required embedded designers with a sense of stake, rather than the agency-style approach of the previous team. I argued that integrating the eSign pattern into the Jio Design System (JDS) was critical—a challenge my team and I had already successfully navigated when we established "Sign in with JioID" as the first SaaS pattern in the JDS.
+          I took ownership of the product by convincing leadership that the project required embedded designers with a sense of stake, rather than the agency-style approach of the previous team. I argued that integrating the eSign pattern into the Jio Design System (JDS) could potentially increase internal adoption—a challenge my team and I had already successfully navigated when we established "Sign in with JioID" as the first SaaS pattern in the JDS.
         </p>
         <p className="text-gray-600 dark:text-gray-400 leading-[1.8] mb-6">
-          To reintroduce a structured design process and distribute ownership, I appointed my strongest collaborator, Akanksha Singh, to lead the project. Together, we fostered a resilient relationship with the cross-functional team through collaborative workshops and open communication channels.
+          To reintroduce a structured design process and distribute ownership, I appointed my strongest collaborator, Akanksha Singh, to lead the project. Together, we fostered a resilient relationship with the cross-functional team through periodic collaborative workshops and open communication channels.
         </p>
+      </section>
+
+      <section className="px-6 md:px-10 max-w-3xl mx-auto mb-20">
+        <h2 className="text-[42px] font-serif mb-6 mt-16">Empathize<span className="text-orange-500">.</span></h2>
         <p className="text-gray-600 dark:text-gray-400 leading-[1.8] mb-10">
-          I established a clear scope for our research, including a deep analysis of the existing product, the e-signature domain, and our customer base. This led to a ruthless prioritization of MVP features, centered on a Product-Led Growth approach.
+          Given the 2 week window, I established a clear scope, goals, and methods for our research excluding niche areas which may not bring immedeate impact to our North Star Metric — Documents signed/day.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="p-6 bg-gray-50 dark:bg-zinc-900/50 rounded-2xl border border-gray-100 dark:border-zinc-800 space-y-3">
-            <Grid2X2 size={24} className="text-orange-600 dark:text-orange-400" />
-            <h3 className="text-lg font-bold">OOUX Workshops</h3>
-            <p className="text-gray-500 dark:text-gray-400 leading-relaxed">
-              I facilitated Object-Oriented UX workshops to remove misconceptions and align cross-functional teams of Design, Product, Engineering, Business, internal customers, and SMEs.
+            <Users size={24} className="text-orange-600 dark:text-orange-400" />
+            <h3 className="text-lg font-bold">Interviews & empathy maps</h3>
+            <p className="text-gray-500 dark:text-gray-400 leading-relaxed text-sm">
+              Conducted deep-dive interviews with signatories and stakeholders to create a shared visualization of our users attitudes & behaviours in an Empathy map.
             </p>
           </div>
           <div className="p-6 bg-gray-50 dark:bg-zinc-900/50 rounded-2xl border border-gray-100 dark:border-zinc-800 space-y-3">
             <Route size={24} className="text-blue-600 dark:text-blue-400" />
             <h3 className="text-lg font-bold">Customer Journey Mapping</h3>
-            <p className="text-gray-500 dark:text-gray-400 leading-relaxed">
+            <p className="text-gray-500 dark:text-gray-400 leading-relaxed text-sm">
               I co-facilitated a workshop with key stakeholders to validate, align, and add nuance to the customer journey map we had created based on the primary and secondary research conducted.
             </p>
           </div>
           <div className="md:col-span-2 p-6 bg-gray-50 dark:bg-zinc-900/50 rounded-2xl border border-gray-100 dark:border-zinc-800 space-y-3">
             <TestTube2 size={24} className="text-purple-600 dark:text-purple-400" />
-            <h3 className="text-lg font-bold">Early Testing</h3>
-            <p className="text-gray-500 dark:text-gray-400 leading-relaxed">
-              We ran early concept tests to not just get validation on new designs but also gain the team's confidence & trust in our UX design approach, which was lost with the previous team.
+            <h3 className="text-lg font-bold">Usabilty Baseline</h3>
+            <p className="text-gray-500 dark:text-gray-400 leading-relaxed text-sm">
+              Facilitated usability testing on the existing platform to establish a quantitative baseline for Task Completion Rate (TCR) and System Usability Scale (SUS) scores.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Research Insights */}
-      <section className="bg-gray-50 dark:bg-zinc-900/50 py-20 mb-20 transition-colors duration-500">
-        <div className="px-6 md:px-10 max-w-3xl mx-auto">
-          <h2 className="text-3xl font-serif mb-3">Actionable Insights</h2>
-          <p className="text-gray-500 dark:text-gray-400 mb-10 leading-relaxed">From rigorous research, we distilled 7 critical insights that shaped every design decision.</p>
-          <div className="space-y-4">
-            {[
-              { icon: <Smartphone className="text-orange-500 shrink-0" size={22} />, title: 'Mobile is a Must-Have', desc: 'Majority of signatories open invites on mobile from email or WhatsApp. Without excellent mobile support, TCR will remain poor.' },
-              { icon: <Shield className="text-red-500 shrink-0" size={22} />, title: 'Signatories Feel Intimidated', desc: 'In-person agents rush signatories to sign. Users often share personal devices with agents or start unused laptops only to face system update dialogs.' },
-              { icon: <Languages className="text-blue-500 shrink-0" size={22} />, title: 'Translation & Summary', desc: 'Signatories sign docs without understanding jargon or language. Removing ambiguity provides peace of mind as a quality-of-life feature.' },
-              { icon: <Users className="text-purple-500 shrink-0" size={22} />, title: 'Role-Based Access Needed', desc: 'Password sharing is used as a collaboration workaround — dangerously wrong on legal, security, and compliance fronts.' },
-              { icon: <FileText className="text-emerald-500 shrink-0" size={22} />, title: 'Templates & Workflows', desc: 'Without templates, businesses re-upload the same docs and set up workflows each time. Industry-specific templates will accelerate adoption.' },
-              { icon: (
-                <div className="relative shrink-0 w-[22px] h-[22px] flex items-center justify-center">
-                  <IndianRupee className="text-emerald-500" size={22} strokeWidth={2} />
-                  <ArrowUpRight className="text-emerald-500 absolute -top-1 -right-1 bg-white dark:bg-zinc-900 rounded-full" size={12} strokeWidth={2.5} />
-                </div>
-              ), title: 'Upsell on Success', desc: 'Without an upsell flow on successful signing, we lose the best moment to convert a user. Touch-points should not be wasted.' },
-            ].map((item, i) => (
-              <div key={i} className="flex items-start gap-5 bg-white dark:bg-zinc-900 p-5 rounded-2xl border border-gray-100 dark:border-zinc-800">
-                <div className="mt-1">{item.icon}</div>
-                <div>
-                  <h4 className="font-bold mb-1">{item.title}</h4>
-                  <p className="text-gray-500 dark:text-gray-400 leading-relaxed">{item.desc}</p>
-                </div>
+      {/* Actionable Insights Sub-section */}
+      <section className="px-6 md:px-10 max-w-3xl mx-auto mb-20 border-t border-gray-100 dark:border-zinc-800 pt-16">
+        <h2 className="text-3xl font-serif mb-3">Actionable Insights</h2>
+        <p className="text-gray-500 dark:text-gray-400 mb-10 leading-relaxed">From rigorous research, we distilled 6 critical insights that shaped every design decision.</p>
+        <div className="space-y-4">
+          {[
+            { icon: <Smartphone className="text-orange-500 shrink-0" size={22} />, title: 'Mobile is a Must-Have', desc: 'Majority of signatories open invites on mobile from email or WhatsApp. Without excellent mobile support, TCR will remain poor.' },
+            { icon: <Shield className="text-red-500 shrink-0" size={22} />, title: 'Signatories Feel Intimidated', desc: 'In-person agents rush signatories to sign. Users often share personal devices with agents or start unused laptops only to face system update dialogs.' },
+            { icon: <Languages className="text-blue-500 shrink-0" size={22} />, title: 'Translation & Summary', desc: 'Signatories sign docs without understanding jargon or language. Removing ambiguity provides peace of mind as a quality-of-life feature.' },
+            { icon: <Users className="text-purple-500 shrink-0" size={22} />, title: 'Role-Based Access Needed', desc: 'Password sharing is used as a collaboration workaround — dangerously wrong on legal, security, and compliance fronts.' },
+            { icon: <FileText className="text-emerald-500 shrink-0" size={22} />, title: 'Templates & Workflows', desc: 'Without templates, businesses re-upload the same docs and set up workflows each time. Industry-specific templates will accelerate adoption.' },
+            { icon: (
+              <div className="relative shrink-0 w-[22px] h-[22px] flex items-center justify-center">
+                <IndianRupee className="text-emerald-500" size={22} strokeWidth={2} />
+                <ArrowUpRight className="text-emerald-500 absolute -top-1 -right-1 bg-white dark:bg-zinc-900 rounded-full" size={12} strokeWidth={2.5} />
               </div>
-            ))}
+            ), title: 'Upsell on Success', desc: 'Without an upsell flow on successful signing, we lose the best moment to convert a user. Touch-points should not be wasted.' },
+          ].map((item, i) => (
+            <div key={i} className="flex items-start gap-5 bg-white dark:bg-gray-50/5 p-5 rounded-2xl border border-gray-100 dark:border-zinc-800">
+              <div className="mt-1">{item.icon}</div>
+              <div>
+                <h4 className="font-bold mb-1">{item.title}</h4>
+                <p className="text-gray-500 dark:text-gray-400 leading-relaxed text-sm">{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+      
+      {/* Define */}
+      <section className="px-6 md:px-10 max-w-3xl mx-auto mb-20 border-t border-gray-100 dark:border-zinc-800 pt-16">
+        <h2 className="text-[42px] font-serif mb-6">Define<span className="text-orange-500">.</span></h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="p-6 bg-gray-50 dark:bg-zinc-900/50 rounded-2xl border border-gray-100 dark:border-zinc-800 space-y-3">
+            <Grid2X2 size={24} className="text-orange-600 dark:text-orange-400" />
+            <h3 className="text-lg font-bold">OOUX Workshops</h3>
+            <p className="text-gray-500 dark:text-gray-400 leading-relaxed text-sm">
+              I facilitated Object-Oriented UX workshops to remove misconceptions and align cross-functional teams of Design, Product, Engineering, Business, internal customers, and SMEs.
+            </p>
+          </div>
+          <div className="p-6 bg-gray-50 dark:bg-zinc-900/50 rounded-2xl border border-gray-100 dark:border-zinc-800 space-y-3">
+            <Users size={24} className="text-blue-600 dark:text-blue-400" />
+            <h3 className="text-lg font-bold">Personas</h3>
+            <p className="text-gray-500 dark:text-gray-400 leading-relaxed text-sm">
+              Developed 3 key personas - document owners, Signatories, and agents. Alongside the journey maps it would help us prioritize opportunity areas that deliver the most impact.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Refined MVP Problem Statements & North Star Design Principles */}
+
+      {/* Reframed MVP Problem Statements & North Star Design Principles */}
       <section className="px-6 md:px-10 max-w-3xl mx-auto mb-12">
-        <h2 className="text-3xl font-serif mb-4">Refined MVP Problem Statements</h2>
+        <h2 className="text-3xl font-serif mb-4">5Ws Problem Statements</h2>
         <p className="text-gray-600 dark:text-gray-400 leading-[1.8] mb-10">
-          I reframed the initial problem statements which were originally biased toward specific solutions to focus instead on the user context, the affected stakeholders, and the underlying business impact.
+          I reframed the initial problem statements which were originally biased toward specific solutions to focus instead on the user context, the affected stakeholders, and the underlying business impact. The 3rd persona Field Agents were removed from the MVP.
         </p>
         <div className="space-y-4 mb-16">
           <div className="p-6 bg-orange-50 dark:bg-zinc-900 rounded-2xl border border-orange-100 dark:border-zinc-800">
@@ -415,10 +439,7 @@ const JioSignMobileCaseStudy: React.FC<JioSignMobileCaseStudyProps> = ({ onBack 
 
               <div className="text-gray-700 dark:text-gray-300 font-medium leading-relaxed space-y-4">
                 <p>
-                  Signatories are frequently unable to sign documents because the links they receive via email or WhatsApp open to a desktop-only interface on mobile devices. In the Indian market, many users do not have access to laptops and are understandably reluctant to hand their personal devices to an in-person agent for assistance.
-                </p>
-                <p>
-                  This friction results in more than just task failures; it creates significant delays for deliveries, legal procedures, and official sign-offs. These barriers render the platform unviable for most business use cases and have resulted in zero organic conversions.
+                  Mobile signatories face task failure when document links from email or WhatsApp open in desktop-only interfaces. By avoiding sharing personal devices with agents for assistance, critical delays occur during deliveries and legal sign-offs. Resolving this is essential to prevent business disruption, drive organic conversions, and internal adoption of JioSign.
                 </p>
               </div>
             </div>
@@ -428,16 +449,37 @@ const JioSignMobileCaseStudy: React.FC<JioSignMobileCaseStudyProps> = ({ onBack 
 
               <div className="text-gray-700 dark:text-gray-300 font-medium leading-relaxed space-y-4">
                 <p>
-                  Document owners are restricted to uploading static PDFs or images, forcing them to place signature fields manually rather than utilizing dynamic digital templates. Distribution is equally limited; documents can only be sent via email, forcing users to manually copy and paste links for other communication channels.
-                </p>
-                <p>
-                  Furthermore, collaboration is currently bypassed through unauthorized password sharing—a significant compliance and security risk. Without automated reminders or multi-channel integration, owners must manually follow up with signatories via email or message. This fragmented workflow is highly inefficient, particularly for power users managing more than 20 documents per day.
+                  Document owners use a fragmented, manual workflow because the platform lacks dynamic templates, document collaboration, and automated reminders. This inefficiency forces users into high-risk security workarounds, like unauthorized password sharing, to facilitate collaboration. Solving this is vital for high-volume business operations to ensure data compliance and operational scalability by replacing manual follow-ups with automated, secure integration.
                 </p>
               </div>
             </div>
           </div>
         </div>
 
+      </section>
+
+      {/* Ideation */}
+      <section className="px-6 md:px-10 max-w-3xl mx-auto mb-20 border-t border-gray-100 dark:border-zinc-800 pt-16">
+        <h2 className="text-[42px] font-serif mb-6">Ideation<span className="text-orange-500">.</span></h2>
+        <p className="text-gray-600 dark:text-gray-400 leading-[1.8] mb-10">
+          With a clear understanding of the user challenges, we shifted into structured ideation. We focused on bridging the gap between existing technical constraints and the desired user outcomes, exploring diverse solutions through collaborative sketching and interaction modeling.
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="p-6 bg-gray-50 dark:bg-zinc-900/50 rounded-2xl border border-gray-100 dark:border-zinc-800 space-y-3">
+            <Lightbulb size={24} className="text-orange-600 dark:text-orange-400" />
+            <h3 className="text-lg font-bold">HMW Workshops</h3>
+            <p className="text-gray-500 dark:text-gray-400 leading-relaxed text-sm">
+              Transformed our identified pain points into opportunities: "How might we make mobile signing feel as secure and easy as a physical signature?"
+            </p>
+          </div>
+          <div className="p-6 bg-gray-50 dark:bg-zinc-900/50 rounded-2xl border border-gray-100 dark:border-zinc-800 space-y-3">
+            <Sparkles size={24} className="text-blue-600 dark:text-blue-400" />
+            <h3 className="text-lg font-bold">Rapid Prototyping</h3>
+            <p className="text-gray-500 dark:text-gray-400 leading-relaxed text-sm">
+              We explored multiple interaction models for document navigation and field placement on small screens, focusing on speed and error prevention.
+            </p>
+          </div>
+        </div>
       </section>
 
       {/* Document Owner Experience Carousel */}
@@ -474,6 +516,7 @@ const JioSignMobileCaseStudy: React.FC<JioSignMobileCaseStudyProps> = ({ onBack 
           </div>
         </div>
       </section>
+
 
 
 
