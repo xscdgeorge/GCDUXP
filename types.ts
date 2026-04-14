@@ -6,6 +6,7 @@ export interface Project {
   impact: string;
   image: string;
   year: string;
+  externalLink?: string;
 }
 
 export interface Philosophy {

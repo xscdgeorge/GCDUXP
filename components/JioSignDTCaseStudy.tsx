@@ -138,10 +138,10 @@ const WorkflowCarousel: React.FC<WorkflowCarouselProps> = ({ label, steps, layou
           key={currentSlide}
           className="min-h-[220px] transition-all duration-500 animate-in fade-in slide-in-from-left-4"
         >
-          <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
+          <h3 className="text-2xl font-bold mb-4 text-[#433422] dark:text-white">
             {steps[currentSlide].title}
           </h3>
-          <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
+          <p className="text-[#6b5a45] dark:text-gray-400 text-lg leading-relaxed">
             {steps[currentSlide].description}
           </p>
         </div>
@@ -250,41 +250,54 @@ const JioSignMobileCaseStudy: React.FC<JioSignMobileCaseStudyProps> = ({ onBack 
     document.documentElement.classList.toggle('dark');
   };
 
-  const [scrollProgress, setScrollProgress] = React.useState(0);
+    const [scrollProgress, setScrollProgress] = React.useState(0);
+  const [showTitleInHeader, setShowTitleInHeader] = React.useState(false);
+  const titleRef = React.useRef<HTMLHeadingElement>(null);
+
   React.useEffect(() => {
     const onScroll = () => {
       const scrollTop = window.scrollY;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
       setScrollProgress(docHeight > 0 ? (scrollTop / docHeight) * 100 : 0);
+
+      if (titleRef.current) {
+        const rect = titleRef.current.getBoundingClientRect();
+        setShowTitleInHeader(rect.bottom < 64);
+      }
     };
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   return (
-    <div className="bg-white dark:bg-zinc-950 min-h-screen text-gray-900 dark:text-gray-100 font-sans selection:bg-orange-100 dark:selection:bg-orange-900 pb-20 transition-colors duration-500">
+    <div className="bg-[#f2ebde] dark:bg-zinc-950 min-h-screen text-[#433422] dark:text-gray-100 font-sans selection:bg-[#433422] selection:text-[#f2ebde] dark:selection:bg-white dark:selection:text-gray-900 pb-20 pt-[74px] transition-colors duration-500">
       {/* Reading Progress */}
       <div className="fixed top-0 left-0 w-full h-1 z-[60]">
         <div className="h-full bg-orange-500 transition-all duration-100" style={{ width: `${scrollProgress}%` }} />
       </div>
 
       {/* Navigation */}
-      <nav className="fixed top-1 w-full p-6 md:p-10 flex justify-between items-center z-50">
+      <nav className="fixed top-0 w-full h-16 px-8 flex justify-between items-center bg-[#f2ebde]/80 dark:bg-black/70 backdrop-blur-xl border-b border-[#433422]/5 dark:border-white/5 z-50 transition-all duration-500">
         <button 
           onClick={onBack}
-          className="flex items-center gap-2 text-sm font-medium hover:text-orange-600 dark:hover:text-orange-400 transition-colors group text-gray-900 dark:text-gray-200 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-sm px-4 py-2 rounded-full"
+          className="flex items-center gap-2 text-[16px] font-medium hover:text-orange-500 transition-colors group text-[#433422] dark:text-white"
         >
           <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" />
           Back
         </button>
-        <button onClick={toggleDarkMode} className="text-gray-900 dark:text-gray-200 hover:text-orange-600 dark:hover:text-orange-400 transition-colors bg-white/80 dark:bg-zinc-950/80 backdrop-blur-sm p-2 rounded-full">
+
+        <div className={`absolute left-1/2 -translate-x-1/2 transition-all duration-500 ${showTitleInHeader ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'}`}>
+          <span className="font-serif font-medium text-[18px] text-[#433422] dark:text-white whitespace-nowrap">JioSign: Winning back lost customers</span>
+        </div>
+
+        <button onClick={toggleDarkMode} className="text-[#433422] dark:text-white hover:text-orange-500 transition-colors">
           {isDarkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
         </button>
       </nav>
 
       {/* Cover Image (Moved from below Situation) */}
       <section className="pt-0 px-6 md:px-10 max-w-[1062px] mx-auto mb-[80px]">
-        <div className="rounded-b-[32px] overflow-hidden aspect-[21/9] shadow-2xl relative group bg-white dark:bg-black">
+        <div className="rounded-[32px] overflow-hidden aspect-[21/9] shadow-2xl relative group bg-white dark:bg-black">
           <img 
             src={jioSignMobileImg}
             alt="JioSign Mobile-First Interface" 
@@ -300,10 +313,10 @@ const JioSignMobileCaseStudy: React.FC<JioSignMobileCaseStudyProps> = ({ onBack 
           <span className="px-3 py-1 bg-orange-50 dark:bg-orange-500/10 text-orange-600 dark:text-orange-400 rounded-full text-xs font-bold uppercase tracking-wider">eSignature SaaS</span>
           <span className="px-3 py-1 bg-gray-50 dark:bg-zinc-900 text-gray-500 dark:text-gray-400 rounded-full text-xs font-bold uppercase tracking-wider">2024—2026</span>
         </div>
-        <h1 className="text-5xl md:text-7xl font-serif leading-tight mb-8">
+        <h1 ref={titleRef} className="text-5xl md:text-7xl font-serif leading-tight mb-8">
           JioSign: Winning back lost customers
         </h1>
-        <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl leading-relaxed mb-12">
+        <p className="text-xl text-[#6b5a45] dark:text-gray-400 max-w-2xl leading-relaxed mb-12">
           This is the story of how I acquired the JioSign project, re-established trust in UX, and guided its strategic pivot, resulting in a 96% task completion rate in testing, and enabled an increase of 90K eSigns/day. Achieved primarily by introducing collaborative UX research, a mobile-first experience, simplified pricing, and useful AI features.
         </p>
         <div className="flex flex-wrap gap-x-12 gap-y-6 border-t border-gray-100 dark:border-zinc-800 pt-8">
@@ -332,22 +345,22 @@ const JioSignMobileCaseStudy: React.FC<JioSignMobileCaseStudyProps> = ({ onBack 
           </div>
           <h2 className="text-3xl font-serif">Phase 1: Empathize</h2>
         </div>
-        <p className="text-gray-600 dark:text-gray-400 leading-[1.8] mb-6 font-medium text-lg">
+        <p className="text-[#6b5a45] dark:text-gray-400 leading-[1.8] mb-6 font-medium text-lg">
           I discovered the JioSign team while scouting for SaaS products to integrate into Jio’s digital identity and governance ecosystem. Despite being a free in-house solution, the platform faced severe adoption hurdles.
         </p>
-        <p className="text-gray-600 dark:text-gray-400 leading-[1.8] mb-10">
+        <p className="text-[#6b5a45] dark:text-gray-400 leading-[1.8] mb-10">
           The internal business units were opting for expensive third-party services. An unusable mobile experience resulted in a 57% Task Completion Rate and zero conversions. My first task was to understand why users were abandoning the tool.
         </p>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-          <div className="p-6 bg-gray-50 dark:bg-zinc-900/50 rounded-2xl border border-gray-100 dark:border-zinc-800 space-y-3">
+          <div className="p-6 bg-[#efe3d0] dark:bg-zinc-900/50 rounded-2xl border border-[#e5d9c5] dark:border-zinc-800 space-y-3">
             <Smartphone size={24} className="text-orange-600 dark:text-orange-400" />
             <h3 className="text-lg font-bold">In-Situ Observations</h3>
             <p className="text-gray-500 dark:text-gray-400 leading-relaxed">
               We observed signatories in real-world environments—often on busy streets or in low-connectivity areas—relying solely on their mobile devices.
             </p>
           </div>
-          <div className="p-6 bg-gray-50 dark:bg-zinc-900/50 rounded-2xl border border-gray-100 dark:border-zinc-800 space-y-3">
+          <div className="p-6 bg-[#efe3d0] dark:bg-zinc-900/50 rounded-2xl border border-[#e5d9c5] dark:border-zinc-800 space-y-3">
             <Route size={24} className="text-blue-600 dark:text-blue-400" />
             <h3 className="text-lg font-bold">Stakeholder Interviews</h3>
             <p className="text-gray-500 dark:text-gray-400 leading-relaxed">
@@ -365,7 +378,7 @@ const JioSignMobileCaseStudy: React.FC<JioSignMobileCaseStudyProps> = ({ onBack 
           </div>
           <h2 className="text-3xl font-serif">Phase 3: Ideate</h2>
         </div>
-        <p className="text-gray-600 dark:text-gray-400 leading-[1.8] mb-10">
+        <p className="text-[#6b5a45] dark:text-gray-400 leading-[1.8] mb-10">
           I facilitated a series of collaborative mapping sessions to break down silos between Product, Engineering, and Design. We moved from siloed requirements to shared mental models.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -394,7 +407,7 @@ const JioSignMobileCaseStudy: React.FC<JioSignMobileCaseStudyProps> = ({ onBack 
           </div>
           <h2 className="text-3xl font-serif">Phase 2: Define</h2>
         </div>
-        <p className="text-gray-600 dark:text-gray-400 leading-[1.8] mb-10">
+        <p className="text-[#6b5a45] dark:text-gray-400 leading-[1.8] mb-10">
           We synthesized our research into clear problem statements and actionable insights. The goal was to move from "it's unusable" to "here is specifically where we are failing the user."
         </p>
 
@@ -432,7 +445,7 @@ const JioSignMobileCaseStudy: React.FC<JioSignMobileCaseStudyProps> = ({ onBack 
       </section>
 
       {/* Phase 4: Prototype */}
-      <section className="bg-white dark:bg-zinc-950 pt-16 md:pt-20 pb-24 md:pb-32 mb-20 border-y border-gray-100 dark:border-zinc-800/50 transition-colors duration-500 overflow-hidden">
+      <section className="bg-white dark:bg-zinc-950 pt-16 md:pt-20 pb-24 md:pb-32 mb-20 border-y border-[#e5d9c5] dark:border-zinc-800/50 transition-colors duration-500 overflow-hidden">
         <div className="px-6 md:px-16 lg:px-24 max-w-7xl mx-auto">
           <div className="flex items-center justify-center gap-4 mb-12">
             <div className="w-12 h-12 rounded-2xl bg-orange-50 dark:bg-orange-500/10 flex items-center justify-center text-orange-600 dark:text-orange-400">
@@ -482,15 +495,15 @@ const JioSignMobileCaseStudy: React.FC<JioSignMobileCaseStudyProps> = ({ onBack 
         
         <div className="p-6 bg-emerald-50/20 dark:bg-zinc-900 rounded-2xl border border-emerald-100 dark:border-zinc-800 mb-10">
           <h3 className="text-lg font-bold mb-4">Validation Strategy</h3>
-          <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+          <p className="text-[#6b5a45] dark:text-gray-400 leading-relaxed">
             We moved from early concept validation to rigorous usability testing. This wasn't just about finding bugs; it was about demonstrating the tangible ROI of UX to a previously skeptical technical team.
           </p>
         </div>
 
-        <div className="space-y-6 text-gray-600 dark:text-gray-400 leading-[1.8]">
-          <p><strong className="text-gray-900 dark:text-white">96% TCR</strong> — Signatories achieved a 96% task completion rate and were able to sign and submit documents in under 30 seconds.</p>
-          <p><strong className="text-gray-900 dark:text-white">78 SUS · 8.5 NPS</strong> — Document owners rated the experience as highly usable and professional.</p>
-          <p><strong className="text-gray-900 dark:text-white">10X eSigns/Day</strong> — Platform adoption grew from stagnation to over 90K eSigns per day within the first few months of the pivot.</p>
+        <div className="space-y-6 text-[#6b5a45] dark:text-gray-400 leading-[1.8]">
+          <p><strong className="text-[#433422] dark:text-white">96% TCR</strong> — Signatories achieved a 96% task completion rate and were able to sign and submit documents in under 30 seconds.</p>
+          <p><strong className="text-[#433422] dark:text-white">78 SUS · 8.5 NPS</strong> — Document owners rated the experience as highly usable and professional.</p>
+          <p><strong className="text-[#433422] dark:text-white">10X eSigns/Day</strong> — Platform adoption grew from stagnation to over 90K eSigns per day within the first few months of the pivot.</p>
         </div>
       </section>
 

@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { PROJECTS, PHILOSOPHIES, TESTIMONIALS } from '../constants';
 import heroImage from '../george-profilepicture3.jpg';
 import heroImageLight from '../georgeherowhitebg.png';
-import { ArrowUpRight, ArrowDown, Heart, Zap, Users, Target, Layout, Sun, Moon, Waypoints, Layers, Smartphone, Laptop, Watch, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowUpRight, ArrowDown, Heart, Zap, Users, Target, Layout, Sun, Moon, Waypoints, Layers, Smartphone, Laptop, Watch, ChevronLeft, ChevronRight, Linkedin } from 'lucide-react';
 
 interface OptionAProps {
   onProjectClick: (id: string) => void;
@@ -26,6 +26,7 @@ const BridgeIcon = ({ className }: { className?: string }) => (
 );
 
 const OptionA: React.FC<OptionAProps> = ({ onProjectClick }) => {
+  const scrollRef = useRef<HTMLDivElement>(null);
   const [currentTestimonial, setCurrentTestimonial] = React.useState(0);
   const [isDarkMode, setIsDarkMode] = React.useState(
     document.documentElement.classList.contains('dark')
@@ -57,15 +58,18 @@ const OptionA: React.FC<OptionAProps> = ({ onProjectClick }) => {
   };
 
   return (
-    <div className="bg-[#f2ebde] dark:bg-zinc-950 min-h-screen text-[#433422] dark:text-gray-100 font-sans selection:bg-[#433422] selection:text-[#f2ebde] dark:selection:bg-white dark:selection:text-gray-900 pb-20 transition-colors duration-500">
+    <div className="bg-[#f2ebde] dark:bg-zinc-950 min-h-screen text-[#433422] dark:text-gray-100 font-sans selection:bg-[#433422] selection:text-[#f2ebde] dark:selection:bg-white dark:selection:text-gray-900 pb-20 pt-[74px] transition-colors duration-500">
       {/* Header */}
-      <nav className="fixed top-0 w-full py-[20px] px-[30px] flex justify-between items-center bg-[#f2ebde] dark:bg-black z-40 transition-colors duration-500">
+      <nav className="fixed top-0 w-full h-16 px-8 flex justify-between items-center bg-[#f2ebde]/80 dark:bg-black/70 backdrop-blur-xl border-b border-[#433422]/5 dark:border-white/5 z-50 transition-all duration-500">
         <span className="text-[24px] font-serif font-medium tracking-[0.01em] text-[#433422] dark:text-white drop-shadow-none dark:drop-shadow-md transition-colors duration-500">George<span className="text-orange-500">.</span></span>
-        <div className="flex gap-8 items-center text-sm font-normal text-gray-600 dark:text-gray-200 drop-shadow-none dark:drop-shadow-md transition-colors duration-500">
+        <div className="flex gap-8 items-center text-[16px] font-normal text-[#6b5a45] dark:text-gray-200 drop-shadow-none dark:drop-shadow-md transition-colors duration-500">
           <a href="#leadership" className="hover:text-black dark:hover:text-white transition-colors">Leadership</a>
           <a href="#work" className="hover:text-black dark:hover:text-white transition-colors">Work</a>
-          <a href="#/resume" className="hover:text-black dark:hover:text-white transition-colors">Resume</a>
-          <a href="https://www.linkedin.com/in/georgeuxd/" target="_blank" rel="noopener noreferrer" className="hover:text-black dark:hover:text-white transition-colors">LinkedIn</a>
+          <a href="#recommendations" className="hover:text-black dark:hover:text-white transition-colors">Recommendations</a>
+          {/* <a href="#/resume" className="hover:text-black dark:hover:text-white transition-colors">Resume</a> */}
+          <a href="https://www.linkedin.com/in/georgeuxd/" target="_blank" rel="noopener noreferrer" className="hover:text-black dark:hover:text-white transition-colors">
+            <Linkedin className="w-4 h-4" />
+          </a>
           <button onClick={toggleDarkMode} className="hover:text-black dark:hover:text-white transition-colors ml-4">
             {isDarkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
           </button>
@@ -73,7 +77,7 @@ const OptionA: React.FC<OptionAProps> = ({ onProjectClick }) => {
       </nav>
 
       {/* Hero */}
-      <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-black">
+      <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden pt-10 bg-black">
         {/* Photo Background */}
         <div className="absolute inset-0 z-0 bg-black">
           <img
@@ -159,19 +163,27 @@ const OptionA: React.FC<OptionAProps> = ({ onProjectClick }) => {
       </section>
 
       {/* LinkedIn Recommendations */}
-      <section className="mt-[100px] bg-[#efe3d0] dark:bg-zinc-900/50 pt-[100px] pb-24 transition-colors duration-500">
+      <section id="recommendations" className="mt-[100px] bg-[#efe3d0] dark:bg-zinc-900/50 pt-[100px] pb-24 transition-colors duration-500">
         <div className="px-6 md:px-10 max-w-7xl mx-auto">
           <div className="flex items-center justify-between mb-16">
             <h2 className="text-[42px] font-serif leading-tight text-[#433422] dark:text-white">Recommendations</h2>
             <div className="flex gap-4">
               <button 
-                onClick={() => setCurrentTestimonial((prev) => (prev - 2 + TESTIMONIALS.length) % TESTIMONIALS.length)}
+                onClick={() => {
+                  if (scrollRef.current) {
+                    scrollRef.current.scrollBy({ left: -(scrollRef.current.offsetWidth * 0.8), behavior: 'smooth' });
+                  }
+                }}
                 className="p-3 rounded-full border border-[#e5d9c5] dark:border-zinc-800 text-[#433422] dark:text-white hover:bg-orange-500 hover:text-white hover:border-orange-500 transition-all duration-300 group"
               >
                 <ChevronLeft size={20} className="group-active:scale-90 transition-transform" />
               </button>
               <button 
-                onClick={() => setCurrentTestimonial((prev) => (prev + 2) % TESTIMONIALS.length)}
+                onClick={() => {
+                  if (scrollRef.current) {
+                    scrollRef.current.scrollBy({ left: (scrollRef.current.offsetWidth * 0.8), behavior: 'smooth' });
+                  }
+                }}
                 className="p-3 rounded-full border border-[#e5d9c5] dark:border-zinc-800 text-[#433422] dark:text-white hover:bg-orange-500 hover:text-white hover:border-orange-500 transition-all duration-300 group"
               >
                 <ChevronRight size={20} className="group-active:scale-90 transition-transform" />
@@ -179,42 +191,40 @@ const OptionA: React.FC<OptionAProps> = ({ onProjectClick }) => {
             </div>
           </div>
           <div className="relative">
-                <div className="overflow-hidden">
-                  <div 
-                    className="flex transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]"
-                    style={{ transform: `translateX(-${currentTestimonial * 40}%)` }}
-                  >
-                    {TESTIMONIALS.map((testimonial, i) => (
-                      <div key={i} className="w-[40%] flex-shrink-0 px-4">
-                        <div className="bg-[#f2ebde]/50 dark:bg-zinc-900/30 p-10 rounded-[32px] border border-[#e5d9c5]/50 dark:border-zinc-800/50 min-h-[400px] flex flex-col">
-                          <p className="text-[#5a4a3a] dark:text-gray-300 text-[18px] mb-10 leading-relaxed font-sans font-normal">
-                            "{testimonial.text}"
-                          </p>
-                          <div className="mt-auto flex items-center gap-6">
-                            <img 
-                              src={testimonial.image || `https://ui-avatars.com/api/?name=${encodeURIComponent(testimonial.author)}&background=random&color=fff&size=120`} 
-                              alt={testimonial.author} 
-                              className="w-16 h-16 rounded-full object-cover border-2 border-orange-500/20" 
-                            />
-                            <div>
-                              <div className="flex items-center gap-3">
-                                <h4 className="font-bold text-[#433422] dark:text-white text-lg">{testimonial.author}</h4>
-                                {testimonial.tag && (
-                                  <span className="bg-orange-500/10 text-orange-600 dark:text-orange-400 text-[10px] px-3 py-1 rounded-full uppercase tracking-widest font-bold">
-                                    {testimonial.tag}
-                                  </span>
-                                )}
-                              </div>
-                              <p className="text-sm text-[#8c7e6a] dark:text-zinc-500">{testimonial.role}</p>
-                            </div>
-                          </div>
+            <div 
+              ref={scrollRef}
+              className="overflow-x-auto pb-8 -mx-4 px-4 flex snap-x snap-mandatory scroll-smooth hide-scrollbar"
+            >
+              {TESTIMONIALS.map((testimonial, i) => (
+                <div key={i} className="w-[85%] md:w-[40%] flex-shrink-0 px-4 snap-start">
+                  <div className="bg-[#f2ebde]/50 dark:bg-zinc-900/30 p-10 rounded-[32px] border border-[#e5d9c5]/50 dark:border-zinc-800/50 min-h-[400px] flex flex-col h-full">
+                    <div className="flex items-center gap-6 mb-10">
+                      <img 
+                        src={testimonial.image || `https://ui-avatars.com/api/?name=${encodeURIComponent(testimonial.author)}&background=random&color=fff&size=120`} 
+                        alt={testimonial.author} 
+                        className="w-16 h-16 rounded-full object-cover border-2 border-orange-500/20" 
+                      />
+                      <div>
+                        <div className="flex items-center gap-3">
+                          <h4 className="font-bold text-[#433422] dark:text-white text-lg">{testimonial.author}</h4>
+                          {testimonial.tag && (
+                            <span className="bg-orange-500/10 text-orange-600 dark:text-orange-400 text-[10px] px-3 py-1 rounded-full uppercase tracking-widest font-bold">
+                              {testimonial.tag}
+                            </span>
+                          )}
                         </div>
+                        <p className="text-sm text-[#8c7e6a] dark:text-zinc-500">{testimonial.role}</p>
                       </div>
-                    ))}
+                    </div>
+                    <p className="text-[#5a4a3a] dark:text-gray-300 text-[18px] leading-relaxed font-sans font-normal italic">
+                      "{testimonial.text}"
+                    </p>
                   </div>
                 </div>
-              </div>
+              ))}
             </div>
+          </div>
+        </div>
       </section>
 
       {/* Places Worked */}

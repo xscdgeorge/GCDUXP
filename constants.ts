@@ -13,7 +13,6 @@ import mariaImg from './Maria.jpg';
 import akankshaImg from './Akanksha.jpg';
 import shruthiImg from './Shruthi.jpg';
 import rahulImg from './Rahul.jpg';
-import dronnectHeroImg from './dronnectHero.png';
 import jioSignHeroImg from './womanEsigning.png';
 import jioSignMobileImg from './upshoteSigning2people.png';
 import retailMerchImg from './mockupretailmerch.png';
@@ -42,13 +41,14 @@ export const PROJECTS: Project[] = [
     year: '2022—2026'
   },
   {
-    id: 'jioconsent',
-    title: 'JioConsent',
-    category: 'SaaS / Open Source',
-    description: 'Winning solution for MeitY "Code for Consent" challenge, focusing on DPDP Act compliance and accessibility.',
-    impact: 'Top 2 National Finalist',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1000',
-    year: '2025—2026'
+    id: 'athenaone',
+    title: 'AthenaOne',
+    category: 'Healthcare IT',
+    description: 'Co-created a quality vision to stop penalties at the point of enrollment through a self-service model.',
+    impact: '$1M Annual Savings',
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=1000',
+    year: '2022',
+    externalLink: 'https://www.georgeux.com/streamlining-clinical-quality-measures-mgmt'
   },
   {
     id: 'retail-ai',
@@ -57,26 +57,9 @@ export const PROJECTS: Project[] = [
     description: 'Designed a no-code WYSIWYG editor for category managers to customize listings and AI-powered discovery.',
     impact: '70% Conversion Lift',
     image: retailMerchImg,
-    year: '2024'
+    year: '2024',
+    externalLink: 'https://www.georgeux.com/ai-search-merchandiser'
   },
-  {
-    id: 'athenaone',
-    title: 'AthenaOne',
-    category: 'Healthcare IT',
-    description: 'Co-created a quality vision to stop penalties at the point of enrollment through a self-service model.',
-    impact: '$1M Annual Savings',
-    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=1000',
-    year: '2023'
-  },
-  {
-    id: 'dronnect',
-    title: 'Dronnect UAV Inspection',
-    category: 'Funded PoC',
-    description: 'Connected UAV surveillance and response integrated with Honeywell Max Pro to securely replace physical wiring for sweeping asset inspections.',
-    impact: 'Market Expansion',
-    image: dronnectHeroImg,
-    year: '2017'
-  }
 ];
 
 export const PHILOSOPHIES: Philosophy[] = [

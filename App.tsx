@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import OptionA from './components/OptionA';
 import IdentityCaseStudy from './components/IdentityCaseStudy';
-import DronnectCaseStudy from './components/DronnectCaseStudy';
-import JioConsentCaseStudy from './components/JioConsentCaseStudy';
 import RetailAICaseStudy from './components/RetailAICaseStudy';
 import AthenaOneCaseStudy from './components/AthenaOneCaseStudy';
 import JioSignMobileCaseStudy from './components/JioSignMobileCaseStudy';
 import Resume from './components/Resume';
+import { PROJECTS } from './constants';
 
 function App() {
   const [route, setRoute] = useState<string>(window.location.hash);
@@ -26,6 +25,11 @@ function App() {
   const projectId = route.startsWith('#/project/') ? route.replace('#/project/', '') : null;
 
   const handleProjectClick = (id: string) => {
+    const project = PROJECTS.find(p => p.id === id);
+    if (project?.externalLink) {
+      window.open(project.externalLink, '_blank');
+      return;
+    }
     // Open directly in a new tab — no password required
     window.open(`${window.location.origin}${window.location.pathname}#/project/${id}`, '_blank');
   };
@@ -40,8 +44,6 @@ function App() {
     const caseStudyMap: Record<string, React.ReactNode> = {
       'idaas': <IdentityCaseStudy onBack={handleBack} />,
       'jiosign-mobile': <JioSignMobileCaseStudy onBack={handleBack} />,
-      'dronnect': <DronnectCaseStudy onBack={handleBack} />,
-      'jioconsent': <JioConsentCaseStudy onBack={handleBack} />,
       'retail-ai': <RetailAICaseStudy onBack={handleBack} />,
       'athenaone': <AthenaOneCaseStudy onBack={handleBack} />,
     };

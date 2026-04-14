@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowLeft, Sun, Moon, Crosshair, FileText, LineChart } from 'lucide-react';
+import { ArrowLeft, Sun, Moon, Crosshair, FileText, LineChart, Target, Zap, Heart, Users, Search, Lightbulb, CheckCircle, Smartphone, Shield, Languages, FileStack, TrendingUp, IndianRupee, ArrowUpRight, BarChart3, Settings2, Laptop, MousePointer2, ClipboardCheck } from 'lucide-react';
 import MoreProjects from './MoreProjects';
 
 interface AthenaOneCaseStudyProps {
@@ -17,116 +17,236 @@ const AthenaOneCaseStudy: React.FC<AthenaOneCaseStudyProps> = ({ onBack }) => {
   };
 
   const [scrollProgress, setScrollProgress] = React.useState(0);
+  const [showTitleInHeader, setShowTitleInHeader] = React.useState(false);
+  const titleRef = React.useRef<HTMLHeadingElement>(null);
+
   React.useEffect(() => {
     const onScroll = () => {
       const scrollTop = window.scrollY;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
       setScrollProgress(docHeight > 0 ? (scrollTop / docHeight) * 100 : 0);
+
+      if (titleRef.current) {
+        const rect = titleRef.current.getBoundingClientRect();
+        setShowTitleInHeader(rect.bottom < 64);
+      }
     };
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   return (
-    <div className="bg-white dark:bg-zinc-950 min-h-screen text-gray-900 dark:text-gray-100 font-sans selection:bg-teal-100 dark:selection:bg-teal-900 pb-20 transition-colors duration-500">
+    <div className="bg-[#f2ebde] dark:bg-zinc-950 min-h-screen text-[#433422] dark:text-gray-100 font-sans selection:bg-[#433422] selection:text-[#f2ebde] dark:selection:bg-white dark:selection:text-gray-900 pb-20 pt-[74px] transition-colors duration-500">
       {/* Reading Progress */}
       <div className="fixed top-0 left-0 w-full h-1 z-[60]">
         <div className="h-full bg-orange-500 transition-all duration-100" style={{ width: `${scrollProgress}%` }} />
       </div>
 
       {/* Navigation */}
-      <nav className="fixed top-1 w-full p-6 md:p-10 flex justify-between items-center z-50">
-        <button onClick={onBack} className="flex items-center gap-2 text-sm font-medium hover:text-teal-600 dark:hover:text-teal-400 transition-colors group text-gray-900 dark:text-gray-200 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-sm px-4 py-2 rounded-full">
+      <nav className="fixed top-0 w-full h-16 px-8 flex justify-between items-center bg-[#f2ebde]/80 dark:bg-black/70 backdrop-blur-xl border-b border-[#433422]/5 dark:border-white/5 z-50 transition-all duration-500">
+        <button onClick={onBack} className="flex items-center gap-2 text-[16px] font-medium hover:text-orange-500 transition-colors group text-[#433422] dark:text-white">
           <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" />
           Back
         </button>
-        <button onClick={toggleDarkMode} className="text-gray-900 dark:text-gray-200 hover:text-teal-600 dark:hover:text-teal-400 transition-colors bg-white/80 dark:bg-zinc-950/80 backdrop-blur-sm p-2 rounded-full">
+
+        <div className={`absolute left-1/2 -translate-x-1/2 transition-all duration-500 ${showTitleInHeader ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'}`}>
+          <span className="font-serif font-medium text-[18px] text-[#433422] dark:text-white whitespace-nowrap">athenaOne: Streamlining Clinical Quality</span>
+        </div>
+
+        <button onClick={toggleDarkMode} className="text-[#433422] dark:text-white hover:text-orange-500 transition-colors">
           {isDarkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
         </button>
       </nav>
       
       {/* Cover Image */}
-      <section className="pt-0 px-6 md:px-10 max-w-[1062px] mx-auto mb-[80px]">
-        <div className="rounded-b-[32px] overflow-hidden shadow-2xl relative group bg-gray-50 dark:bg-black/50 border border-gray-100 dark:border-zinc-800 w-full aspect-[21/9]">
-          <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=2000" alt="AthenaOne Dashboard Concept" className="w-full h-full object-cover" />
+      <section className="pt-0 px-6 md:px-10 max-w-7xl mx-auto mb-16">
+        <div className="rounded-[32px] overflow-hidden shadow-2xl relative group bg-[#efe3d0] dark:bg-black/50 border border-[#e5d9c5] dark:border-zinc-800 w-full aspect-[21/9]">
+          <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=2000" alt="AthenaOne Clinical Quality Management" className="w-full h-full object-cover grayscale opacity-80" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none"></div>
         </div>
       </section>
 
       {/* Hero Header */}
-      <header className="px-6 md:px-10 max-w-3xl mx-auto mb-20">
-        <div className="flex gap-3 mb-6">
-          <span className="px-3 py-1 bg-teal-50 dark:bg-teal-500/10 text-teal-600 dark:text-teal-400 rounded-full text-xs font-bold uppercase tracking-wider">Healthcare IT</span>
-          <span className="px-3 py-1 bg-gray-50 dark:bg-zinc-900 text-gray-500 dark:text-gray-400 rounded-full text-xs font-bold uppercase tracking-wider">2023</span>
+      <header className="px-6 md:px-10 max-w-3xl mx-auto mb-24">
+        <div className="flex gap-3 mb-8">
+          <span className="px-3 py-1 bg-orange-500/10 text-orange-600 dark:text-orange-400 rounded-full text-xs font-bold uppercase tracking-wider font-sans">athenahealth</span>
+          <span className="px-3 py-1 bg-[#efe3d0] dark:bg-zinc-900 text-[#8c7e6a] dark:text-gray-400 rounded-full text-xs font-bold uppercase tracking-wider font-sans">Healthcare IT</span>
         </div>
-        <h1 className="text-5xl md:text-7xl font-serif leading-tight mb-8">
-          AthenaOne: Combating <br/>
-          <span>financial leaks</span>
+        <h1 ref={titleRef} className="text-5xl md:text-7xl font-serif leading-tight mb-8 text-[#433422] dark:text-white">
+          Streamlining <br/>
+          <span className="text-orange-500 text-shadow-sm">Clinical Quality.</span>
         </h1>
-        <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl leading-relaxed mb-12">
-          Co-created an uncompromising quality-assurance UX vision to cleanly halt penalty leakage at the point of enrollment using a completely transparent self-service model.
+        <p className="text-xl text-[#6b5a45] dark:text-gray-400 max-w-2xl leading-relaxed mb-12 font-sans">
+          Eliminating multi-million dollar MIPS penalties through a preventative, self-service vision for Clinical Quality Measure (CQM) management.
         </p>
-        <div className="flex flex-wrap gap-x-12 gap-y-6 border-t border-gray-100 dark:border-zinc-800 pt-8">
+        <div className="flex flex-wrap gap-x-12 gap-y-6 border-t border-[#e5d9c5] dark:border-zinc-800 pt-8 font-sans">
           <div>
-            <h4 className="text-xs font-mono uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-2">The Team</h4>
-            <p className="font-medium">Enrollment Quality & Dev Teams</p>
+            <h4 className="text-xs font-mono uppercase tracking-widest text-[#8c7e6a] dark:text-gray-500 mb-2">My Role</h4>
+            <p className="font-medium text-[#433422] dark:text-white">Lead UX Designer</p>
           </div>
           <div>
-            <h4 className="text-xs font-mono uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-2">My Role</h4>
-            <p className="font-medium">Product Design Lead</p>
+            <h4 className="text-xs font-mono uppercase tracking-widest text-[#8c7e6a] dark:text-gray-500 mb-2">Key Outcome</h4>
+            <p className="font-medium text-orange-600 dark:text-orange-400">MIPS Penalty Eliminated</p>
           </div>
           <div>
-            <h4 className="text-xs font-mono uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-2">Key Outcome</h4>
-            <p className="font-medium text-teal-600 dark:text-teal-400">$1M Annual Savings</p>
+            <h4 className="text-xs font-mono uppercase tracking-widest text-[#8c7e6a] dark:text-gray-500 mb-2">Impact</h4>
+            <p className="font-medium text-[#433422] dark:text-white">$1M+ Annual Savings</p>
           </div>
         </div>
       </header>
 
-
-
-      {/* The Challenge */}
-      <section className="px-6 md:px-10 max-w-3xl mx-auto mb-20">
-        <h2 className="text-3xl font-serif mb-6">The Challenge</h2>
-        <p className="text-gray-600 dark:text-gray-400 leading-[1.8] mb-6">
-          Healthcare onboarding processes suffered from rampant credentialing missteps. Small administrative inconsistencies early on would cascade destructively through the billing engine, eventually triggering catastrophic payer denials or severe penalties downstream.
+      {/* The Situation */}
+      <section className="px-6 md:px-10 max-w-3xl mx-auto mb-24">
+        <h2 className="text-[42px] font-serif mb-6">The Situation<span className="text-orange-500">.</span></h2>
+        <p className="text-lg text-[#5a4a3a] dark:text-gray-300 leading-[1.8] mb-10 font-sans">
+          Athenahealth was paying millions in penalties and creating workarounds on behalf of practices due to poor experiences managing Clinical Quality Measures (CQM). The entry of **Walmart Health** into retail clinics added massive pressure to scale our scalability without increasing operations overhead.
         </p>
-        <div className="p-6 bg-teal-50 dark:bg-zinc-900 border border-teal-100 dark:border-zinc-800 rounded-2xl">
-          <h4 className="font-bold mb-3 flex items-center gap-2">
-            <Crosshair size={18} className="text-teal-600 dark:text-teal-400" />
-            Proactive Triaging
+        <div className="p-6 bg-[#efe3d0] dark:bg-zinc-900 border border-orange-500/20 dark:border-zinc-800 rounded-3xl">
+          <h4 className="font-bold mb-3 flex items-center gap-2 text-[#433422] dark:text-white">
+            <TrendingUp size={18} className="text-orange-500" />
+            Commercial Priority
           </h4>
-          <p className="text-gray-500 dark:text-gray-400 leading-relaxed">
-            The goal was not just to highlight errors after submission, but rigidly prevent malformed datasets from entering the system at all.
+          <p className="text-[#6b5a45] dark:text-gray-400 leading-relaxed font-sans text-[16px]">
+            Requests from 247 accounts represented over **$467M in at-risk revenue**, making this a top strategic imperative for the business.
           </p>
         </div>
       </section>
 
-      {/* Strategic Execution */}
-      <section className="px-6 md:px-10 max-w-3xl mx-auto mb-20">
-        <h2 className="text-3xl font-serif mb-6">Strategic Execution</h2>
-        <p className="text-gray-600 dark:text-gray-400 leading-[1.8] mb-10">
-          Flipping the narrative required designing a preventative onboarding "Self-Service Sandbox". The paradigm shifted administrative workflows into intelligent step-by-step constraint layouts mapping closely to institutional requirements implicitly.
+      {/* Empathize */}
+      <section className="px-6 md:px-10 max-w-3xl mx-auto mb-20 border-t border-[#e5d9c5] dark:border-zinc-800 pt-16">
+        <h2 className="text-[42px] font-serif mb-6">Empathize<span className="text-orange-500">.</span></h2>
+        <p className="text-lg text-[#5a4a3a] dark:text-gray-300 leading-[1.8] mb-10 font-sans">
+          I conducted contextual inquiries, surveys, and customer feedback analysis in collaboration with research-ops to map complex clinician journeys into actionable insights.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="p-6 bg-gray-50 dark:bg-zinc-900/50 rounded-2xl border border-gray-100 dark:border-zinc-800 space-y-3">
-            <FileText size={24} className="text-amber-600 dark:text-amber-400" />
-            <h3 className="text-lg font-bold">Guided Quality Assurance</h3>
-            <p className="text-gray-500 dark:text-gray-400 leading-relaxed">
-              By contextualizing document requirements dynamically, the layout predicts credential overlaps and guides users toward robust submittals reducing bounce rates.
+          <div className="p-6 bg-[#efe3d0] dark:bg-zinc-900/50 rounded-2xl border border-[#e5d9c5] dark:border-zinc-800 space-y-3">
+            <Search size={24} className="text-orange-600 dark:text-orange-400" />
+            <h3 className="text-lg font-bold">Contextual Inquiries</h3>
+            <p className="text-[#6b5a45] dark:text-gray-400 leading-relaxed text-sm font-sans">
+              Spent time in clinical settings observing how quality analysts and providers interact with rigid reporting systems.
             </p>
           </div>
-          <div className="p-6 bg-gray-50 dark:bg-zinc-900/50 rounded-2xl border border-gray-100 dark:border-zinc-800 space-y-3">
-            <LineChart size={24} className="text-indigo-600 dark:text-indigo-400" />
-            <h3 className="text-lg font-bold">Economic Rescue</h3>
-            <p className="text-gray-500 dark:text-gray-400 leading-relaxed">
-              Deploying fail-safes exclusively at the point of ingestion yielded compound effects that translated directly to saving $1M+ USD annually simply out of avoided penalties alone.
+          <div className="p-6 bg-[#efe3d0] dark:bg-zinc-900/50 rounded-2xl border border-[#e5d9c5] dark:border-zinc-800 space-y-3">
+            <MousePointer2 size={24} className="text-blue-600 dark:text-blue-400" />
+            <h3 className="text-lg font-bold">Feedback Analysis</h3>
+            <p className="text-[#6b5a45] dark:text-gray-400 leading-relaxed text-sm font-sans">
+              Analyzed support tickets and enrollment logs to pinpoint where Excel-based workarounds were failing.
             </p>
           </div>
         </div>
       </section>
 
-      <MoreProjects currentProjectId="athenaone" />
+      {/* Actionable Insights Sub-section */}
+      <section className="px-6 md:px-10 max-w-3xl mx-auto mb-24 border-t border-[#e5d9c5] dark:border-zinc-800 pt-16">
+        <h2 className="text-3xl font-serif mb-3">Actionable Insights<span className="text-orange-500">.</span></h2>
+        <p className="text-[#8c7e6a] dark:text-gray-500 mb-10 leading-relaxed">Rigorous research revealed 4 systemic friction points.</p>
+        <div className="space-y-4">
+          {[
+            { icon: <ClipboardCheck className="text-orange-500 shrink-0" size={22} />, title: 'Setup & Enrolment complexity', desc: 'Operations team had to do enrollment on behalf of clients because DIY was impossible with error-prone Excel files.' },
+            { icon: <Laptop className="text-red-500 shrink-0" size={22} />, title: 'Visibility Gap', desc: "Quality Manager tools were essentially 'provider tools' in disguise, failing to meet the oversight requirements for practice-wide scores." },
+            { icon: <BarChart3 className="text-blue-500 shrink-0" size={22} />, title: 'Performance Stagnation', desc: 'Clinicians were stuck with outdated/repetitive measures because there was no way to easily satisfy "soon-to-be-due" goals early.' },
+            { icon: <Zap className="text-emerald-500 shrink-0" size={22} />, title: 'Submission Lag', desc: 'Errors caught during the submission window triggered day-long back-and-forths, creating expensive reactive fixes over preventative ones.' },
+          ].map((item, i) => (
+            <div key={i} className="flex items-start gap-5 bg-[#efe3d0] dark:bg-gray-50/5 p-5 rounded-2xl border border-[#e5d9c5] dark:border-zinc-800">
+              <div className="mt-1">{item.icon}</div>
+              <div>
+                <h4 className="font-bold mb-1 text-[#433422] dark:text-white">{item.title}</h4>
+                <p className="text-[#6b5a45] dark:text-gray-400 leading-relaxed text-sm font-sans">{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
 
+      {/* Define */}
+      <section className="px-6 md:px-10 max-w-3xl mx-auto mb-24 border-t border-[#e5d9c5] dark:border-zinc-800 pt-16">
+        <h2 className="text-[42px] font-serif mb-6">Define<span className="text-orange-500">.</span></h2>
+        <p className="text-lg text-[#5a4a3a] dark:text-gray-300 leading-[1.8] mb-10 font-sans">
+          I remapped complex journeys into a **Jobs to be done (JTBD)** format, which trumped personas for this domain due to the huge number of dynamic, overlapping roles.
+        </p>
+        <div className="p-6 bg-orange-500/5 dark:bg-zinc-900 rounded-3xl border border-orange-500/10 dark:border-zinc-800 space-y-6">
+          <h4 className="text-xl font-bold font-serif text-orange-600 dark:text-orange-400">The Core Friction</h4>
+          <p className="text-gray-700 dark:text-gray-300 font-medium leading-relaxed font-sans italic">
+            "Resolving issues during the submission window takes about a day of back-and-forth per provider. As a workaround, some clinics hold off enrollment until the last minute, crushing their overall quality scores due to missed clinical opportunities."
+          </p>
+        </div>
+      </section>
+
+      {/* Ideation */}
+      <section className="px-6 md:px-10 max-w-3xl mx-auto mb-24 border-t border-[#e5d9c5] dark:border-zinc-800 pt-16">
+        <h2 className="text-[42px] font-serif mb-6">Ideation<span className="text-orange-500">.</span></h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 font-sans">
+           <div className="space-y-4">
+              <h3 className="text-xl font-bold text-[#433422] dark:text-white">New Design Principles</h3>
+              <ul className="space-y-3 text-[#6b5a45] dark:text-gray-400">
+                <li className="flex gap-3"><CheckCircle size={16} className="text-orange-500 mt-1" /> Self Service Enrollment</li>
+                <li className="flex gap-3"><CheckCircle size={16} className="text-orange-500 mt-1" /> Seamless Reporting Drill-downs</li>
+                <li className="flex gap-3"><CheckCircle size={16} className="text-orange-500 mt-1" /> Drill-down clinical analysis</li>
+                <li className="flex gap-3"><CheckCircle size={16} className="text-orange-500 mt-1" /> Targeted target Targets</li>
+              </ul>
+           </div>
+           <div className="bg-[#433422] dark:bg-zinc-800 p-8 rounded-3xl text-[#f2ebde]">
+              <Lightbulb size={24} className="text-orange-500 mb-6" />
+              <h3 className="text-xl font-bold mb-4 font-sans text-white">The Self-Service Sandbox</h3>
+              <p className="opacity-80 text-sm leading-relaxed">
+                The strategy shifted from manual checking to a **2-step DIY DIY flow** with instant guidance and error prevention baked into the UI ingestion point.
+              </p>
+           </div>
+        </div>
+      </section>
+
+      {/* Solution */}
+      <section className="px-6 md:px-10 max-w-3xl mx-auto mb-24 border-t border-[#e5d9c5] dark:border-zinc-800 pt-16">
+        <h2 className="text-[42px] font-serif mb-12">Solution<span className="text-orange-500">.</span></h2>
+        
+        <div className="space-y-24">
+          <div className="space-y-6">
+             <h3 className="text-2xl font-bold text-[#433422] dark:text-white font-serif">Consolidated QM Tab</h3>
+             <p className="text-[#6b5a45] dark:text-gray-400 leading-relaxed font-sans">
+               I grouped highly correlated but distinct measures into unified cards. Instead of 'Other Measures', we moved to a single list sorted by due date, empowering clinicians to satisfy measures before the due date if the patient came in early.
+             </p>
+          </div>
+          
+          <div className="space-y-6">
+             <h3 className="text-2xl font-bold text-[#433422] dark:text-white font-serif">Dedicated Performance Configurator</h3>
+             <p className="text-[#6b5a45] dark:text-gray-400 leading-relaxed font-sans">
+               To handle institutional variations (like our strategic clients who had built their own UI), I designed a dedicated configurator outside the patient chart. This allowed for specialty-based templates and predictive score analysis for Quality Managers.
+             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Impact */}
+      <section className="px-6 md:px-10 max-w-3xl mx-auto mb-24 border-t border-[#e5d9c5] dark:border-zinc-800 pt-16">
+        <h2 className="text-[42px] font-serif mb-6">Impact<span className="text-orange-500">.</span></h2>
+        <p className="text-lg text-[#5a4a3a] dark:text-gray-300 leading-[1.8] mb-12 font-sans">
+          The preventative vision didn't just save money; it transformed the core profitability model of the performance division.
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 font-sans">
+          <div className="space-y-4 p-8 bg-orange-500/5 rounded-3xl border border-orange-500/10">
+            <div className="text-5xl font-serif text-orange-500">100%</div>
+            <div className="font-bold text-[#433422] dark:text-white uppercase tracking-wider text-sm">MIPS Penalty Eliminated</div>
+            <p className="text-[#6b5a45] dark:text-gray-400 text-sm">Completely halted million-dollar annual leaks caused by improper provider enrollments.</p>
+          </div>
+          <div className="space-y-4 p-8 bg-orange-500/5 rounded-3xl border border-orange-500/10">
+            <div className="text-5xl font-serif text-orange-500">$1M+</div>
+            <div className="font-bold text-[#433422] dark:text-white uppercase tracking-wider text-sm">Operational Savings</div>
+            <p className="text-[#6b5a45] dark:text-gray-400 text-sm">Reduced dependencies on massive internal ops teams previously required for manual fixes.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Learnings */}
+      <section className="px-6 md:px-10 max-w-3xl mx-auto mb-24 border-t border-[#e5d9c5] dark:border-zinc-800 pt-16">
+        <h2 className="text-[42px] font-serif mb-6">Learnings<span className="text-orange-500">.</span></h2>
+        <div className="space-y-8 font-sans text-[#5a4a3a] dark:text-gray-300 text-lg leading-relaxed">
+           <p><strong>Design for Diplomacy:</strong> US Healthcare is riddled with technical and policy compromises. UX must handle these with diplomacy between business and policy.</p>
+           <p><strong>JTBD &gt; Personas:</strong> In domain-heavy SaaS, Personas can often get in the way of efficiency. JTBD allows us to build for the task, not the stereotype.</p>
+           <p><strong>Notification Overload:</strong> We need to rethink alerts outside the product. I proposed starting an open standard for healthcare alerts, similar to the FAA.</p>
+        </div>
+      </section>
+
+      <MoreProjects currentProjectId="athenaone" />
     </div>
   );
 };

@@ -97,39 +97,39 @@ const Resume: React.FC<ResumeProps> = ({ onBack }) => {
   ];
 
   return (
-    <div className="bg-white dark:bg-zinc-950 min-h-screen text-gray-900 dark:text-gray-100 font-sans selection:bg-orange-100 dark:selection:bg-orange-900/30 pb-20 transition-colors duration-500">
+    <div className="bg-[#f2ebde] dark:bg-zinc-950 min-h-screen text-[#433422] dark:text-gray-100 font-sans selection:bg-[#433422] selection:text-[#f2ebde] dark:selection:bg-white dark:selection:text-gray-900 pb-20 pt-[74px] transition-colors duration-500">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full h-[60px] px-6 md:px-10 flex justify-between items-center z-50 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-md border-b border-gray-100 dark:border-zinc-900">
-        <button onClick={onBack} className="flex items-center gap-2 text-sm font-medium hover:text-orange-500 transition-colors group">
+      <nav className="fixed top-0 w-full h-16 px-8 flex justify-between items-center bg-[#f2ebde]/80 dark:bg-black/70 backdrop-blur-xl border-b border-[#433422]/5 dark:border-white/5 z-50 transition-all duration-500">
+        <button onClick={onBack} className="flex items-center gap-2 text-[16px] font-medium hover:text-orange-500 transition-colors group text-[#433422] dark:text-white">
           <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" />
           Back
         </button>
         <div className="flex items-center gap-4">
           <button 
             onClick={toggleDarkMode} 
-            className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-50 dark:bg-zinc-900 border border-gray-100 dark:border-zinc-800 text-gray-500 dark:text-gray-400 hover:text-orange-500 transition-colors"
+            className="w-10 h-10 flex items-center justify-center rounded-full bg-[#f2ebde] dark:bg-zinc-900 border border-[#e5d9c5] dark:border-zinc-800 text-[#8c7e6a] dark:text-gray-400 hover:text-orange-500 transition-colors"
             title={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
           >
-            {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+            {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
           </button>
           <a 
             href={resumePdf} 
             download 
-            className="flex items-center justify-center gap-2 px-5 h-10 rounded-full bg-gray-50 dark:bg-zinc-900 border border-gray-100 dark:border-zinc-800 text-gray-500 dark:text-gray-400 hover:text-orange-500 transition-colors text-sm font-medium"
+            className="flex items-center justify-center gap-2 px-5 h-10 rounded-full bg-[#f2ebde] dark:bg-zinc-900 border border-[#e5d9c5] dark:border-zinc-800 text-[#8c7e6a] dark:text-gray-400 hover:text-orange-500 transition-colors text-sm font-medium"
           >
-            <Download size={20} />
+            <Download size={18} />
             CV
           </a>
         </div>
       </nav>
 
-      <main className="pt-20 px-6 md:px-10 max-w-4xl mx-auto">
+      <main className="pt-10 px-6 md:px-10 max-w-4xl mx-auto">
         {/* Header Section */}
         <header className="mb-20">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
             <div>
               <h1 className="text-5xl md:text-7xl font-serif mb-4">George Chiramal Davis<span className="text-orange-500">.</span></h1>
-              <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 font-light max-w-2xl leading-relaxed">
+              <p className="text-xl md:text-2xl text-[#6b5a45] dark:text-gray-400 font-light max-w-2xl leading-relaxed">
                 George is a Lead UX Design Manager (DGM) with 15 years of experience building multi-domain design teams and user-centered design visions.
               </p>
             </div>
@@ -170,18 +170,18 @@ const Resume: React.FC<ResumeProps> = ({ onBack }) => {
                   <div key={index} className="relative pl-8 border-l border-gray-100 dark:border-zinc-900 last:border-0 pb-2">
                     <div className="absolute left-[-5px] top-2 w-2.5 h-2.5 rounded-full bg-orange-500 shadow-[0_0_10px_rgba(249,115,22,0.5)]" />
                     <div className="mb-2">
-                      <h3 className="text-xl font-bold text-gray-900 dark:text-white">{exp.role}</h3>
+                      <h3 className="text-xl font-bold text-[#433422] dark:text-white">{exp.role}</h3>
                       <div className="flex justify-between items-center mt-1">
                         <span className="text-orange-500 font-medium">{exp.company}</span>
                         <span className="text-base text-gray-400 font-mono">{exp.period}</span>
                       </div>
                     </div>
-                    <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed italic text-base">
+                    <p className="text-[#6b5a45] dark:text-gray-400 mb-4 leading-relaxed italic text-base">
                       {exp.description}
                     </p>
                     <ul className="space-y-3">
                       {exp.achievements.map((achievement, i) => (
-                        <li key={i} className="flex items-start gap-2 text-base text-gray-600 dark:text-gray-400">
+                        <li key={i} className="flex items-start gap-2 text-base text-[#6b5a45] dark:text-gray-400">
                           <span className="mt-1.5 w-1 h-1 rounded-full bg-orange-500/50 shrink-0" />
                           {achievement}
                         </li>
@@ -205,10 +205,10 @@ const Resume: React.FC<ResumeProps> = ({ onBack }) => {
               <div className="space-y-8">
                 {skillGroups.map((group, index) => (
                   <div key={index}>
-                    <h4 className="text-base font-sans text-gray-600 dark:text-gray-400 mb-4 font-normal italic">{group.category}</h4>
+                    <h4 className="text-base font-sans text-[#6b5a45] dark:text-gray-400 mb-4 font-normal italic">{group.category}</h4>
                     <div className="flex flex-wrap gap-2">
                       {group.items.map((skill, i) => (
-                        <span key={i} className="px-4 py-1 bg-gray-50 dark:bg-zinc-900 border border-gray-100 dark:border-zinc-800 rounded-full text-base font-normal text-gray-600 dark:text-gray-400 leading-tight">
+                        <span key={i} className="px-4 py-1 bg-gray-50 dark:bg-zinc-900 border border-gray-100 dark:border-zinc-800 rounded-full text-base font-normal text-[#6b5a45] dark:text-gray-400 leading-tight">
                           {skill}
                         </span>
                       ))}
@@ -251,7 +251,7 @@ const Resume: React.FC<ResumeProps> = ({ onBack }) => {
                   { title: "National institute of design", subtitle: "RGB poster award (2008)" }
                 ].map((item, i) => (
                   <div key={i}>
-                    <h4 className="font-bold text-[15px] tracking-tight text-gray-900 dark:text-white">{item.title}</h4>
+                    <h4 className="font-bold text-[15px] tracking-tight text-[#433422] dark:text-white">{item.title}</h4>
                     <p className="text-base text-gray-500 dark:text-gray-400 mt-1 leading-normal italic">{item.subtitle}</p>
                   </div>
                 ))}
