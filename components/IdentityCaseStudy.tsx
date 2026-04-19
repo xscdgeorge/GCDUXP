@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowLeft, Users, Shield, Zap, Target, MessageSquare, CheckCircle2, Search, Lightbulb, Sparkles, TestTube2, Layout, Fingerprint, Key, BarChart3, Sun, Moon, Monitor, ChevronLeft, ChevronRight, Play, Pause, Grid2X2, Route } from 'lucide-react';
 import MoreProjects from './MoreProjects';
+import Footer from './Footer';
 import jioIdHeroImg from '../JioID/JioIDDesktopHome.png';
 import signInCrossPlatformImg from '../JioID/SignIncrossPlatfrom.png';
 import jioIdConnectedXPImg from '../JioID/jioID connectedXP.png';
@@ -238,25 +239,25 @@ const IdentityCaseStudy: React.FC<IdentityCaseStudyProps> = ({ onBack }) => {
         <div className="flex gap-3 mb-6">
           <span className="px-3 py-1 bg-[#433422]/5 dark:bg-zinc-900 text-[#6B5A45] dark:text-gray-400 rounded-full text-xs font-medium font-sans">Identity ecosystem</span>
         </div>
-        <h1 ref={titleRef} className="text-5xl md:text-7xl font-serif leading-tight mb-8 text-[#433422] dark:text-white">
+        <h1 ref={titleRef} className="text-5xl md:text-7xl font-serif leading-tight mb-8 text-white">
           JioID: Unified <br/>
-          <span className="text-orange-500 text-shadow-sm">Customer Identity</span>
+          <span className="text-gray-100 text-shadow-sm">Customer Identity</span>
         </h1>
         <p className="text-xl text-[#6B5A45] dark:text-gray-400 max-w-3xl leading-relaxed mb-12">
-          I translated and executed an ambiguous vision by breaking it down into multiple services, and taking ownership of the most critical ones. Starting with JioID — an Identity, authentication, and account management service. Other services like Loyalty & Rewards, Payment & Subscription, Super Profile, Cross-platform experiences, etc. can work seamlessly only after JioID.
+          I translated and executed an ambiguous vision by breaking it down into multiple parts, and took ownership of the cornerstone JioID — a federated Identity, authentication, consent and account management service. I became an advisor to other parts like Loyalty & Rewards, Payment & Subscription, Super Profile, Cross-platform experiences, omnichannel marketing, etc.
         </p>
         <div className="flex flex-wrap gap-x-12 gap-y-6 border-t border-[#e5d9c5] dark:border-zinc-800 pt-8">
           <div>
             <h4 className="text-xs font-mono uppercase tracking-widest text-[#6B5A45] dark:text-gray-400 mb-2">The Team</h4>
-            <p className="font-medium">5 UXers, 1 UI Designer, 30+ Dev, 3 Product Managers</p>
+            <p className="font-medium">1 PMs, 5 UX, 1 UI, 30+ Dev</p>
           </div>
           <div>
             <h4 className="text-xs font-mono uppercase tracking-widest text-[#6B5A45] dark:text-gray-400 mb-2">My Role</h4>
-            <p className="font-medium">UX Manager / Strategic Lead</p>
+            <p className="font-medium">UX Manager & Strategic Lead</p>
           </div>
           <div>
             <h4 className="text-xs font-mono uppercase tracking-widest text-[#6B5A45] dark:text-gray-400 mb-2">Key Outcome</h4>
-            <p className="font-medium text-indigo-600 dark:text-indigo-400">Enabled Customer ID Unification across all platforms</p>
+            <p className="font-medium text-orange-600 dark:text-orange-400">Enabled Customer ID Unification across all platforms</p>
           </div>
         </div>
       </header>
@@ -511,6 +512,7 @@ const IdentityCaseStudy: React.FC<IdentityCaseStudyProps> = ({ onBack }) => {
       */}
 
       <MoreProjects currentProjectId="idaas" />
+      <Footer />
 
     </div>
   );

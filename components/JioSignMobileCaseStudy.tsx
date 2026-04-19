@@ -3,6 +3,7 @@ import { ArrowLeft, Sun, Moon, Monitor, Smartphone, Users, Shield, Zap, Target, 
 import jioSignMobileImg from '../womanEsigning.png';
 import jioSignVideo from '../JioSignSendADocOnMobile.mov';
 import MoreProjects from './MoreProjects';
+import Footer from './Footer';
 import docOwnerUpload from '../JioSignDocOwnerUI/docOwnerfileupload.png';
 import docOwnerParticipants from '../JioSignDocOwnerUI/docOwneraddParticipants.png';
 import docOwnerOrder from '../JioSignDocOwnerUI/DocownerSigningOrder.png';
@@ -637,6 +638,7 @@ const JioSignMobileCaseStudy: React.FC<JioSignMobileCaseStudyProps> = ({ onBack 
       </section>
 
       <MoreProjects currentProjectId="jiosign-mobile" />
+      <Footer />
     </div>
   );
 };

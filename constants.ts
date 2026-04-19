@@ -35,7 +35,7 @@ export const PROJECTS: Project[] = [
     id: 'idaas',
     title: "JioID: Unified Customer Identity",
     category: 'Identity ecosystem',
-    description: 'Building an identity ecosystem for better cross-marketing, monetization, and omni-channel experiences across the Reliance ecosystem.',
+    description: 'Building a federated identity ecosystem for better cross-marketing, monetization, and omni-channel experiences across the Reliance ecosystem.',
     impact: 'Customer ID Unification',
     image: jioIdHeroImg,
     year: ''

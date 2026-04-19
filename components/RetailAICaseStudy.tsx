@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowLeft, Sun, Moon, Monitor, Cpu, TrendingUp, Layout } from 'lucide-react';
 import retailMerchImg from '../mockupretailmerch.png';
 import MoreProjects from './MoreProjects';
+import Footer from './Footer';
 
 interface RetailAICaseStudyProps {
   onBack: () => void;
@@ -127,6 +128,7 @@ const RetailAICaseStudy: React.FC<RetailAICaseStudyProps> = ({ onBack }) => {
       </section>
 
       <MoreProjects currentProjectId="retail-ai" />
+      <Footer />
 
     </div>
   );

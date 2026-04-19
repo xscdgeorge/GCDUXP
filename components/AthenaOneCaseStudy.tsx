@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowLeft, Sun, Moon, Monitor, Crosshair, FileText, LineChart, Target, Zap, Heart, Users, Search, Lightbulb, CheckCircle, Smartphone, Shield, Languages, FileStack, TrendingUp, IndianRupee, ArrowUpRight, BarChart3, Settings2, Laptop, MousePointer2, ClipboardCheck } from 'lucide-react';
 import MoreProjects from './MoreProjects';
+import Footer from './Footer';
 
 interface AthenaOneCaseStudyProps {
   onBack: () => void;
@@ -235,6 +236,7 @@ const AthenaOneCaseStudy: React.FC<AthenaOneCaseStudyProps> = ({ onBack }) => {
       </section>
 
       <MoreProjects currentProjectId="athenaone" />
+      <Footer />
     </div>
   );
 };

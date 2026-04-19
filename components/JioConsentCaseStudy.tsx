@@ -122,7 +122,7 @@ const JioConsentCaseStudy: React.FC<JioConsentCaseStudyProps> = ({ onBack }) => 
           </div>
           <div>
             <h4 className="text-xs font-mono uppercase tracking-widest text-[#6B5A45] dark:text-gray-400 mb-2">My Role</h4>
-            <p className="font-medium">UX Manager / Strategic Lead</p>
+            <p className="font-medium">UX Manager & Strategic Lead</p>
           </div>
           <div>
             <h4 className="text-xs font-mono uppercase tracking-widest text-[#6B5A45] dark:text-gray-400 mb-2">Key Outcome</h4>

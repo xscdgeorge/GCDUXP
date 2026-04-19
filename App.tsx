@@ -5,6 +5,7 @@ import RetailAICaseStudy from './components/RetailAICaseStudy';
 import AthenaOneCaseStudy from './components/AthenaOneCaseStudy';
 import JioSignMobileCaseStudy from './components/JioSignMobileCaseStudy';
 import Resume from './components/Resume';
+import Styles from './components/Styles';
 import { PROJECTS } from './constants';
 
 function App() {
@@ -18,6 +19,22 @@ function App() {
   }, []);
 
   const projectId = route.startsWith('#/project/') ? route.replace('#/project/', '') : null;
+
+  // Update document title
+  useEffect(() => {
+    if (projectId) {
+      const project = PROJECTS.find(p => p.id === projectId);
+      if (project) {
+        document.title = `${project.title} — George Davis Portfolio`;
+      }
+    } else if (route === '#/resume') {
+      document.title = "Resume — George Davis Portfolio";
+    } else if (route === '#/styles') {
+      document.title = "Brand Manual — George Davis Portfolio";
+    } else {
+      document.title = "George Davis — Portfolio";
+    }
+  }, [route, projectId]);
 
   const handleProjectClick = (id: string) => {
     const project = PROJECTS.find(p => p.id === id);
@@ -49,6 +66,10 @@ function App() {
 
   if (route === '#/resume') {
     return <Resume onBack={handleBack} />;
+  }
+
+  if (route === '#/styles') {
+    return <Styles onBack={handleBack} />;
   }
 
   // Otherwise render the home page

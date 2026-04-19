@@ -3,6 +3,7 @@ import { PROJECTS, PHILOSOPHIES, TESTIMONIALS } from '../constants';
 import heroImage from '../george-profilepicture3.jpg';
 import heroImageLight from '../georgeherowhitebg.png';
 import { ArrowUpRight, ArrowDown, Heart, Zap, Users, Target, Layout, Sun, Moon, Monitor, Waypoints, Layers, Smartphone, Laptop, Watch, ChevronLeft, ChevronRight, Linkedin } from 'lucide-react';
+import Footer from './Footer';
 
 interface OptionAProps {
   onProjectClick: (id: string) => void;
@@ -221,9 +222,7 @@ const OptionA: React.FC<OptionAProps> = ({ onProjectClick }) => {
       </section>
 
 
-      <footer className="h-[100px] flex items-center justify-center text-[#433422] dark:text-zinc-500 text-sm">
-        &copy; {new Date().getFullYear()} George Chiramal Davis. Designed with intention.
-      </footer>
+      <Footer />
     </div>
   );
 };
