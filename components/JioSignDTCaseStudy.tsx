@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowLeft, Sun, Moon, Smartphone, Users, Shield, Zap, Target, MessageSquare, CheckCircle2, Search, Lightbulb, Sparkles, Layout, FileText, Share2, Languages, TrendingUp, Grid2X2, Route, TestTube2, IndianRupee, ArrowUpRight, ChevronLeft, ChevronRight, Play, Pause, Linkedin } from 'lucide-react';
+import { ArrowLeft, Sun, Moon, Monitor, Smartphone, Users, Shield, Zap, Target, MessageSquare, CheckCircle2, Search, Lightbulb, Sparkles, Layout, FileText, Share2, Languages, TrendingUp, Grid2X2, Route, TestTube2, IndianRupee, ArrowUpRight, ChevronLeft, ChevronRight, Play, Pause, Linkedin } from 'lucide-react';
 import jioSignMobileImg from '../womanEsigning.png';
 import jioSignVideo from '../JioSignSendADocOnMobile.mov';
 import MoreProjects from './MoreProjects';
@@ -40,7 +40,7 @@ const CAROUSEL_STEPS = [
   { 
     image: docOwnerFields, 
     title: "Intuitive Field Placement", 
-    description: "Standardized drag-and-drop fields for signatures, dates, and dynamic text. Now with colour coded participants to reduce confusion and errors." 
+    description: "For documents that have not been transformed by AI you can use drag-and-drop fields for signatures, dates, and dynamic text. Now with colour coded participants to reduce confusion and errors." 
   },
   { 
     image: docOwnerSummary, 
@@ -141,7 +141,7 @@ const WorkflowCarousel: React.FC<WorkflowCarouselProps> = ({ label, steps, layou
           <h3 className="text-2xl font-bold mb-4 text-[#433422] dark:text-white">
             {steps[currentSlide].title}
           </h3>
-          <p className="text-[#6b5a45] dark:text-gray-400 text-lg leading-relaxed">
+          <p className="text-[#6B5A45] dark:text-gray-400 text-lg leading-relaxed">
             {steps[currentSlide].description}
           </p>
         </div>
@@ -241,13 +241,42 @@ interface JioSignMobileCaseStudyProps {
 }
 
 const JioSignMobileCaseStudy: React.FC<JioSignMobileCaseStudyProps> = ({ onBack }) => {
-  const [isDarkMode, setIsDarkMode] = React.useState(
-    document.documentElement.classList.contains('dark')
+  const [theme, setTheme] = React.useState<'light' | 'dark' | 'auto'>(
+    (localStorage.getItem('portfolio-theme') as 'light' | 'dark' | 'auto') || 'auto'
   );
+  const [isDarkMode, setIsDarkMode] = React.useState(false);
 
-  const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
-    document.documentElement.classList.toggle('dark');
+  React.useEffect(() => {
+    const root = document.documentElement;
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    
+    const applyTheme = () => {
+      const shouldBeDark = theme === 'auto' ? mediaQuery.matches : theme === 'dark';
+      root.classList.toggle('dark', shouldBeDark);
+      setIsDarkMode(shouldBeDark);
+    };
+
+    applyTheme();
+    localStorage.setItem('portfolio-theme', theme);
+    mediaQuery.addEventListener('change', applyTheme);
+    return () => mediaQuery.removeEventListener('change', applyTheme);
+  }, [theme]);
+
+  // Sync with other tabs
+  React.useEffect(() => {
+    const handleStorage = (e: StorageEvent) => {
+      if (e.key === 'portfolio-theme' && e.newValue) {
+        setTheme(e.newValue as 'light' | 'dark' | 'auto');
+      }
+    };
+    window.addEventListener('storage', handleStorage);
+    return () => window.removeEventListener('storage', handleStorage);
+  }, []);
+
+  const cycleTheme = () => {
+    if (theme === 'light') setTheme('dark');
+    else if (theme === 'dark') setTheme('auto');
+    else setTheme('light');
   };
 
     const [scrollProgress, setScrollProgress] = React.useState(0);
@@ -270,14 +299,14 @@ const JioSignMobileCaseStudy: React.FC<JioSignMobileCaseStudyProps> = ({ onBack 
   }, []);
 
   return (
-    <div className="bg-[#f2ebde] dark:bg-zinc-950 min-h-screen text-[#433422] dark:text-gray-100 font-sans selection:bg-[#433422] selection:text-[#f2ebde] dark:selection:bg-white dark:selection:text-gray-900 pb-20 pt-[74px] transition-colors duration-500">
+    <div className="bg-[#efe3d0] dark:bg-zinc-950 min-h-screen text-[#433422] dark:text-gray-100 font-sans selection:bg-[#433422] selection:text-[#efe3d0] dark:selection:bg-white dark:selection:text-gray-900 pb-20 pt-[74px] transition-colors duration-500">
       {/* Reading Progress */}
       <div className="fixed top-0 left-0 w-full h-1 z-[60]">
         <div className="h-full bg-orange-500 transition-all duration-100" style={{ width: `${scrollProgress}%` }} />
       </div>
 
       {/* Navigation */}
-      <nav className="fixed top-0 w-full h-16 px-8 flex justify-between items-center bg-[#f2ebde]/80 dark:bg-black/70 backdrop-blur-xl border-b border-[#433422]/5 dark:border-white/5 z-50 transition-all duration-500">
+      <nav className="fixed top-0 w-full h-16 px-8 flex justify-between items-center bg-[#efe3d0]/80 dark:bg-black/70 backdrop-blur-xl border-b border-[#433422]/5 dark:border-white/5 z-50 transition-all duration-500">
         <button 
           onClick={onBack}
           className="flex items-center gap-2 text-[16px] font-medium hover:text-orange-500 transition-colors group text-[#433422] dark:text-white"
@@ -290,8 +319,15 @@ const JioSignMobileCaseStudy: React.FC<JioSignMobileCaseStudyProps> = ({ onBack 
           <span className="font-serif font-medium text-[18px] text-[#433422] dark:text-white whitespace-nowrap">JioSign: Winning back lost customers</span>
         </div>
 
-        <button onClick={toggleDarkMode} className="text-[#433422] dark:text-white hover:text-orange-500 transition-colors">
-          {isDarkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+        <button 
+          onClick={cycleTheme} 
+          className="flex items-center gap-2 hover:text-black dark:hover:text-white transition-colors ml-4 bg-[#433422]/5 dark:bg-white/10 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider"
+          title={`Current theme: ${theme}. Click to change.`}
+        >
+          {theme === 'light' && <Sun size={12} />}
+          {theme === 'dark' && <Moon size={12} />}
+          {theme === 'auto' && <Monitor size={12} />}
+          <span>{theme}</span>
         </button>
       </nav>
 
@@ -310,26 +346,25 @@ const JioSignMobileCaseStudy: React.FC<JioSignMobileCaseStudyProps> = ({ onBack 
       {/* Hero Header */}
       <header className="px-6 md:px-10 max-w-3xl mx-auto mb-20">
         <div className="flex gap-3 mb-6">
-          <span className="px-3 py-1 bg-orange-50 dark:bg-orange-500/10 text-orange-600 dark:text-orange-400 rounded-full text-xs font-bold uppercase tracking-wider">eSignature SaaS</span>
-          <span className="px-3 py-1 bg-gray-50 dark:bg-zinc-900 text-gray-500 dark:text-gray-400 rounded-full text-xs font-bold uppercase tracking-wider">2024—2026</span>
+          <span className="px-3 py-1 bg-[#433422]/5 dark:bg-zinc-900 text-[#6B5A45] dark:text-gray-400 rounded-full text-xs font-medium  font-sans">eSign document workflows</span>
         </div>
         <h1 ref={titleRef} className="text-5xl md:text-7xl font-serif leading-tight mb-8">
           JioSign: Winning back lost customers
         </h1>
-        <p className="text-xl text-[#6b5a45] dark:text-gray-400 max-w-2xl leading-relaxed mb-12">
+        <p className="text-xl text-[#6B5A45] dark:text-gray-400 max-w-2xl leading-relaxed mb-12">
           This is the story of how I acquired the JioSign project, re-established trust in UX, and guided its strategic pivot, resulting in a 96% task completion rate in testing, and enabled an increase of 90K eSigns/day. Achieved primarily by introducing collaborative UX research, a mobile-first experience, simplified pricing, and useful AI features.
         </p>
         <div className="flex flex-wrap gap-x-12 gap-y-6 border-t border-gray-100 dark:border-zinc-800 pt-8">
           <div>
-            <h4 className="text-xs font-mono uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-2">The Team</h4>
+            <h4 className="text-xs font-mono uppercase tracking-widest text-[#6B5A45] dark:text-gray-400 mb-2">The Team</h4>
             <p className="font-medium">3 PMs, 2 UX, 15 Engineers</p>
           </div>
           <div>
-            <h4 className="text-xs font-mono uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-2">My Role</h4>
+            <h4 className="text-xs font-mono uppercase tracking-widest text-[#6B5A45] dark:text-gray-400 mb-2">My Role</h4>
             <p className="font-medium">UX Manager & Strategic Lead</p>
           </div>
           <div>
-            <h4 className="text-xs font-mono uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-2">Key Outcome</h4>
+            <h4 className="text-xs font-mono uppercase tracking-widest text-[#6B5A45] dark:text-gray-400 mb-2">Key Outcome</h4>
             <p className="font-medium text-orange-600 dark:text-orange-400">96% TCR | 78 SUS | 10X increase in eSign/day</p>
           </div>
         </div>
@@ -345,25 +380,25 @@ const JioSignMobileCaseStudy: React.FC<JioSignMobileCaseStudyProps> = ({ onBack 
           </div>
           <h2 className="text-3xl font-serif">Phase 1: Empathize</h2>
         </div>
-        <p className="text-[#6b5a45] dark:text-gray-400 leading-[1.8] mb-6 font-medium text-lg">
+        <p className="text-[#6B5A45] dark:text-gray-400 leading-[1.8] mb-6 font-medium text-lg">
           I discovered the JioSign team while scouting for SaaS products to integrate into Jio’s digital identity and governance ecosystem. Despite being a free in-house solution, the platform faced severe adoption hurdles.
         </p>
-        <p className="text-[#6b5a45] dark:text-gray-400 leading-[1.8] mb-10">
+        <p className="text-[#6B5A45] dark:text-gray-400 leading-[1.8] mb-10">
           The internal business units were opting for expensive third-party services. An unusable mobile experience resulted in a 57% Task Completion Rate and zero conversions. My first task was to understand why users were abandoning the tool.
         </p>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-          <div className="p-6 bg-[#efe3d0] dark:bg-zinc-900/50 rounded-2xl border border-[#e5d9c5] dark:border-zinc-800 space-y-3">
+          <div className="p-6 bg-[#433422]/5 dark:bg-zinc-900/50 rounded-2xl border border-[#e5d9c5] dark:border-zinc-800 space-y-3">
             <Smartphone size={24} className="text-orange-600 dark:text-orange-400" />
             <h3 className="text-lg font-bold">In-Situ Observations</h3>
-            <p className="text-gray-500 dark:text-gray-400 leading-relaxed">
+            <p className="text-[#6B5A45] dark:text-gray-400 leading-relaxed">
               We observed signatories in real-world environments—often on busy streets or in low-connectivity areas—relying solely on their mobile devices.
             </p>
           </div>
-          <div className="p-6 bg-[#efe3d0] dark:bg-zinc-900/50 rounded-2xl border border-[#e5d9c5] dark:border-zinc-800 space-y-3">
+          <div className="p-6 bg-[#433422]/5 dark:bg-zinc-900/50 rounded-2xl border border-[#e5d9c5] dark:border-zinc-800 space-y-3">
             <Route size={24} className="text-blue-600 dark:text-blue-400" />
             <h3 className="text-lg font-bold">Stakeholder Interviews</h3>
-            <p className="text-gray-500 dark:text-gray-400 leading-relaxed">
+            <p className="text-[#6B5A45] dark:text-gray-400 leading-relaxed">
               I interviewed business leads from 15+ units to understand the compliance and trust barriers that prevented them from using an internal tool.
             </p>
           </div>
@@ -378,21 +413,21 @@ const JioSignMobileCaseStudy: React.FC<JioSignMobileCaseStudyProps> = ({ onBack 
           </div>
           <h2 className="text-3xl font-serif">Phase 3: Ideate</h2>
         </div>
-        <p className="text-[#6b5a45] dark:text-gray-400 leading-[1.8] mb-10">
+        <p className="text-[#6B5A45] dark:text-gray-400 leading-[1.8] mb-10">
           I facilitated a series of collaborative mapping sessions to break down silos between Product, Engineering, and Design. We moved from siloed requirements to shared mental models.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="p-6 bg-indigo-50/30 dark:bg-zinc-900/50 rounded-2xl border border-indigo-100 dark:border-zinc-800 space-y-3">
             <Grid2X2 size={24} className="text-indigo-600 dark:text-indigo-400" />
             <h3 className="text-lg font-bold">OOUX Workshops</h3>
-            <p className="text-gray-500 dark:text-gray-400 leading-relaxed">
+            <p className="text-[#6B5A45] dark:text-gray-400 leading-relaxed">
                facilititated workshops to identify core objects (Signatories, Docs, Fields) and their relationships, preventing logic errors in later development.
             </p>
           </div>
           <div className="p-6 bg-indigo-50/30 dark:bg-zinc-900/50 rounded-2xl border border-indigo-100 dark:border-zinc-800 space-y-3">
             <Sparkles size={24} className="text-orange-600 dark:text-orange-400" />
             <h3 className="text-lg font-bold">Strategic Pivot</h3>
-            <p className="text-gray-500 dark:text-gray-400 leading-relaxed">
+            <p className="text-[#6B5A45] dark:text-gray-400 leading-relaxed">
               We decided to rebrand and re-architect the eSign pattern to be a reusable component in the Jio Design System, ensuring scalability across all Reliance apps.
             </p>
           </div>
@@ -407,7 +442,7 @@ const JioSignMobileCaseStudy: React.FC<JioSignMobileCaseStudyProps> = ({ onBack 
           </div>
           <h2 className="text-3xl font-serif">Phase 2: Define</h2>
         </div>
-        <p className="text-[#6b5a45] dark:text-gray-400 leading-[1.8] mb-10">
+        <p className="text-[#6B5A45] dark:text-gray-400 leading-[1.8] mb-10">
           We synthesized our research into clear problem statements and actionable insights. The goal was to move from "it's unusable" to "here is specifically where we are failing the user."
         </p>
 
@@ -433,11 +468,11 @@ const JioSignMobileCaseStudy: React.FC<JioSignMobileCaseStudyProps> = ({ onBack 
             { icon: <Shield className="text-red-500 shrink-0" size={20} />, title: 'High Anxiety', desc: 'Users feel rushed and intimidated by the legal process.' },
             { icon: <Languages className="text-blue-500 shrink-0" size={20} />, title: 'Literacy Barriers', desc: 'Legal jargon in English is a major barrier for the mass Indian market.' }
           ].map((item, i) => (
-            <div key={i} className="flex gap-4 items-center bg-white dark:bg-zinc-900 p-4 rounded-xl border border-gray-100 dark:border-zinc-800">
+            <div key={i} className="flex gap-4 items-center bg-[#433422]/5 dark:bg-zinc-900 p-4 rounded-xl border border-gray-100 dark:border-zinc-800">
               {item.icon}
               <div>
                 <span className="font-bold mr-2 text-sm">{item.title}:</span>
-                <span className="text-sm text-gray-500 dark:text-gray-400">{item.desc}</span>
+                <span className="text-sm text-[#6B5A45] dark:text-gray-400">{item.desc}</span>
               </div>
             </div>
           ))}
@@ -455,7 +490,7 @@ const JioSignMobileCaseStudy: React.FC<JioSignMobileCaseStudyProps> = ({ onBack 
           </div>
           
           <div className="text-center mb-20">
-            <h3 className="text-2xl font-bold mb-6">North Star Design</h3>
+            <h2 className="text-[42px] font-serif mb-12 text-center mx-auto">North Star Design<span className="text-orange-500">.</span></h2>
             <div className="flex flex-wrap justify-center gap-3">
               {['Mobile 1st', 'Intuitive', 'Templates', 'Accessible', 'Multi-channel'].map((p, i) => (
                 <div key={i} className="px-5 py-3 bg-gray-50 dark:bg-zinc-900/60 rounded-full border border-gray-100 dark:border-zinc-800 flex items-center gap-2">
@@ -495,12 +530,12 @@ const JioSignMobileCaseStudy: React.FC<JioSignMobileCaseStudyProps> = ({ onBack 
         
         <div className="p-6 bg-emerald-50/20 dark:bg-zinc-900 rounded-2xl border border-emerald-100 dark:border-zinc-800 mb-10">
           <h3 className="text-lg font-bold mb-4">Validation Strategy</h3>
-          <p className="text-[#6b5a45] dark:text-gray-400 leading-relaxed">
+          <p className="text-[#6B5A45] dark:text-gray-400 leading-relaxed">
             We moved from early concept validation to rigorous usability testing. This wasn't just about finding bugs; it was about demonstrating the tangible ROI of UX to a previously skeptical technical team.
           </p>
         </div>
 
-        <div className="space-y-6 text-[#6b5a45] dark:text-gray-400 leading-[1.8]">
+        <div className="space-y-6 text-[#6B5A45] dark:text-gray-400 leading-[1.8]">
           <p><strong className="text-[#433422] dark:text-white">96% TCR</strong> — Signatories achieved a 96% task completion rate and were able to sign and submit documents in under 30 seconds.</p>
           <p><strong className="text-[#433422] dark:text-white">78 SUS · 8.5 NPS</strong> — Document owners rated the experience as highly usable and professional.</p>
           <p><strong className="text-[#433422] dark:text-white">10X eSigns/Day</strong> — Platform adoption grew from stagnation to over 90K eSigns per day within the first few months of the pivot.</p>
@@ -518,7 +553,7 @@ const JioSignMobileCaseStudy: React.FC<JioSignMobileCaseStudyProps> = ({ onBack 
               </div>
               <h3 className="text-xl font-bold">AI-Driven Workflows</h3>
             </div>
-            <p className="text-gray-500 dark:text-gray-400 leading-relaxed">
+            <p className="text-[#6B5A45] dark:text-gray-400 leading-relaxed">
               Expanding legal translation to 22+ local languages and introducing AI-assisted document summarizing for complex legal jargon.
             </p>
           </div>
@@ -530,7 +565,7 @@ const JioSignMobileCaseStudy: React.FC<JioSignMobileCaseStudyProps> = ({ onBack 
               </div>
               <h3 className="text-xl font-bold">Smart Templates</h3>
             </div>
-            <p className="text-gray-500 dark:text-gray-400 leading-relaxed">
+            <p className="text-[#6B5A45] dark:text-gray-400 leading-relaxed">
               Developing a library of pre-configured, sector-specific templates (HR, Legal, Banking) to reduce setup time by 90%.
             </p>
           </div>
@@ -542,7 +577,7 @@ const JioSignMobileCaseStudy: React.FC<JioSignMobileCaseStudyProps> = ({ onBack 
               </div>
               <h3 className="text-xl font-bold">Pay As You Go</h3>
             </div>
-            <p className="text-gray-500 dark:text-gray-400 leading-relaxed">
+            <p className="text-[#6B5A45] dark:text-gray-400 leading-relaxed">
               Introducing flexible, credit-based billing models to lower the barrier for startups and SMBs to digitize their legal agreements.
             </p>
           </div>
@@ -554,7 +589,7 @@ const JioSignMobileCaseStudy: React.FC<JioSignMobileCaseStudyProps> = ({ onBack 
               </div>
               <h3 className="text-xl font-bold">Embedded Experiences</h3>
             </div>
-            <p className="text-gray-500 dark:text-gray-400 leading-relaxed">
+            <p className="text-[#6B5A45] dark:text-gray-400 leading-relaxed">
               Building robust SDKs and APIs to allow businesses to embed JioSign directly into their legacy ERP and CRM applications.
             </p>
           </div>
@@ -566,7 +601,7 @@ const JioSignMobileCaseStudy: React.FC<JioSignMobileCaseStudyProps> = ({ onBack 
               </div>
               <h3 className="text-xl font-bold">POS Devices</h3>
             </div>
-            <p className="text-gray-500 dark:text-gray-400 leading-relaxed">
+            <p className="text-[#6B5A45] dark:text-gray-400 leading-relaxed">
               Bringing secure digital signatures to physical Point of Sale terminals for in-person retail and banking transactions.
             </p>
           </div>
@@ -578,7 +613,7 @@ const JioSignMobileCaseStudy: React.FC<JioSignMobileCaseStudyProps> = ({ onBack 
               </div>
               <h3 className="text-xl font-bold">Omnichannel 2.0</h3>
             </div>
-            <p className="text-gray-500 dark:text-gray-400 leading-relaxed">
+            <p className="text-[#6B5A45] dark:text-gray-400 leading-relaxed">
               Further streamlining distribution via deeper Jio ecosystem integrations, including offline-to-online QR code signing.
             </p>
           </div>

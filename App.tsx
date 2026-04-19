@@ -12,11 +12,6 @@ function App() {
 
   // Listen for hash changes (e.g. browser back button)
   useEffect(() => {
-    // Force dark mode as the default experience
-    if (!document.documentElement.classList.contains('dark')) {
-      document.documentElement.classList.add('dark');
-    }
-    
     const onHashChange = () => setRoute(window.location.hash);
     window.addEventListener('hashchange', onHashChange);
     return () => window.removeEventListener('hashchange', onHashChange);

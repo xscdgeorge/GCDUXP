@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowLeft, Download, Mail, Linkedin, MapPin, Briefcase, GraduationCap, Award, Code, Sun, Moon, Phone } from 'lucide-react';
+import { ArrowLeft, Download, Mail, Linkedin, MapPin, Briefcase, GraduationCap, Award, Code, Sun, Moon, Monitor, Phone } from 'lucide-react';
 import resumePdf from '../George Davis.pdf';
 
 interface ResumeProps {
@@ -7,15 +7,6 @@ interface ResumeProps {
 }
 
 const Resume: React.FC<ResumeProps> = ({ onBack }) => {
-  const [isDarkMode, setIsDarkMode] = React.useState(
-    document.documentElement.classList.contains('dark')
-  );
-
-  const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
-    document.documentElement.classList.toggle('dark');
-  };
-
   const experiences = [
     {
       company: "Jio Platforms Limited",
@@ -97,25 +88,18 @@ const Resume: React.FC<ResumeProps> = ({ onBack }) => {
   ];
 
   return (
-    <div className="bg-[#f2ebde] dark:bg-zinc-950 min-h-screen text-[#433422] dark:text-gray-100 font-sans selection:bg-[#433422] selection:text-[#f2ebde] dark:selection:bg-white dark:selection:text-gray-900 pb-20 pt-[74px] transition-colors duration-500">
+    <div className="bg-zinc-950 min-h-screen text-gray-100 font-sans selection:bg-white selection:text-gray-900 pb-20 pt-[74px]">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full h-16 px-8 flex justify-between items-center bg-[#f2ebde]/80 dark:bg-black/70 backdrop-blur-xl border-b border-[#433422]/5 dark:border-white/5 z-50 transition-all duration-500">
-        <button onClick={onBack} className="flex items-center gap-2 text-[16px] font-medium hover:text-orange-500 transition-colors group text-[#433422] dark:text-white">
+      <nav className="fixed top-0 w-full h-16 px-8 flex justify-between items-center bg-black/70 backdrop-blur-xl border-b border-white/5 z-50">
+        <button onClick={onBack} className="flex items-center gap-2 text-[16px] font-medium hover:text-orange-500 transition-colors group text-white">
           <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" />
           Back
         </button>
         <div className="flex items-center gap-4">
-          <button 
-            onClick={toggleDarkMode} 
-            className="w-10 h-10 flex items-center justify-center rounded-full bg-[#f2ebde] dark:bg-zinc-900 border border-[#e5d9c5] dark:border-zinc-800 text-[#8c7e6a] dark:text-gray-400 hover:text-orange-500 transition-colors"
-            title={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
-          >
-            {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
-          </button>
           <a 
             href={resumePdf} 
             download 
-            className="flex items-center justify-center gap-2 px-5 h-10 rounded-full bg-[#f2ebde] dark:bg-zinc-900 border border-[#e5d9c5] dark:border-zinc-800 text-[#8c7e6a] dark:text-gray-400 hover:text-orange-500 transition-colors text-sm font-medium"
+            className="flex items-center justify-center gap-2 px-5 h-10 rounded-full bg-zinc-900 border border-zinc-800 text-gray-400 hover:text-orange-500 transition-colors text-sm font-medium"
           >
             <Download size={18} />
             CV
@@ -173,7 +157,7 @@ const Resume: React.FC<ResumeProps> = ({ onBack }) => {
                       <h3 className="text-xl font-bold text-[#433422] dark:text-white">{exp.role}</h3>
                       <div className="flex justify-between items-center mt-1">
                         <span className="text-orange-500 font-medium">{exp.company}</span>
-                        <span className="text-base text-gray-400 font-mono">{exp.period}</span>
+                        <span className="text-base text-[#6B5A45] font-mono">{exp.period}</span>
                       </div>
                     </div>
                     <p className="text-[#6b5a45] dark:text-gray-400 mb-4 leading-relaxed italic text-base">
@@ -208,7 +192,7 @@ const Resume: React.FC<ResumeProps> = ({ onBack }) => {
                     <h4 className="text-base font-sans text-[#6b5a45] dark:text-gray-400 mb-4 font-normal italic">{group.category}</h4>
                     <div className="flex flex-wrap gap-2">
                       {group.items.map((skill, i) => (
-                        <span key={i} className="px-4 py-1 bg-gray-50 dark:bg-zinc-900 border border-gray-100 dark:border-zinc-800 rounded-full text-base font-normal text-[#6b5a45] dark:text-gray-400 leading-tight">
+                        <span key={i} className="px-4 py-1 bg-[#433422]/5 dark:bg-zinc-900 border border-gray-100 dark:border-zinc-800 rounded-full text-base font-normal text-[#6b5a45] dark:text-gray-400 leading-tight">
                           {skill}
                         </span>
                       ))}
@@ -229,7 +213,7 @@ const Resume: React.FC<ResumeProps> = ({ onBack }) => {
                 <div>
                   <h4 className="font-bold text-sm">BA Hons, Graphic design</h4>
                   <p className="text-base text-gray-500 dark:text-gray-400 mt-1 italic">University of Central Lancashire</p>
-                  <p className="text-sm text-gray-400 mt-1">2008 — 2011</p>
+                  <p className="text-sm text-[#6B5A45] mt-1">2008 — 2011</p>
                 </div>
               </div>
             </section>

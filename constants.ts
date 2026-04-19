@@ -25,20 +25,20 @@ export const PROJECTS: Project[] = [
   {
     id: 'jiosign-mobile',
     title: 'JioSign: Winning back lost customers',
-    category: 'eSignature SaaS',
+    category: 'eSign document workflows',
     description: 'Winning back lost customers by transforming an unusable mobile experience into a 96% TCR product with AI-powered accessibility.',
     impact: '46% TCR Improvement',
     image: jioSignHeroImg,
-    year: '2024—2026'
+    year: ''
   },
   {
     id: 'idaas',
     title: "JioID: Unified Customer Identity",
-    category: 'Identity Ecosystem',
+    category: 'Identity ecosystem',
     description: 'Building an identity ecosystem for better cross-marketing, monetization, and omni-channel experiences across the Reliance ecosystem.',
     impact: 'Customer ID Unification',
     image: jioIdHeroImg,
-    year: '2022—2026'
+    year: ''
   },
   {
     id: 'athenaone',
@@ -47,17 +47,17 @@ export const PROJECTS: Project[] = [
     description: 'Co-created a quality vision to stop penalties at the point of enrollment through a self-service model.',
     impact: '$1M Annual Savings',
     image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=1000',
-    year: '2022',
+    year: '',
     externalLink: 'https://www.georgeux.com/streamlining-clinical-quality-measures-mgmt'
   },
   {
     id: 'retail-ai',
     title: 'Retail Merchandiser',
-    category: 'AI Retail Tech',
+    category: 'AI retail tech',
     description: 'Designed a no-code WYSIWYG editor for category managers to customize listings and AI-powered discovery.',
     impact: '70% Conversion Lift',
     image: retailMerchImg,
-    year: '2024',
+    year: '',
     externalLink: 'https://www.georgeux.com/ai-search-merchandiser'
   },
 ];
