@@ -20,7 +20,7 @@ const Styles: React.FC<StylesProps> = ({ onBack }) => {
           </button>
           <span className="text-[20px] font-serif font-medium tracking-[0.01em]">Styles</span>
         </div>
-        <span className="text-[14px] font-mono text-zinc-500 uppercase tracking-widest">Brand Manual v1.0</span>
+        <span className="text-[14px] font-sans text-zinc-500 uppercase tracking-widest">Brand Manual v1.0</span>
       </nav>
 
       <main className="max-w-5xl mx-auto px-6 py-32 space-y-32">
@@ -36,7 +36,7 @@ const Styles: React.FC<StylesProps> = ({ onBack }) => {
         <section className="scroll-mt-32" id="logo">
           <div className="flex items-center gap-3 mb-12">
             <Layout className="text-orange-500 w-6 h-6" />
-            <h2 className="text-sm font-mono uppercase tracking-widest text-zinc-500">Logo & Signature</h2>
+            <h2 className="text-sm font-sans uppercase tracking-widest text-zinc-500">Logo & Signature</h2>
           </div>
           <div className="bg-white/5 border border-white/10 rounded-[32px] p-12 flex flex-col items-center justify-center gap-12">
             <div className="text-[64px] font-serif font-medium text-white">
@@ -46,7 +46,7 @@ const Styles: React.FC<StylesProps> = ({ onBack }) => {
               <div className="space-y-4">
                 <p className="text-sm text-zinc-400">The "George." logotype represents clarity and confidence. The orange terminal indicates a spark of innovation and a definitive end to every project's delivery.</p>
               </div>
-              <div className="space-y-4 font-mono text-xs text-zinc-500 uppercase">
+              <div className="space-y-4 font-sans text-xs text-zinc-500 uppercase">
                 <div className="flex justify-between border-b border-white/5 pb-2">
                   <span>Font Famly</span>
                   <span className="text-white">Playfair Display</span>
@@ -68,7 +68,7 @@ const Styles: React.FC<StylesProps> = ({ onBack }) => {
         <section className="scroll-mt-32" id="colors">
           <div className="flex items-center gap-3 mb-12">
             <Palette className="text-orange-500 w-6 h-6" />
-            <h2 className="text-sm font-mono uppercase tracking-widest text-zinc-500">Color Palette</h2>
+            <h2 className="text-sm font-sans uppercase tracking-widest text-zinc-500">Color Palette</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
@@ -89,7 +89,7 @@ const Styles: React.FC<StylesProps> = ({ onBack }) => {
                 <div>
                   <h4 className="font-medium text-white">{color.name}</h4>
                   <div className="flex justify-between items-center mt-1">
-                    <span className="text-sm font-mono text-zinc-500 uppercase">{color.hex}</span>
+                    <span className="text-sm font-sans text-zinc-500 uppercase">{color.hex}</span>
                     <span className="text-[10px] bg-white/5 px-2 py-0.5 rounded text-zinc-400 capitalize">{color.label}</span>
                   </div>
                 </div>
@@ -102,30 +102,24 @@ const Styles: React.FC<StylesProps> = ({ onBack }) => {
         <section className="scroll-mt-32" id="typography">
           <div className="flex items-center gap-3 mb-12">
             <Type className="text-orange-500 w-6 h-6" />
-            <h2 className="text-sm font-mono uppercase tracking-widest text-zinc-500">Typography System</h2>
+            <h2 className="text-sm font-sans uppercase tracking-widest text-zinc-500">Typography System</h2>
           </div>
           <div className="space-y-16">
             <div className="bg-white/5 border border-white/10 rounded-[32px] overflow-hidden">
               <div className="p-12 border-b border-white/5">
-                <span className="text-xs font-mono text-zinc-500 uppercase block mb-8">Primary Serif / Playfair Display</span>
+                <span className="text-xs font-sans text-zinc-500 uppercase block mb-8">Primary Serif / Playfair Display</span>
                 <div className="space-y-4">
                   <h3 className="text-[72px] font-serif leading-none italic">Curating Intentionality.</h3>
                   <h3 className="text-[72px] font-serif leading-none font-medium">George Davis</h3>
                 </div>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/5">
-                <div className="p-12 bg-zinc-950">
-                  <span className="text-xs font-mono text-zinc-500 uppercase block mb-8">Secondary Mono / Space Grotesk</span>
-                  <div className="font-mono space-y-4">
-                    <p className="text-3xl tracking-tight">ACCESSIBILITY PROTOCOL 01</p>
-                    <p className="text-xl text-zinc-400">Winning back lost customers</p>
-                  </div>
-                </div>
-                <div className="p-12 bg-zinc-950">
-                  <span className="text-xs font-mono text-zinc-500 uppercase block mb-8">System Sans / Interface Standard</span>
-                  <div className="font-sans space-y-4">
-                    <p className="text-xl leading-relaxed">
-                      UX Leader with 15 years of experience bridging the gap between customer needs, business goals and technical feasibility.
+                <div className="p-12 bg-zinc-950 md:col-span-2">
+                  <span className="text-xs font-sans text-zinc-500 uppercase block mb-8">System Sans / Interface Standard</span>
+                  <div className="font-sans space-y-6">
+                    <p className="text-3xl font-medium">George Davis Portfolio UX Leadership</p>
+                    <p className="text-xl leading-relaxed text-zinc-400">
+                      UX Leader with 15 years of experience bridging the gap between customer needs, business goals and technical feasibility. Currently managing a multi-disciplinary team to deliver intuitive, accessible & connected products.
                     </p>
                   </div>
                 </div>
@@ -138,7 +132,7 @@ const Styles: React.FC<StylesProps> = ({ onBack }) => {
         <section className="scroll-mt-32" id="ui">
           <div className="flex items-center gap-3 mb-12">
             <MousePointer2 className="text-orange-500 w-6 h-6" />
-            <h2 className="text-sm font-mono uppercase tracking-widest text-zinc-500">UI Components</h2>
+            <h2 className="text-sm font-sans uppercase tracking-widest text-zinc-500">UI Components</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div className="space-y-8">
@@ -172,7 +166,7 @@ const Styles: React.FC<StylesProps> = ({ onBack }) => {
         <section className="scroll-mt-32" id="icons">
           <div className="flex items-center gap-3 mb-12">
             <Layers className="text-orange-500 w-6 h-6" />
-            <h2 className="text-sm font-mono uppercase tracking-widest text-zinc-500">Iconography Strategy</h2>
+            <h2 className="text-sm font-sans uppercase tracking-widest text-zinc-500">Iconography Strategy</h2>
           </div>
           <div className="bg-white/5 border border-white/10 rounded-[32px] p-12">
             <p className="text-zinc-400 mb-12 max-w-2xl">

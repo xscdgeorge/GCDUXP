@@ -157,7 +157,7 @@ const Resume: React.FC<ResumeProps> = ({ onBack }) => {
                       <h3 className="text-xl font-bold text-[#433422] dark:text-white">{exp.role}</h3>
                       <div className="flex justify-between items-center mt-1">
                         <span className="text-orange-500 font-medium">{exp.company}</span>
-                        <span className="text-base text-[#6B5A45] font-mono">{exp.period}</span>
+                        <span className="text-base text-[#6B5A45] font-sans">{exp.period}</span>
                       </div>
                     </div>
                     <p className="text-[#6b5a45] dark:text-gray-400 mb-4 leading-relaxed italic text-base">

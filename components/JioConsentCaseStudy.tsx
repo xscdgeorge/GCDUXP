@@ -117,15 +117,15 @@ const JioConsentCaseStudy: React.FC<JioConsentCaseStudyProps> = ({ onBack }) => 
         </p>
         <div className="flex flex-wrap gap-x-12 gap-y-6 border-t border-gray-100 dark:border-zinc-800 pt-8">
           <div>
-            <h4 className="text-xs font-mono uppercase tracking-widest text-[#6B5A45] dark:text-gray-400 mb-2">The Team</h4>
+            <h4 className="text-xs font-sans uppercase tracking-widest text-[#6B5A45] dark:text-gray-400 mb-2">The Team</h4>
             <p className="font-medium">UX Design, Legal & Engineering</p>
           </div>
           <div>
-            <h4 className="text-xs font-mono uppercase tracking-widest text-[#6B5A45] dark:text-gray-400 mb-2">My Role</h4>
+            <h4 className="text-xs font-sans uppercase tracking-widest text-[#6B5A45] dark:text-gray-400 mb-2">My Role</h4>
             <p className="font-medium">UX Manager & Strategic Lead</p>
           </div>
           <div>
-            <h4 className="text-xs font-mono uppercase tracking-widest text-[#6B5A45] dark:text-gray-400 mb-2">Key Outcome</h4>
+            <h4 className="text-xs font-sans uppercase tracking-widest text-[#6B5A45] dark:text-gray-400 mb-2">Key Outcome</h4>
             <p className="font-medium text-indigo-600 dark:text-indigo-400">Top 2 National Finalist</p>
           </div>
         </div>

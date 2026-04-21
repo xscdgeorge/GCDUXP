@@ -70,15 +70,15 @@ const AthenaOneCaseStudy: React.FC<AthenaOneCaseStudyProps> = ({ onBack }) => {
         </p>
         <div className="flex flex-wrap gap-x-12 gap-y-6 border-t border-[#e5d9c5] dark:border-zinc-800 pt-8 font-sans">
           <div>
-            <h4 className="text-xs font-mono uppercase tracking-widest text-[#6B5A45] dark:text-gray-400 mb-2">My Role</h4>
+            <h4 className="text-xs font-sans uppercase tracking-widest text-[#6B5A45] dark:text-gray-400 mb-2">My Role</h4>
             <p className="font-medium text-[#433422] dark:text-white">Lead UX Designer</p>
           </div>
           <div>
-            <h4 className="text-xs font-mono uppercase tracking-widest text-[#6B5A45] dark:text-gray-400 mb-2">Key Outcome</h4>
+            <h4 className="text-xs font-sans uppercase tracking-widest text-[#6B5A45] dark:text-gray-400 mb-2">Key Outcome</h4>
             <p className="font-medium text-orange-600 dark:text-orange-400">MIPS Penalty Eliminated</p>
           </div>
           <div>
-            <h4 className="text-xs font-mono uppercase tracking-widest text-[#6B5A45] dark:text-gray-400 mb-2">Impact</h4>
+            <h4 className="text-xs font-sans uppercase tracking-widest text-[#6B5A45] dark:text-gray-400 mb-2">Impact</h4>
             <p className="font-medium text-[#433422] dark:text-white">$1M+ Annual Savings</p>
           </div>
         </div>

@@ -70,15 +70,15 @@ const RetailAICaseStudy: React.FC<RetailAICaseStudyProps> = ({ onBack }) => {
         </p>
         <div className="flex flex-wrap gap-x-12 gap-y-6 border-t border-gray-100 dark:border-zinc-800 pt-8">
           <div>
-            <h4 className="text-xs font-mono uppercase tracking-widest text-[#6B5A45] dark:text-gray-400 mb-2">The Team</h4>
+            <h4 className="text-xs font-sans uppercase tracking-widest text-[#6B5A45] dark:text-gray-400 mb-2">The Team</h4>
             <p className="font-medium">AI Discovery & Platform Teams</p>
           </div>
           <div>
-            <h4 className="text-xs font-mono uppercase tracking-widest text-[#6B5A45] dark:text-gray-400 mb-2">My Role</h4>
+            <h4 className="text-xs font-sans uppercase tracking-widest text-[#6B5A45] dark:text-gray-400 mb-2">My Role</h4>
             <p className="font-medium">Lead UX Strategist</p>
           </div>
           <div>
-            <h4 className="text-xs font-mono uppercase tracking-widest text-[#6B5A45] dark:text-gray-400 mb-2">Key Outcome</h4>
+            <h4 className="text-xs font-sans uppercase tracking-widest text-[#6B5A45] dark:text-gray-400 mb-2">Key Outcome</h4>
             <p className="font-medium text-rose-600 dark:text-rose-400">70% Conversion Lift</p>
           </div>
         </div>

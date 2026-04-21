@@ -31,7 +31,7 @@ const MoreProjects: React.FC<MoreProjectsProps> = ({ currentProjectId }) => {
                 referrerPolicy="no-referrer"
               />
             </div>
-            <span className="text-xs font-mono text-zinc-500 mb-3 block">
+            <span className="text-xs font-sans text-zinc-500 mb-3 block">
               {project.category}
             </span>
             <h3 className="text-[24px] font-sans font-medium mb-4 text-white">
@@ -41,7 +41,7 @@ const MoreProjects: React.FC<MoreProjectsProps> = ({ currentProjectId }) => {
               {project.description}
             </p>
             <div className="mt-auto flex items-center justify-between w-full">
-              <span className="font-mono text-sm font-semibold text-white">{project.impact}</span>
+              <span className="font-sans text-sm font-semibold text-white">{project.impact}</span>
               <div className="bg-white text-black p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <ArrowUpRight size={20} />
               </div>

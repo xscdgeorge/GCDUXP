@@ -131,7 +131,7 @@ const WorkflowCarousel: React.FC<WorkflowCarouselProps> = ({ label, steps, layou
     <div className={`lg:col-span-4 flex flex-col ${layout === "text-left" ? "order-2 lg:order-1" : "order-2 lg:order-2"}`}>
       <div className="space-y-8">
         <div className="space-y-4">
-          <span className="text-orange-500 font-mono text-sm tracking-widest uppercase font-bold">{label}</span>
+          <span className="text-orange-500 font-sans text-sm tracking-widest uppercase font-bold">{label}</span>
         </div>
         
         <div 
@@ -356,15 +356,15 @@ const JioSignMobileCaseStudy: React.FC<JioSignMobileCaseStudyProps> = ({ onBack 
         </p>
         <div className="flex flex-wrap gap-x-12 gap-y-6 border-t border-gray-100 dark:border-zinc-800 pt-8">
           <div>
-            <h4 className="text-xs font-mono uppercase tracking-widest text-[#6B5A45] dark:text-gray-400 mb-2">The Team</h4>
+            <h4 className="text-xs font-sans uppercase tracking-widest text-[#6B5A45] dark:text-gray-400 mb-2">The Team</h4>
             <p className="font-medium">3 PMs, 2 UX, 15 Engineers</p>
           </div>
           <div>
-            <h4 className="text-xs font-mono uppercase tracking-widest text-[#6B5A45] dark:text-gray-400 mb-2">My Role</h4>
+            <h4 className="text-xs font-sans uppercase tracking-widest text-[#6B5A45] dark:text-gray-400 mb-2">My Role</h4>
             <p className="font-medium">UX Manager & Strategic Lead</p>
           </div>
           <div>
-            <h4 className="text-xs font-mono uppercase tracking-widest text-[#6B5A45] dark:text-gray-400 mb-2">Key Outcome</h4>
+            <h4 className="text-xs font-sans uppercase tracking-widest text-[#6B5A45] dark:text-gray-400 mb-2">Key Outcome</h4>
             <p className="font-medium text-orange-600 dark:text-orange-400">96% TCR | 78 SUS | 10X increase in eSign/day</p>
           </div>
         </div>
@@ -448,13 +448,13 @@ const JioSignMobileCaseStudy: React.FC<JioSignMobileCaseStudyProps> = ({ onBack 
 
         <div className="space-y-4 mb-16">
           <div className="p-6 bg-orange-50/50 dark:bg-zinc-900 rounded-2xl border border-orange-100 dark:border-zinc-800">
-            <h4 className="text-xs font-mono uppercase tracking-widest text-orange-600 dark:text-orange-400 mb-4">The Signatory Gap</h4>
+            <h4 className="text-xs font-sans uppercase tracking-widest text-orange-600 dark:text-orange-400 mb-4">The Signatory Gap</h4>
             <p className="text-gray-700 dark:text-gray-300 font-medium leading-relaxed">
               Users frequently cannot sign documents because links open to desktop-only interfaces on mobile. Without laptop access, they are forced to share personal credentials or give devices to agents, creating high risk and friction.
             </p>
           </div>
           <div className="p-6 bg-orange-50/50 dark:bg-zinc-900 rounded-2xl border border-orange-100 dark:border-zinc-800">
-            <h4 className="text-xs font-mono uppercase tracking-widest text-orange-600 dark:text-orange-400 mb-4">The Owner Friction</h4>
+            <h4 className="text-xs font-sans uppercase tracking-widest text-orange-600 dark:text-orange-400 mb-4">The Owner Friction</h4>
             <p className="text-gray-700 dark:text-gray-300 font-medium leading-relaxed">
               Workflow managers are bogged down by manual re-uploads and distribution limited to email. Lack of templates and real-time reminders makes the tool inefficient for high-volume legacy migrations.
             </p>

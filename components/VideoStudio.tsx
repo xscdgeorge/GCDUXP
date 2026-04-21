@@ -32,7 +32,7 @@ export const VideoStudio = () => {
   }
 
   return (
-    <div className="fixed top-20 right-4 z-[9999] bg-white dark:bg-zinc-900 p-6 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] text-[11px] font-mono w-72 backdrop-blur-3xl border border-gray-200 dark:border-zinc-800 transition-all text-gray-900 dark:text-gray-100 max-h-[80vh] overflow-y-auto no-scrollbar">
+    <div className="fixed top-20 right-4 z-[9999] bg-white dark:bg-zinc-900 p-6 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] text-[11px] font-sans w-72 backdrop-blur-3xl border border-gray-200 dark:border-zinc-800 transition-all text-gray-900 dark:text-gray-100 max-h-[80vh] overflow-y-auto no-scrollbar">
       <div className="flex justify-between items-center mb-6">
         <div className="flex items-center gap-2">
           <div className="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></div>

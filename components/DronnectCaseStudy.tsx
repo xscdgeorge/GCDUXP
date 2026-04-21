@@ -118,15 +118,15 @@ const DronnectCaseStudy: React.FC<DronnectCaseStudyProps> = ({ onBack }) => {
         </p>
         <div className="flex flex-wrap gap-x-12 gap-y-6 border-t border-gray-100 dark:border-zinc-800 pt-8">
           <div>
-            <h4 className="text-xs font-mono uppercase tracking-widest text-[#6B5A45] dark:text-gray-400 mb-2">The Team</h4>
+            <h4 className="text-xs font-sans uppercase tracking-widest text-[#6B5A45] dark:text-gray-400 mb-2">The Team</h4>
             <p className="font-medium">Honeywell Engineering & Design</p>
           </div>
           <div>
-            <h4 className="text-xs font-mono uppercase tracking-widest text-[#6B5A45] dark:text-gray-400 mb-2">My Role</h4>
+            <h4 className="text-xs font-sans uppercase tracking-widest text-[#6B5A45] dark:text-gray-400 mb-2">My Role</h4>
             <p className="font-medium">Strategic Product Concept Designer</p>
           </div>
           <div>
-            <h4 className="text-xs font-mono uppercase tracking-widest text-[#6B5A45] dark:text-gray-400 mb-2">Key Outcome</h4>
+            <h4 className="text-xs font-sans uppercase tracking-widest text-[#6B5A45] dark:text-gray-400 mb-2">Key Outcome</h4>
             <p className="font-medium text-sky-600 dark:text-sky-400">Validated Market Expansion</p>
           </div>
         </div>
@@ -217,7 +217,7 @@ const DronnectCaseStudy: React.FC<DronnectCaseStudyProps> = ({ onBack }) => {
           <p className="text-gray-300 text-lg leading-[1.8] mb-6">
             Pitched initially as an experimental concept, the integration of autonomous drones directly handling critical infrastructure inspection was formally adopted globally. Honeywell expanded its services to scale across the US, surveying hundreds of miles of transmission networks while reducing operational downtime metrics permanently.
           </p>
-          <div className="px-4 py-2 bg-gray-800 rounded-full text-xs font-mono tracking-widest text-sky-400 uppercase inline-block mt-4">
+          <div className="px-4 py-2 bg-gray-800 rounded-full text-xs font-sans tracking-widest text-sky-400 uppercase inline-block mt-4">
             Validated
           </div>
         </div>

@@ -21,6 +21,7 @@ export interface Testimonial {
   role: string;
   tag?: string;
   image?: string;
+  link?: string;
 }
 
 export type View = 'home' | 'case-study' | 'video-gen';

@@ -59,7 +59,7 @@ const WorkflowCarousel: React.FC<WorkflowCarouselProps> = ({ label, steps, layou
     <div className={`lg:col-span-4 flex flex-col ${layout === "text-left" ? "order-2 lg:order-1" : "order-2 lg:order-2"}`}>
       <div className="space-y-8">
         <div className="space-y-4">
-          <span className="text-indigo-600 dark:text-indigo-400 font-mono text-sm tracking-widest uppercase font-bold">{label}</span>
+          <span className="text-indigo-600 dark:text-indigo-400 font-sans text-sm tracking-widest uppercase font-bold">{label}</span>
         </div>
         
         <div 
@@ -248,15 +248,15 @@ const IdentityCaseStudy: React.FC<IdentityCaseStudyProps> = ({ onBack }) => {
         </p>
         <div className="flex flex-wrap gap-x-12 gap-y-6 border-t border-[#e5d9c5] dark:border-zinc-800 pt-8">
           <div>
-            <h4 className="text-xs font-mono uppercase tracking-widest text-[#6B5A45] dark:text-gray-400 mb-2">The Team</h4>
+            <h4 className="text-xs font-sans uppercase tracking-widest text-[#6B5A45] dark:text-gray-400 mb-2">The Team</h4>
             <p className="font-medium">1 PMs, 5 UX, 1 UI, 30+ Dev</p>
           </div>
           <div>
-            <h4 className="text-xs font-mono uppercase tracking-widest text-[#6B5A45] dark:text-gray-400 mb-2">My Role</h4>
+            <h4 className="text-xs font-sans uppercase tracking-widest text-[#6B5A45] dark:text-gray-400 mb-2">My Role</h4>
             <p className="font-medium">UX Manager & Strategic Lead</p>
           </div>
           <div>
-            <h4 className="text-xs font-mono uppercase tracking-widest text-[#6B5A45] dark:text-gray-400 mb-2">Key Outcome</h4>
+            <h4 className="text-xs font-sans uppercase tracking-widest text-[#6B5A45] dark:text-gray-400 mb-2">Key Outcome</h4>
             <p className="font-medium text-orange-600 dark:text-orange-400">Enabled Customer ID Unification across all platforms</p>
           </div>
         </div>
@@ -311,7 +311,7 @@ const IdentityCaseStudy: React.FC<IdentityCaseStudyProps> = ({ onBack }) => {
           Due to the scale & visibility of this initiative, I was deeply involved in personally interviewing customers and senior stakeholders, both internally and externally.
         </p>
         <div className="p-6 bg-red-50 dark:bg-red-500/10 rounded-2xl border border-red-100 dark:border-red-500/20 mb-10">
-          <h4 className="text-sm font-mono uppercase tracking-widest text-red-600 dark:text-red-400 mb-3">ID & Auth Problem Statement</h4>
+          <h4 className="text-sm font-sans uppercase tracking-widest text-red-600 dark:text-red-400 mb-3">ID & Auth Problem Statement</h4>
           <p className="text-gray-700 dark:text-gray-300 leading-relaxed font-medium">
             Customers needlessly authenticate themselves to our IDAM because each app maintains separate accounts for their customers. This is expensive and wasteful. The setup also prevents intelligence that could have provided seamless & personalised experiences across every touchpoint across Reliance, and kept engagement and expenditure higher.
           </p>

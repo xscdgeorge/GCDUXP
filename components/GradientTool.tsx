@@ -15,7 +15,7 @@ export const GradientTool = () => {
     return (
       <button 
         onClick={() => setIsOpen(true)}
-        className="fixed top-4 right-4 z-50 bg-black text-white px-4 py-2 rounded-full text-xs font-mono shadow-xl border border-white/20 hover:scale-105 transition-transform"
+        className="fixed top-4 right-4 z-50 bg-black text-white px-4 py-2 rounded-full text-xs font-sans shadow-xl border border-white/20 hover:scale-105 transition-transform"
       >
         🛠 Tune Mobile Gradient
       </button>
@@ -23,7 +23,7 @@ export const GradientTool = () => {
   }
 
   return (
-    <div className="fixed top-4 right-4 z-50 bg-white/95 p-5 rounded-2xl shadow-2xl text-xs font-mono text-black w-72 backdrop-blur-xl border border-gray-200">
+    <div className="fixed top-4 right-4 z-50 bg-white/95 p-5 rounded-2xl shadow-2xl text-xs font-sans text-black w-72 backdrop-blur-xl border border-gray-200">
       <div className="flex justify-between items-center mb-6">
         <h3 className="font-bold uppercase tracking-wider text-gray-800">Gradient Tweaker</h3>
         <button onClick={() => setIsOpen(false)} className="text-gray-400 hover:text-black">✖</button>
