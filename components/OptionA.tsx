@@ -37,7 +37,7 @@ const OptionA: React.FC<OptionAProps> = ({ onProjectClick }) => {
       <nav className="fixed top-0 w-full h-16 px-8 flex justify-between items-center bg-black/70 backdrop-blur-xl border-b border-white/5 z-50">
         <span className="text-[24px] font-serif font-medium tracking-[0.01em] text-white drop-shadow-md">George<span className="text-orange-500">.</span></span>
         <div className="flex gap-8 items-center text-[16px] font-normal text-gray-200 drop-shadow-md">
-          {/* <a href="#/resume" className="hover:text-white transition-colors">Resume</a> */}
+          <a href="#/resume" className="hover:text-white transition-colors">Resume</a>
           <a href="https://www.linkedin.com/in/georgeuxd/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
             <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
@@ -53,7 +53,7 @@ const OptionA: React.FC<OptionAProps> = ({ onProjectClick }) => {
           <img
             src={heroImage}
             alt="George"
-            className="w-full h-full object-cover object-[80%_center] lg:object-center saturate-50 opacity-80"
+            className="w-full h-full object-cover object-[80%_center] lg:object-center opacity-80"
             referrerPolicy="no-referrer"
           />
           <div className="absolute inset-0 lg:hidden pointer-events-none bg-gradient-to-t from-black via-black/80 to-transparent"></div>
@@ -77,14 +77,14 @@ const OptionA: React.FC<OptionAProps> = ({ onProjectClick }) => {
                   </span>
                 </div>
                 <p className="text-[18px] md:text-[20px] font-light text-[#9ca3af] leading-relaxed mt-10">
-                  George is a UX leader & manager with 15 years of experience. Uses design thinking and object oriented UX methodologies to bridge the gap between user needs, business goals, and maintain accountability across the cross-functional team.
+                  UX leader with 15 years of experience using Design Thinking, Jobs to be done, and Object Oriented UX to align user needs and business goals to create measureable impact.
                 </p>
                 <p className="text-[18px] md:text-[20px] font-light text-[#9ca3af] leading-relaxed mt-6">
-                  Currently at Jio Platforms, building an omnichannel customer ecosystem, and AI powered SaaS apps. Ex Athenahealth, Honeywell, IBEE Solutions, and July Systems (Cisco Spaces).
+                  Currently at Jio Platforms, I head a UX team with 5 designers building CIAM SaaS apps - JioID, JioAuth, JioSign, JioConsent, and AI proof of concepts. Ex Athenahealth, Honeywell, IBEE Solutions, and July Systems (Cisco Spaces).
                 </p>
 
                 <div className="flex flex-wrap gap-2 mt-8">
-                  {['Healthcare', 'Omnichannel Ecosystems', 'AI & Automation', 'IoT & Connected Spaces', 'Enterprise', 'eSignature', 'CIAM', 'eCommerce', 'Sales & Marketing'].map((domain, i) => (
+                  {['eSignature', 'Healthcare', 'Manufacturing', 'AI & Automation', 'IoT & Drone surveillance', 'Enterprise', 'ITSM', 'HR', 'Finance', 'CIAM', 'eCommerce', 'Sales & Marketing'].map((domain, i) => (
                     <span 
                       key={i} 
                       className="px-4 py-1.5 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full text-[16px] font-sans tracking-tight text-[#9ca3af]"
@@ -108,7 +108,7 @@ const OptionA: React.FC<OptionAProps> = ({ onProjectClick }) => {
                         <img 
                           src={project.image} 
                           alt={project.title} 
-                          className="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-105"
+                          className={`w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-105 ${project.id === 'idaas' ? 'translate-y-[10px]' : ''}`}
                           referrerPolicy="no-referrer"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
@@ -161,9 +161,9 @@ const OptionA: React.FC<OptionAProps> = ({ onProjectClick }) => {
                     {/* Inline Footer Content */}
                     <div className="mt-[200px] pb-[20px] flex flex-col md:flex-row justify-between items-center gap-6 text-zinc-500">
                     <div className="flex items-center">
-                      <a href="#/styles" className="font-medium text-[14px] text-[#9ca3af] hover:text-[#9ca3af] transition-none cursor-default selection:bg-transparent">
+                      <span className="font-medium text-[14px] text-[#9ca3af]">
                         &copy; {new Date().getFullYear()} George Chiramal Davis
-                      </a>
+                      </span>
                     </div>
                     </div>
                   </div>

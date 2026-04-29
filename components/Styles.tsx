@@ -1,6 +1,5 @@
 import React from 'react';
 import { ArrowLeft, Play, Type, Palette, Layout, MousePointer2, Layers, Zap } from 'lucide-react';
-import Footer from './Footer';
 
 interface StylesProps {
   onBack: () => void;
@@ -183,7 +182,14 @@ const Styles: React.FC<StylesProps> = ({ onBack }) => {
         </section>
       </main>
 
-      <Footer />
+      {/* Inline Footer Content */}
+      <div className="mt-[100px] pb-[20px] flex flex-col md:flex-row justify-between items-center gap-6 text-zinc-500 max-w-7xl mx-auto px-6 md:px-10">
+        <div className="flex items-center">
+          <span className="font-medium text-[14px] text-[#9ca3af]">
+            &copy; {new Date().getFullYear()} George Chiramal Davis
+          </span>
+        </div>
+      </div>
     </div>
   );
 };

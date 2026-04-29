@@ -1,7 +1,6 @@
 import React from 'react';
 import { ArrowLeft, Users, Shield, Zap, Target, MessageSquare, CheckCircle2, Search, Lightbulb, Sparkles, TestTube2, Layout, Fingerprint, Key, BarChart3, Sun, Moon, Monitor, ChevronLeft, ChevronRight, Play, Pause, Grid2X2, Route } from 'lucide-react';
 import MoreProjects from './MoreProjects';
-import Footer from './Footer';
 import jioIdHeroImg from '../JioID/JioIDDesktopHome.png';
 import signInCrossPlatformImg from '../JioID/SignIncrossPlatfrom.png';
 import jioIdConnectedXPImg from '../JioID/jioID connectedXP.png';
@@ -187,24 +186,26 @@ const IdentityCaseStudy: React.FC<IdentityCaseStudyProps> = ({ onBack }) => {
 
   React.useEffect(() => {
     const onScroll = () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      setScrollProgress(docHeight > 0 ? (scrollTop / docHeight) * 100 : 0);
+      requestAnimationFrame(() => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        setScrollProgress(docHeight > 0 ? (scrollTop / docHeight) * 100 : 0);
 
-      if (titleRef.current) {
-        const rect = titleRef.current.getBoundingClientRect();
-        setShowTitleInHeader(rect.bottom < 64); // 64 is header height
-      }
+        if (titleRef.current) {
+          const rect = titleRef.current.getBoundingClientRect();
+          setShowTitleInHeader(rect.bottom < 64); // 64 is header height
+        }
+      });
     };
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   return (
-    <div className="bg-zinc-950 min-h-screen text-gray-100 font-sans selection:bg-white selection:text-gray-900 pb-20 pt-[74px]">
+    <div className="bg-zinc-950 min-h-screen text-gray-100 font-sans selection:bg-white selection:text-gray-900 pt-[74px]">
       {/* Reading Progress */}
       <div className="fixed top-0 left-0 w-full h-1 z-[60]">
-        <div className="h-full bg-orange-500 transition-all duration-100" style={{ width: `${scrollProgress}%` }} />
+        <div className="h-full bg-orange-500" style={{ width: `${scrollProgress}%` }} />
       </div>
 
       {/* Navigation */}
@@ -223,12 +224,12 @@ const IdentityCaseStudy: React.FC<IdentityCaseStudyProps> = ({ onBack }) => {
       </nav>
       
       {/* Cover Image */}
-      <section className="pt-0 px-6 md:px-10 max-w-[1062px] mx-auto mb-[80px]">
-        <div className="rounded-[32px] overflow-hidden shadow-2xl relative group bg-[#433422]/5 dark:bg-black/50 border border-[#e5d9c5] dark:border-zinc-800 w-full aspect-[21/9]">
+      <section className="pt-0 px-6 md:px-10 max-w-[970px] mx-auto mb-[80px]">
+        <div className="rounded-[32px] overflow-hidden shadow-2xl relative group bg-[#433422]/5 dark:bg-black/50 border border-[#e5d9c5] dark:border-zinc-800 w-full aspect-[21/9] max-h-[414px]">
           <img 
             src={jioIdHeroImg} 
             alt="Identity Dashboard" 
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none"></div>
         </div>
@@ -241,7 +242,7 @@ const IdentityCaseStudy: React.FC<IdentityCaseStudyProps> = ({ onBack }) => {
         </div>
         <h1 ref={titleRef} className="text-5xl md:text-7xl font-serif leading-tight mb-8 text-white">
           JioID: Unified <br/>
-          <span className="text-gray-100 text-shadow-sm">Customer Identity</span>
+          <span className="text-white text-shadow-sm">Customer Identity</span>
         </h1>
         <p className="text-xl text-[#6B5A45] dark:text-gray-400 max-w-3xl leading-relaxed mb-12">
           I translated and executed an ambiguous vision by breaking it down into multiple parts, and took ownership of the cornerstone JioID — a federated Identity, authentication, consent and account management service. I became an advisor to other parts like Loyalty & Rewards, Payment & Subscription, Super Profile, Cross-platform experiences, omnichannel marketing, etc.
@@ -249,7 +250,7 @@ const IdentityCaseStudy: React.FC<IdentityCaseStudyProps> = ({ onBack }) => {
         <div className="flex flex-wrap gap-x-12 gap-y-6 border-t border-[#e5d9c5] dark:border-zinc-800 pt-8">
           <div>
             <h4 className="text-xs font-sans uppercase tracking-widest text-[#6B5A45] dark:text-gray-400 mb-2">The Team</h4>
-            <p className="font-medium">1 PMs, 5 UX, 1 UI, 30+ Dev</p>
+            <p className="font-medium">1 PM, 5 UX, 1 UI, 30+ Dev</p>
           </div>
           <div>
             <h4 className="text-xs font-sans uppercase tracking-widest text-[#6B5A45] dark:text-gray-400 mb-2">My Role</h4>
@@ -257,7 +258,7 @@ const IdentityCaseStudy: React.FC<IdentityCaseStudyProps> = ({ onBack }) => {
           </div>
           <div>
             <h4 className="text-xs font-sans uppercase tracking-widest text-[#6B5A45] dark:text-gray-400 mb-2">Key Outcome</h4>
-            <p className="font-medium text-orange-600 dark:text-orange-400">Enabled Customer ID Unification across all platforms</p>
+            <p className="font-medium text-orange-600 dark:text-orange-400">800M customers unified</p>
           </div>
         </div>
       </header>
@@ -512,7 +513,15 @@ const IdentityCaseStudy: React.FC<IdentityCaseStudyProps> = ({ onBack }) => {
       */}
 
       <MoreProjects currentProjectId="idaas" />
-      <Footer />
+      
+      {/* Inline Footer Content */}
+      <div className="mt-[100px] pb-[20px] flex flex-col md:flex-row justify-between items-center gap-6 text-zinc-500 max-w-7xl mx-auto px-6 md:px-10">
+        <div className="flex items-center">
+          <span className="font-medium text-[14px] text-[#9ca3af]">
+            &copy; {new Date().getFullYear()} George Chiramal Davis
+          </span>
+        </div>
+      </div>
 
     </div>
   );

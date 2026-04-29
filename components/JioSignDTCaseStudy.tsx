@@ -285,24 +285,26 @@ const JioSignMobileCaseStudy: React.FC<JioSignMobileCaseStudyProps> = ({ onBack 
 
   React.useEffect(() => {
     const onScroll = () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      setScrollProgress(docHeight > 0 ? (scrollTop / docHeight) * 100 : 0);
+      requestAnimationFrame(() => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        setScrollProgress(docHeight > 0 ? (scrollTop / docHeight) * 100 : 0);
 
-      if (titleRef.current) {
-        const rect = titleRef.current.getBoundingClientRect();
-        setShowTitleInHeader(rect.bottom < 64);
-      }
+        if (titleRef.current) {
+          const rect = titleRef.current.getBoundingClientRect();
+          setShowTitleInHeader(rect.bottom < 64);
+        }
+      });
     };
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   return (
-    <div className="bg-[#efe3d0] dark:bg-zinc-950 min-h-screen text-[#433422] dark:text-gray-100 font-sans selection:bg-[#433422] selection:text-[#efe3d0] dark:selection:bg-white dark:selection:text-gray-900 pb-20 pt-[74px] transition-colors duration-500">
+    <div className="bg-[#efe3d0] dark:bg-zinc-950 min-h-screen text-[#433422] dark:text-gray-100 font-sans selection:bg-[#433422] selection:text-[#efe3d0] dark:selection:bg-white dark:selection:text-gray-900 pt-[74px] transition-colors duration-500">
       {/* Reading Progress */}
       <div className="fixed top-0 left-0 w-full h-1 z-[60]">
-        <div className="h-full bg-orange-500 transition-all duration-100" style={{ width: `${scrollProgress}%` }} />
+        <div className="h-full bg-orange-500" style={{ width: `${scrollProgress}%` }} />
       </div>
 
       {/* Navigation */}
@@ -332,12 +334,12 @@ const JioSignMobileCaseStudy: React.FC<JioSignMobileCaseStudyProps> = ({ onBack 
       </nav>
 
       {/* Cover Image (Moved from below Situation) */}
-      <section className="pt-0 px-6 md:px-10 max-w-[1062px] mx-auto mb-[80px]">
-        <div className="rounded-[32px] overflow-hidden aspect-[21/9] shadow-2xl relative group bg-white dark:bg-black">
+      <section className="pt-0 px-6 md:px-10 max-w-[970px] mx-auto mb-[80px]">
+        <div className="rounded-[32px] overflow-hidden aspect-[21/9] max-h-[414px] shadow-2xl relative group bg-white dark:bg-black">
           <img 
             src={jioSignMobileImg}
             alt="JioSign Mobile-First Interface" 
-            className="w-full h-full object-cover mix-blend-multiply dark:mix-blend-normal"
+            className="w-full h-full object-cover mix-blend-multiply dark:mix-blend-normal transition-transform duration-700 hover:scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
         </div>
@@ -348,11 +350,11 @@ const JioSignMobileCaseStudy: React.FC<JioSignMobileCaseStudyProps> = ({ onBack 
         <div className="flex gap-3 mb-6">
           <span className="px-3 py-1 bg-[#433422]/5 dark:bg-zinc-900 text-[#6B5A45] dark:text-gray-400 rounded-full text-xs font-medium  font-sans">eSign document workflows</span>
         </div>
-        <h1 ref={titleRef} className="text-5xl md:text-7xl font-serif leading-tight mb-8">
+        <h1 ref={titleRef} className="text-5xl md:text-7xl font-serif leading-tight mb-8 text-white">
           JioSign: Winning back lost customers
         </h1>
         <p className="text-xl text-[#6B5A45] dark:text-gray-400 max-w-2xl leading-relaxed mb-12">
-          This is the story of how I acquired the JioSign project, re-established trust in UX, and guided its strategic pivot, resulting in a 96% task completion rate in testing, and enabled an increase of 90K eSigns/day. Achieved primarily by introducing collaborative UX research, a mobile-first experience, simplified pricing, and useful AI features.
+          TLDR: This is the story of how I acquired the JioSign project, re-established trust in UX, and guided its strategic pivot, resulting in a 96% task completion rate in testing, and enabled an increase of 90K eSigns/day. Achieved primarily by introducing collaborative UX research, a mobile-first experience, simplified pricing, and useful AI features.
         </p>
         <div className="flex flex-wrap gap-x-12 gap-y-6 border-t border-gray-100 dark:border-zinc-800 pt-8">
           <div>
@@ -365,7 +367,7 @@ const JioSignMobileCaseStudy: React.FC<JioSignMobileCaseStudyProps> = ({ onBack 
           </div>
           <div>
             <h4 className="text-xs font-sans uppercase tracking-widest text-[#6B5A45] dark:text-gray-400 mb-2">Key Outcome</h4>
-            <p className="font-medium text-orange-600 dark:text-orange-400">96% TCR | 78 SUS | 10X increase in eSign/day</p>
+            <p className="font-medium text-orange-600 dark:text-orange-400">96% TCR • 78 SUS • 10X increase in eSign/day</p>
           </div>
         </div>
       </header>
@@ -620,32 +622,6 @@ const JioSignMobileCaseStudy: React.FC<JioSignMobileCaseStudyProps> = ({ onBack 
         </div>
       </section>
 
-      {/* LinkedIn CTA */}
-      <section className="px-6 md:px-10 max-w-3xl mx-auto mb-40">
-        <div className="bg-orange-500 rounded-[32px] p-8 md:p-12 text-white relative overflow-hidden shadow-2xl shadow-orange-500/20 group">
-          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
-            <div className="space-y-4 text-center md:text-left">
-              <h3 className="text-3xl font-bold">Building India's eSign future?</h3>
-              <p className="text-orange-50/80 text-lg max-w-sm">
-                If you're interested in collaborating or making an impact in this space, I'd love to hear from you.
-              </p>
-            </div>
-            <a 
-              href="https://www.linkedin.com/in/georgedavisux/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="bg-white text-orange-500 px-8 py-4 rounded-full font-bold flex items-center gap-3 hover:bg-orange-50 transition-all hover:scale-105 active:scale-95 shadow-lg shrink-0"
-            >
-              <Linkedin size={20} fill="currentColor" />
-              Get in touch on LinkedIn
-            </a>
-          </div>
-          
-          {/* Decorative Background Element */}
-          <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 -ml-16 -mb-16 w-64 h-64 bg-orange-600/30 rounded-full blur-3xl" />
-        </div>
-      </section>
 
       <MoreProjects currentProjectId="jiosign-mobile" />
     </div>

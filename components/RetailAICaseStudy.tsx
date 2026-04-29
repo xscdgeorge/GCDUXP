@@ -2,7 +2,6 @@ import React from 'react';
 import { ArrowLeft, Sun, Moon, Monitor, Cpu, TrendingUp, Layout } from 'lucide-react';
 import retailMerchImg from '../mockupretailmerch.png';
 import MoreProjects from './MoreProjects';
-import Footer from './Footer';
 
 interface RetailAICaseStudyProps {
   onBack: () => void;
@@ -15,24 +14,26 @@ const RetailAICaseStudy: React.FC<RetailAICaseStudyProps> = ({ onBack }) => {
 
   React.useEffect(() => {
     const onScroll = () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      setScrollProgress(docHeight > 0 ? (scrollTop / docHeight) * 100 : 0);
+      requestAnimationFrame(() => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        setScrollProgress(docHeight > 0 ? (scrollTop / docHeight) * 100 : 0);
 
-      if (titleRef.current) {
-        const rect = titleRef.current.getBoundingClientRect();
-        setShowTitleInHeader(rect.bottom < 64);
-      }
+        if (titleRef.current) {
+          const rect = titleRef.current.getBoundingClientRect();
+          setShowTitleInHeader(rect.bottom < 64);
+        }
+      });
     };
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   return (
-    <div className="bg-zinc-950 min-h-screen text-gray-100 font-sans selection:bg-white selection:text-gray-900 pb-20 pt-[74px]">
+    <div className="bg-zinc-950 min-h-screen text-gray-100 font-sans selection:bg-white selection:text-gray-900 pt-[74px]">
       {/* Reading Progress */}
       <div className="fixed top-0 left-0 w-full h-1 z-[60]">
-        <div className="h-full bg-orange-500 transition-all duration-100" style={{ width: `${scrollProgress}%` }} />
+        <div className="h-full bg-orange-500" style={{ width: `${scrollProgress}%` }} />
       </div>
 
       {/* Navigation */}
@@ -43,14 +44,14 @@ const RetailAICaseStudy: React.FC<RetailAICaseStudyProps> = ({ onBack }) => {
         </button>
 
         <div className={`absolute left-1/2 -translate-x-1/2 transition-all duration-500 ${showTitleInHeader ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'}`}>
-          <span className="font-serif font-medium text-[18px] text-white whitespace-nowrap">Retail AI Specialist</span>
+          <span className="font-serif font-medium text-[18px] text-white whitespace-nowrap">Searchandising Specialist</span>
         </div>
       </nav>
       
       {/* Cover Image */}
-      <section className="pt-0 px-6 md:px-10 max-w-[1062px] mx-auto mb-[80px]">
-        <div className="rounded-[32px] overflow-hidden shadow-2xl relative group bg-[#433422]/5 dark:bg-black/50 border border-gray-100 dark:border-zinc-800 w-full aspect-[21/9]">
-          <img src={retailMerchImg} alt="Retail Merchandiser UI" className="w-full h-full object-cover" />
+      <section className="pt-0 px-6 md:px-10 max-w-[970px] mx-auto mb-[80px]">
+        <div className="rounded-[32px] overflow-hidden shadow-2xl relative group bg-[#433422]/5 dark:bg-black/50 border border-gray-100 dark:border-zinc-800 w-full aspect-[21/9] max-h-[414px]">
+          <img src={retailMerchImg} alt="Searchandising UI" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none"></div>
         </div>
       </section>
@@ -61,17 +62,16 @@ const RetailAICaseStudy: React.FC<RetailAICaseStudyProps> = ({ onBack }) => {
           <span className="px-3 py-1 bg-[#433422]/5 dark:bg-zinc-900 text-[#6B5A45] dark:text-gray-400 rounded-full text-xs font-medium font-sans">AI retail tech</span>
 
         </div>
-        <h1 ref={titleRef} className="text-5xl md:text-7xl font-serif leading-tight mb-8">
-          AI retail <br/>
-          <span>merchandiser tool</span>
+        <h1 ref={titleRef} className="text-5xl md:text-7xl font-serif leading-tight mb-8 text-white">
+          Streamlined searchandising and improved conversion lift
         </h1>
         <p className="text-xl text-[#6B5A45] dark:text-gray-400 max-w-2xl leading-relaxed mb-12">
           Empowering category managers via a zero-code WYSIWYG editor powered by active AI discovery engines optimizing localized conversions.
         </p>
-        <div className="flex flex-wrap gap-x-12 gap-y-6 border-t border-gray-100 dark:border-zinc-800 pt-8">
+        <div className="flex flex-wrap gap-x-12 gap-y-6 border-t border-[#e5d9c5] dark:border-zinc-800 pt-8">
           <div>
             <h4 className="text-xs font-sans uppercase tracking-widest text-[#6B5A45] dark:text-gray-400 mb-2">The Team</h4>
-            <p className="font-medium">AI Discovery & Platform Teams</p>
+            <p className="font-medium">1 PM, 2 UX, 10 Dev</p>
           </div>
           <div>
             <h4 className="text-xs font-sans uppercase tracking-widest text-[#6B5A45] dark:text-gray-400 mb-2">My Role</h4>
@@ -128,7 +128,15 @@ const RetailAICaseStudy: React.FC<RetailAICaseStudyProps> = ({ onBack }) => {
       </section>
 
       <MoreProjects currentProjectId="retail-ai" />
-      <Footer />
+      
+      {/* Inline Footer Content */}
+      <div className="mt-[100px] pb-[20px] flex flex-col md:flex-row justify-between items-center gap-6 text-zinc-500 max-w-7xl mx-auto px-6 md:px-10">
+        <div className="flex items-center">
+          <span className="font-medium text-[14px] text-[#9ca3af]">
+            &copy; {new Date().getFullYear()} George Chiramal Davis
+          </span>
+        </div>
+      </div>
 
     </div>
   );

@@ -52,24 +52,26 @@ const DronnectCaseStudy: React.FC<DronnectCaseStudyProps> = ({ onBack }) => {
 
   React.useEffect(() => {
     const onScroll = () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      setScrollProgress(docHeight > 0 ? (scrollTop / docHeight) * 100 : 0);
+      requestAnimationFrame(() => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        setScrollProgress(docHeight > 0 ? (scrollTop / docHeight) * 100 : 0);
 
-      if (titleRef.current) {
-        const rect = titleRef.current.getBoundingClientRect();
-        setShowTitleInHeader(rect.bottom < 64);
-      }
+        if (titleRef.current) {
+          const rect = titleRef.current.getBoundingClientRect();
+          setShowTitleInHeader(rect.bottom < 64);
+        }
+      });
     };
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   return (
-    <div className="bg-[#efe3d0] dark:bg-zinc-950 min-h-screen text-[#433422] dark:text-gray-100 font-sans selection:bg-[#433422] selection:text-[#efe3d0] dark:selection:bg-white dark:selection:text-gray-900 pb-20 pt-[74px] transition-colors duration-500">
+    <div className="bg-[#efe3d0] dark:bg-zinc-950 min-h-screen text-[#433422] dark:text-gray-100 font-sans selection:bg-[#433422] selection:text-[#efe3d0] dark:selection:bg-white dark:selection:text-gray-900 pt-[74px] transition-colors duration-500">
       {/* Reading Progress */}
       <div className="fixed top-0 left-0 w-full h-1 z-[60]">
-        <div className="h-full bg-orange-500 transition-all duration-100" style={{ width: `${scrollProgress}%` }} />
+        <div className="h-full bg-orange-500" style={{ width: `${scrollProgress}%` }} />
       </div>
 
       {/* Navigation */}
@@ -96,10 +98,10 @@ const DronnectCaseStudy: React.FC<DronnectCaseStudyProps> = ({ onBack }) => {
       </nav>
       
       {/* Cover Image */}
-      <section className="pt-0 px-6 md:px-10 max-w-[1062px] mx-auto mb-[80px]">
-        <div className="rounded-[32px] overflow-hidden shadow-2xl relative group bg-[#433422]/5 dark:bg-black/50 border border-gray-100 dark:border-zinc-800 w-full aspect-[21/9]">
-          <img src={dronnectHeroImg} alt="Drone hovering over power station" className="w-full h-auto object-cover aspect-[21/9]" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent pointer-events-none"></div>
+      <section className="pt-0 px-6 md:px-10 max-w-[970px] mx-auto mb-[80px]">
+        <div className="rounded-[32px] overflow-hidden shadow-2xl relative group bg-[#433422]/5 dark:bg-black/50 border border-gray-100 dark:border-zinc-800 w-full aspect-[21/9] max-h-[414px]">
+          <img src={dronnectHeroImg} alt="Drone hovering over power station" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none"></div>
         </div>
       </section>
 
@@ -109,9 +111,9 @@ const DronnectCaseStudy: React.FC<DronnectCaseStudyProps> = ({ onBack }) => {
           <span className="px-3 py-1 bg-[#433422]/5 dark:bg-zinc-900 text-[#6B5A45] dark:text-gray-400 rounded-full text-xs font-medium  font-sans">Funded PoC</span>
 
         </div>
-        <h1 ref={titleRef} className="text-5xl md:text-7xl font-serif leading-tight mb-8">
+        <h1 ref={titleRef} className="text-5xl md:text-7xl font-serif leading-tight mb-8 text-white">
           Dronnect: Connected <br/>
-          <span>UAV surveillance</span>
+          <span className="text-white text-shadow-sm">Cloud Surveillance</span>
         </h1>
         <p className="text-xl text-[#6B5A45] dark:text-gray-400 max-w-2xl leading-relaxed mb-12">
           Integrating drone operations directly with Honeywell's Max Pro and ProWatch platforms to replace physical wiring and manual inspections across vast properties.
@@ -225,6 +227,14 @@ const DronnectCaseStudy: React.FC<DronnectCaseStudyProps> = ({ onBack }) => {
 
       <MoreProjects currentProjectId="dronnect" />
 
+      {/* Inline Footer Content */}
+      <div className="mt-[100px] pb-[20px] flex flex-col md:flex-row justify-between items-center gap-6 text-zinc-500 max-w-7xl mx-auto px-6 md:px-10">
+        <div className="flex items-center">
+          <span className="font-medium text-[14px] text-[#9ca3af]">
+            &copy; {new Date().getFullYear()} George Chiramal Davis
+          </span>
+        </div>
+      </div>
     </div>
   );
 };

@@ -12,7 +12,7 @@ const Resume: React.FC<ResumeProps> = ({ onBack }) => {
       company: "Jio Platforms Limited",
       role: "Lead UX Design Manager / Deputy GM",
       period: "Mar 2022 — Present",
-      description: "Head UX for JioID & Auth, JioSign, JioConsent, and Retail Merchandiser. Driving initiatives to improve customer experience across the Reliance ecosystem and building Centralised SaaS.",
+      description: "Head UX for JioID & Auth, JioSign, JioConsent, and Searchandising. Driving initiatives to improve customer experience across the Reliance ecosystem and building Centralised SaaS.",
       achievements: [
         "Delivered localized solutions unifying ID for 500M+ customers, scaling toward 1.2 Billion in India.",
         "Collaborated with engineering to ensure design alignment across Android, iOS, Web, Mobile Web, Jio Bharat (Basic Phone), JioBook, and Jio Set-top box.",
@@ -120,7 +120,7 @@ const Resume: React.FC<ResumeProps> = ({ onBack }) => {
             <div className="flex flex-col gap-3 text-sm text-gray-500 dark:text-gray-400">
               <div className="flex items-center gap-2">
                 <MapPin size={16} className="text-orange-500" />
-                <span>Navi Mumbai, India</span>
+                <span>Bangalore, India</span>
               </div>
               <div className="flex items-center gap-2">
                 <Phone size={16} className="text-orange-500" />
@@ -247,7 +247,7 @@ const Resume: React.FC<ResumeProps> = ({ onBack }) => {
 
       {/* Footer */}
       <footer className="mt-20 border-t border-gray-100 dark:border-zinc-900 pt-12 text-center text-gray-400 text-sm">
-        <p>&copy; {new Date().getFullYear()} George Chiramal Davis. Designed with intention.</p>
+        <p>&copy; {new Date().getFullYear()} George Chiramal Davis</p>
       </footer>
     </div>
   );

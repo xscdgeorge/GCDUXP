@@ -14,7 +14,7 @@ const MoreProjects: React.FC<MoreProjectsProps> = ({ currentProjectId }) => {
   };
 
   return (
-    <section className="px-6 md:px-10 max-w-7xl mx-auto mb-32 pt-20 border-t border-zinc-800">
+    <section className="px-6 md:px-10 max-w-7xl mx-auto mb-12 pt-20 border-t border-zinc-800">
       <h2 className="text-[42px] font-serif leading-tight text-white mb-16 text-center">More projects</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {otherProjects.map((project) => (

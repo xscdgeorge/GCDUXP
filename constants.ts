@@ -6,13 +6,11 @@ import jamieImg from './Jamie.jpeg';
 import poojaImg from './Pooja.jpeg';
 import rameshImg from './Ramesh.jpeg';
 import kavitaImg from './kavita.jpeg';
-import samikshaImg from './Samiksha.jpg';
-import mariaImg from './Maria.jpg';
-import shruthiImg from './Shruthi.jpg';
 import jioSignHeroImg from './womanEsigning.png';
 import jioSignMobileImg from './upshoteSigning2people.png';
 import retailMerchImg from './mockupretailmerch.png';
 import jioIdHeroImg from './JioID/JioIDDesktopHome.png';
+import athenaHeroImg from './athena_hero_dashboard_1776939527175.png';
 // Placeholder for the user's image. 
 // In a real scenario, this would be the uploaded asset.
 export const PROFILE_IMAGE = profileImage; 
@@ -38,23 +36,21 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'athenaone',
-    title: 'Streamlining Clinical Quality Measure Mngmt.',
+    title: 'athenahealth: Overhauling CQM Management',
     category: 'Healthcare IT',
-    description: 'Co-created a quality vision to stop penalties at the point of enrollment through a self-service model.',
-    impact: '$1M Annual Savings',
-    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=1000',
-    year: '',
-    externalLink: 'https://www.georgeux.com/streamlining-clinical-quality-measures-mgmt'
+    description: 'Overhauling the Clinical Quality Measure (CQM) management system to eliminate multimillion-dollar penalties and improve provider efficiency.',
+    impact: 'Multimillion-dollar Penalty Elimination',
+    image: athenaHeroImg,
+    year: ''
   },
   {
     id: 'retail-ai',
-    title: 'Retail Merchandiser',
+    title: 'Streamlined searchandising and improved conversion lift',
     category: 'AI retail tech',
     description: 'Designed a no-code WYSIWYG editor for category managers to customize listings and AI-powered discovery.',
     impact: '70% Conversion Lift',
     image: retailMerchImg,
-    year: '',
-    externalLink: 'https://www.georgeux.com/ai-search-merchandiser'
+    year: ''
   },
 ];
 
@@ -126,29 +122,5 @@ export const TESTIMONIALS: Testimonial[] = [
     role: "Sr. Director, Business Growth, Allen Digital",
     image: kavitaImg,
     link: "https://www.linkedin.com/in/kavitachowkimane/"
-  },
-  {
-    text: "I recommend George if you are looking for straightforward guidance and feedback on your portfolio and presentation. He gave me lots of detailed recommendations and helped to structure the story in a more logical and clear way. George has paid attention to the smallest details and spent much more time than previously planned to finish the portfolio review.",
-    author: "Maria Borysova",
-    role: "Product Designer, Amazon",
-    tag: "Mentee",
-    image: mariaImg,
-    link: "https://adplist.org/mentors/george-chiramal-davis"
-  },
-  {
-    text: "Highly recommend George to those looking for valuable feedback on portfolio and is ready for a laugh. He gave me honest and straightforward guidance on how to improve my narrative through my portfolio. Great session with George.",
-    author: "Shruthi Sasidaran",
-    role: "Sr. Product Designer, hipages group",
-    tag: "Mentee",
-    image: shruthiImg,
-    link: "https://adplist.org/mentors/george-chiramal-davis"
-  },
-  {
-    text: "I found it immensely helpful connecting with George for guidance in my career path as well as a project. His outlook towards the problems was unique and helped me gain a new perspective and frameworks to work on my project. Thank you and hoping to connect again soon!",
-    author: "Samiksha Sachdeva",
-    role: "UX Designer III, Walmart Global Tech",
-    tag: "Mentee",
-    image: samikshaImg,
-    link: "https://adplist.org/mentors/george-chiramal-davis"
   }
 ];
