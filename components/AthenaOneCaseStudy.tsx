@@ -45,7 +45,7 @@ const AthenaOneCaseStudy: React.FC<AthenaOneCaseStudyProps> = ({ onBack }) => {
         </button>
 
         <div className={`absolute left-1/2 -translate-x-1/2 transition-all duration-500 ${showTitleInHeader ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'}`}>
-          <span className="font-serif font-medium text-[18px] text-white whitespace-nowrap">athenaOne: Overhauling CQM Management</span>
+          <span className="font-serif font-medium text-[18px] text-white whitespace-nowrap">Clinical Measure Mgmnt. Less is more $$.</span>
         </div>
       </nav>
       
@@ -60,14 +60,14 @@ const AthenaOneCaseStudy: React.FC<AthenaOneCaseStudyProps> = ({ onBack }) => {
       {/* Hero Header */}
       <header className="px-6 md:px-10 max-w-3xl mx-auto mb-24">
         <div className="flex gap-3 mb-8">
-          <span className="px-3 py-1 bg-zinc-900 text-gray-400 rounded-full text-xs font-medium font-sans uppercase tracking-wider">athenahealth</span>
+          <span className="px-3 py-1 bg-zinc-900 text-gray-400 rounded-full text-xs font-medium font-sans tracking-wider">athenahealth</span>
         </div>
         <h1 ref={titleRef} className="text-5xl md:text-7xl font-serif leading-tight mb-8 text-white">
-          Overhauling <br/>
-          <span className="text-white text-shadow-sm">CQM Management.</span>
+          Clinical Measure Mgmnt. <br/>
+          <span className="text-white text-shadow-sm">Less is more $$.</span>
         </h1>
         <p className="text-xl text-gray-400 max-w-2xl leading-relaxed mb-12 font-sans font-light">
-          This case study highlights how George Davis overhauled the Clinical Quality Measure (CQM) management system to eliminate multimillion-dollar penalties and improve provider efficiency.
+          TLDR: I eliminated the million-dollar penalties athenahealth covered for its customers by preventing errors in physician enrollments & overhauling the quality measures tab in the patient chart. While the first release was applauded by every customer but one, this rejection by a single customer led me to develop a much better solution!
         </p>
         <div className="flex flex-wrap gap-x-12 gap-y-6 border-t border-zinc-800 pt-8">
           <div>
@@ -80,7 +80,7 @@ const AthenaOneCaseStudy: React.FC<AthenaOneCaseStudyProps> = ({ onBack }) => {
           </div>
           <div>
             <h4 className="text-xs font-sans uppercase tracking-widest text-zinc-500 mb-2">Key Outcome</h4>
-            <p className="font-medium text-orange-400">96% TCR • Penalty Elimination</p>
+            <p className="font-medium text-orange-400">100% Penalty Elimination</p>
           </div>
         </div>
       </header>
@@ -90,28 +90,17 @@ const AthenaOneCaseStudy: React.FC<AthenaOneCaseStudyProps> = ({ onBack }) => {
         <h2 className="text-[42px] font-serif mb-8 text-white">Situation: The Cost of Complexity<span className="text-orange-500">.</span></h2>
         <div className="space-y-6 text-lg text-gray-300 leading-relaxed font-sans font-light">
           <p>
-            Clinical Quality Measures (CQMs) are essential for value-based care; providers must track and submit these reports to insurers and the government to receive payment. However, athenahealth’s legacy system was so cumbersome that:
+            MIPS (Merit-based Incentive Payment System) is a mandatory clinical measures reporting program among others which incentivizes or penalizes physicians & practices based on performance.
           </p>
-          <ul className="space-y-6 mt-8">
-            <li className="flex gap-4">
-              <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-orange-500 shrink-0" />
-              <span><strong className="text-white">Financial Risk:</strong> The company paid millions in penalties due to poor management experiences and late enrollments.</span>
-            </li>
-            <li className="flex gap-4">
-              <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-orange-500 shrink-0" />
-              <span><strong className="text-white">Operational Burden:</strong> "Workarounds" became the norm, with athenahealth operations teams manually enrolling clients via error-prone Excel docs.</span>
-            </li>
-            <li className="flex gap-4">
-              <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-orange-500 shrink-0" />
-              <span><strong className="text-white">Scalability:</strong> The entry of massive players like Walmart Health into the clinic space highlighted that the current manual processes could not scale.</span>
-            </li>
-          </ul>
+          <p className="mt-6">
+            athenahealth's guarantee to cover MIPS penalties for customers led to a significant outflow of cash to fulfill our promise. Around the same time, Walmart Health dropped us for another EMR. With shallower pockets than before, we needed to fix things fast. Workarounds were made which even included temps hired and trained to re-enroll physicians and work with quality managers of practices to report & submit before the deadline. I myself also made a smart but not scalable spreadsheet as a stop-gap solution for small practices.
+          </p>
         </div>
       </section>
 
       {/* Complication */}
       <section className="px-6 md:px-10 max-w-3xl mx-auto mb-32 border-t border-zinc-800 pt-20">
-        <h2 className="text-[42px] font-serif mb-8 text-white">Complication: A Broken Workflow<span className="text-orange-500">.</span></h2>
+        <h2 className="text-[42px] font-serif mb-8 text-white">Complication: High friction & persona misconceptions<span className="text-orange-500">.</span></h2>
         <p className="text-gray-400 mb-12 text-lg font-light">Through contextual inquiries and surveys, George identified friction at every stage of the journey:</p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="p-8 bg-zinc-900/50 rounded-3xl border border-white/5">

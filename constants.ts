@@ -36,7 +36,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'athenaone',
-    title: 'athenahealth: Overhauling CQM Management',
+    title: 'Clinical Measure Mgmnt. Less is more $$.',
     category: 'Healthcare IT',
     description: 'Overhauling the Clinical Quality Measure (CQM) management system to eliminate multimillion-dollar penalties and improve provider efficiency.',
     impact: 'Multimillion-dollar Penalty Elimination',
